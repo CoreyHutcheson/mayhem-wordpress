@@ -1,0 +1,51 @@
+$small-screen: '37.5em';
+
+.site-header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.site-branding {
+	flex: 0 0 30%;
+
+	& img {
+		// Used to remove added space under img element
+		vertical-align: bottom;
+	}
+}
+
+.main-navigation {
+	flex: 0 0 50%;
+
+	&.toggled ul {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		background: black;
+		text-align: center;
+	}
+}
+
+.menu-toggle {
+	margin: 0 auto;
+}
+
+#primary-menu > li {
+	margin-right: 20px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	@media screen and (max-width: $small-screen) {
+		margin-right: 0;
+		padding: 0 15px;
+		border-bottom: 1px solid red;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}

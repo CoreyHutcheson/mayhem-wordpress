@@ -977,3 +977,52 @@ object {
 /*--------------------------------------------------------------
 # Custom
 --------------------------------------------------------------*/
+.site-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.site-branding {
+  flex: 0 0 30%;
+}
+
+.site-branding img {
+  vertical-align: bottom;
+}
+
+.main-navigation {
+  flex: 0 0 50%;
+}
+
+.main-navigation.toggled ul {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  text-align: center;
+}
+
+.menu-toggle {
+  margin: 0 auto;
+}
+
+#primary-menu > li {
+  margin-right: 20px;
+}
+
+#primary-menu > li:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 37.5em) {
+  #primary-menu > li {
+    margin-right: 0;
+    padding: 0 15px;
+    border-bottom: 1px solid red;
+  }
+  #primary-menu > li:last-child {
+    border-bottom: none;
+  }
+}

@@ -44,7 +44,7 @@ if ( ! function_exists( 'mayhem_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'mayhem' ),
+			'primary' => esc_html__( 'Primary Menu', 'mayhem' ),
 		) );
 
 		/*
@@ -74,10 +74,8 @@ if ( ! function_exists( 'mayhem_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
+			'height'      => 150,
+			'width'       => 150,
 		) );
 	}
 endif;
