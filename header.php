@@ -48,8 +48,9 @@
 			endif; ?>
 		</div><!-- .site-branding -->
 
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fas fa-bars fa-2x"></i></button>
+
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'mayhem' ); ?></button>
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'primary',
