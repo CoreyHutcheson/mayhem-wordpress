@@ -984,45 +984,43 @@ object {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 20px;
   background: black;
 }
 
-@media screen and (max-width: 37.5em) {
-  .site-header {
-    padding: 20px 20px 0 20px;
-  }
-}
-
+/** Custom Logo */
 .site-branding {
   margin-right: auto;
+  padding: 20px;
 }
 
 .site-branding img {
+  /** Used to remove small space at bottom of image */
   vertical-align: bottom;
 }
 
+/** Primary Nav Menu */
 .main-navigation {
   width: auto;
+  text-align: center;
+  background: black;
+  /** On small device and button to show menu has been clicked */
+  /** Primary menu list items */
+  /** Primary menu links */
 }
 
 .main-navigation.toggled {
   width: 100%;
-  text-align: center;
-  background: black;
 }
 
 .main-navigation.toggled ul {
   display: flex;
   flex-direction: column;
+  border-top: 2px solid grey;
 }
 
 .main-navigation li {
   margin-right: 20px;
-}
-
-.main-navigation li:last-child {
-  margin-right: 0;
+  /** Small screen primary menu list items */
 }
 
 @media screen and (max-width: 37.5em) {
@@ -1033,4 +1031,31 @@ object {
 
 .main-navigation a {
   color: white;
+  padding: 5px 5px 0 5px;
+  border-bottom: 2px solid grey;
+  /** Links when hovered */
+  /** Small screen links */
+}
+
+.main-navigation a:hover {
+  background: white;
+  color: black;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 37.5em) {
+  .main-navigation a {
+    padding: 5px 0;
+  }
+}
+
+/** Toggle Button */
+.menu-toggle {
+  margin-right: 20px;
+}
+
+/** Currently active menu item (page we are currently on) */
+.current-menu-item a {
+  background: white;
+  color: black;
 }
