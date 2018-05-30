@@ -1,17 +1,15 @@
-$small-screen: '37.5em';
+$small-screen: 'screen and (max-width: 37.5em)';
 
 .site-header {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	padding: 20px;
+	background: black;
 	
-	@media screen and (max-width: $small-screen) {
+	@media #{$small-screen} {
 		padding: 20px 20px 0 20px;
 	}
-
-
-	background: black;
 }
 
 .site-branding {
@@ -43,7 +41,7 @@ $small-screen: '37.5em';
 			margin-right: 0;
 		}
 
-		@media screen and (max-width: $small-screen) {
+		@media #{$small-screen} {
 			margin: 0;
 		}
 	}
