@@ -48,7 +48,9 @@
 			endif; ?>
 		</div><!-- .site-branding -->
 
-		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fas fa-bars fa-2x"></i></button>
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+			<i class="fas fa-bars fa-2x"></i>
+		</button>
 
 		<nav id="site-navigation" class="main-navigation">
 			<?php

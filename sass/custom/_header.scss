@@ -31,7 +31,7 @@ $small-screen: 'screen and (max-width: 37.5em)';
 		ul {
 			display: flex;
 			flex-direction: column;
-			border-top: 2px solid grey;
+			border-top: 1px solid grey;
 		}
 	}
 
@@ -41,7 +41,8 @@ $small-screen: 'screen and (max-width: 37.5em)';
 
 		/** Small screen primary menu list items */
 		@media #{$small-screen} {
-			margin: 0;
+			margin-right: 10px;
+			margin-left: 10px;
 		}
 	}
 
@@ -68,6 +69,8 @@ $small-screen: 'screen and (max-width: 37.5em)';
 /** Toggle Button */
 .menu-toggle {
 	margin-right: 20px;
+	width: 50px;
+	border-radius: 5px;
 }
 
 /** Currently active menu item (page we are currently on) */

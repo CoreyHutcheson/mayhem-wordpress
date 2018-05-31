@@ -35,10 +35,12 @@
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
+			button.innerHTML = '<i class="fas fa-bars fa-2x"></i>';
 		} else {
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
+			button.innerHTML = '<i class="fas fa-times fa-2x"></i>';
 		}
 	};
 

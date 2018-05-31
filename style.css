@@ -1015,7 +1015,7 @@ object {
 .main-navigation.toggled ul {
   display: flex;
   flex-direction: column;
-  border-top: 2px solid grey;
+  border-top: 1px solid grey;
 }
 
 .main-navigation li {
@@ -1025,7 +1025,8 @@ object {
 
 @media screen and (max-width: 37.5em) {
   .main-navigation li {
-    margin: 0;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
 
@@ -1052,6 +1053,8 @@ object {
 /** Toggle Button */
 .menu-toggle {
   margin-right: 20px;
+  width: 50px;
+  border-radius: 5px;
 }
 
 /** Currently active menu item (page we are currently on) */
