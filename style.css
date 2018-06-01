@@ -1062,3 +1062,59 @@ object {
   background: white;
   color: black;
 }
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+/*
+	Reset margin/padding on all widget-area
+	h2 and p tag elements
+ */
+.widget-area h2, .widget-area p {
+  margin: 0;
+  padding: 0;
+}
+
+/** Style footer widget area */
+.site-footer .widget-area {
+  display: flex;
+  padding: 20px 20px 0;
+  background: black;
+  color: white;
+  /** Widget area on small screens */
+  /** Style individual widgets sections */
+  /** Widget header elements */
+}
+
+@media screen and (max-width: 37.5em) {
+  .site-footer .widget-area {
+    display: block;
+    padding: 20px;
+  }
+}
+
+.site-footer .widget-area section {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid grey;
+}
+
+.site-footer .widget-area section:last-child {
+  border-right: none;
+}
+
+@media screen and (max-width: 37.5em) {
+  .site-footer .widget-area section {
+    border-right: none;
+    border-bottom: 1px solid grey;
+    margin: 0;
+  }
+  .site-footer .widget-area section:last-child {
+    border-bottom: none;
+  }
+}
+
+.site-footer .widget-area h2 {
+  display: inline-block;
+  border-bottom: 2px solid grey;
+}
