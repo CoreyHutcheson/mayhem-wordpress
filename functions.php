@@ -48,7 +48,7 @@ if ( ! function_exists( 'mayhem_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary Menu', 'mayhem' ),
 			'social' => esc_html__( 'Social Media Menu', 'mayhem' ),
@@ -180,6 +180,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
- * PHP Helper Functions (console_log())
+ * Load custom hooks
  */
-require get_template_directory() . '/inc/helper-functions.php';
+require get_template_directory() . '/inc/custom-hooks.php';

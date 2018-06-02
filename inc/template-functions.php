@@ -35,22 +35,3 @@ function mayhem_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'mayhem_pingback_header' );
-
-/**
- * Alters the social media menu to show font-awesome icons
- */
-function mayhem_social_media_menu_alteration($items, $args) {
-	if ($args->theme_location != 'social') {
-		return $items;
-	}
-
-	foreach ($items as $item) {
-		$icon = get_field('font_awesome_icon', $item);
-
-		if ($icon) {
-			$item->title = "<i class='${icon}'></i>";
-		}
-	}
-	return $items;
-}
-add_filter( 'wp_nav_menu_objects', 'mayhem_social_media_menu_alteration', 10, 2 );
