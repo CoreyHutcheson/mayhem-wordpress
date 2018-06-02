@@ -7,6 +7,12 @@
  * @package mayhem-theme
  */
 
+/**
+ * Enable ACF 5 early access
+ * Requires at least version ACF 4.4.12 to work
+ */
+define('ACF_EARLY_ACCESS', '5');
+
 if ( ! function_exists( 'mayhem_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.

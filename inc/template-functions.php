@@ -35,3 +35,7 @@ function mayhem_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'mayhem_pingback_header' );
+
+/**
+ * Alters the social media menu to show font-awesome icons
+ */
