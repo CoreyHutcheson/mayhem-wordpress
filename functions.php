@@ -51,6 +51,7 @@ if ( ! function_exists( 'mayhem_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary Menu', 'mayhem' ),
+			'social' => esc_html__( 'Social Media Menu', 'mayhem' ),
 		) );
 
 		/*
@@ -178,3 +179,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * PHP Helper Functions (console_log())
+ */
+require get_template_directory() . '/inc/helper-functions.php';
