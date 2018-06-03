@@ -56,16 +56,19 @@
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'primary',
-				'menu_id'        => 'primary-menu',
+				'menu_id' => 'primary-menu',
+				'container' => '',
+			) );
+			?>
+
+			<?php 
+			wp_nav_menu( array(
+				'theme_location' => 'social',
+				'menu_id' => 'social-media-menu',
+				'container' => '',
 			) );
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
-		<?php 
-		wp_nav_menu( array(
-			'theme_location' => 'social',
-			'menu_id' => 'social-media-menu',
-		) );
-		?>

@@ -1000,6 +1000,8 @@ object {
 
 /** Primary Nav Menu */
 .main-navigation {
+  display: flex;
+  flex-direction: column;
   width: auto;
   text-align: center;
   background: #333;
@@ -1008,18 +1010,45 @@ object {
   /** Primary menu links */
 }
 
-.main-navigation.toggled {
-  width: 100%;
+@media screen and (max-width: 37.5em) {
+  .main-navigation {
+    width: 100%;
+  }
+  .main-navigation.toggled ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-navigation #social-media-menu {
+    order: 1;
+    flex-direction: row;
+    border-top: 1px solid grey;
+  }
+  .main-navigation #primary-menu {
+    order: 2;
+  }
 }
 
 .main-navigation.toggled ul {
   display: flex;
-  flex-direction: column;
-  border-top: 1px solid grey;
+}
+
+.main-navigation ul {
+  display: flex;
+}
+
+@media screen and (max-width: 37.5em) {
+  .main-navigation ul {
+    display: none;
+  }
+  .main-navigation ul li:first-child a {
+    border-top: 2px solid grey;
+  }
 }
 
 .main-navigation li {
   margin-right: 20px;
+  float: none;
+  position: static;
   /** Small screen primary menu list items */
 }
 
@@ -1061,6 +1090,25 @@ object {
 .current-menu-item a {
   background: white;
   color: #333;
+}
+
+#social-media-menu {
+  justify-content: center;
+  align-items: center;
+}
+
+#social-media-menu li {
+  margin: 0;
+}
+
+#social-media-menu a {
+  border: none;
+}
+
+@media screen and (max-width: 37.5em) {
+  #social-media-menu a {
+    padding: 5px 5px 0;
+  }
 }
 
 /*--------------------------------------------------------------
