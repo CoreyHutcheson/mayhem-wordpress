@@ -984,7 +984,7 @@ object {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  background: black;
+  background: #333;
 }
 
 /** Custom Logo */
@@ -1002,7 +1002,7 @@ object {
 .main-navigation {
   width: auto;
   text-align: center;
-  background: black;
+  background: #333;
   /** On small device and button to show menu has been clicked */
   /** Primary menu list items */
   /** Primary menu links */
@@ -1040,7 +1040,7 @@ object {
 
 .main-navigation a:hover {
   background: white;
-  color: black;
+  color: #333;
   border-radius: 5px;
 }
 
@@ -1060,7 +1060,7 @@ object {
 /** Currently active menu item (page we are currently on) */
 .current-menu-item a {
   background: white;
-  color: black;
+  color: #333;
 }
 
 /*--------------------------------------------------------------
@@ -1079,7 +1079,7 @@ object {
 .site-footer .widget-area {
   display: flex;
   padding: 20px 20px 0;
-  background: black;
+  background: #333;
   color: white;
   /** Widget area on small screens */
   /** Style individual widgets sections */

@@ -2,7 +2,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	background: black;
+	background: $color__accent;
 }
 
 /** Custom Logo */
@@ -20,7 +20,7 @@
 .main-navigation {
 	width: auto;
 	text-align: center;
-	background: black;
+	background: $color__accent;
 
 	/** On small device and button to show menu has been clicked */
 	&.toggled {
@@ -53,7 +53,7 @@
 		/** Links when hovered */
 		&:hover {
 			background: white;
-			color: black;
+			color: $color__accent;
 			border-radius: 5px;
 		}
 
@@ -74,5 +74,5 @@
 /** Currently active menu item (page we are currently on) */
 .current-menu-item a {
 	background: white;
-	color: black;
+	color: $color__accent;
 }
