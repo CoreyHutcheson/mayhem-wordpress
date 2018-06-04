@@ -41,6 +41,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+/*
+#61892f
+#86c232
+#222629
+#474b4f
+#6b6e70
+	*/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -985,7 +992,7 @@ object {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  background: #333;
+  background: #222629;
 }
 
 /** Custom Logo */
@@ -1044,7 +1051,7 @@ object {
 
 .main-navigation a:hover {
   background: white;
-  color: #333;
+  color: #222629;
   border-radius: 5px;
 }
 
@@ -1084,7 +1091,7 @@ object {
 /** Currently active menu item (page we are currently on) */
 .current-menu-item a {
   background: white;
-  color: #333;
+  color: #222629;
 }
 
 #social-media-menu {
@@ -1136,7 +1143,7 @@ object {
 .site-footer .widget-area {
   display: flex;
   padding: 20px 20px 0;
-  background: #333;
+  background: #222629;
   color: white;
   /** Widget area on small screens */
   /** Style individual widgets sections */
