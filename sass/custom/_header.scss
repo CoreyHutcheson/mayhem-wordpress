@@ -1,3 +1,9 @@
+/** Mixin used for link borders */
+@mixin border-style($border, $width) {
+	border-#{$border}: #{$width} solid grey;
+}
+
+// Primary container
 .site-header {
 	display: flex;
 	flex-wrap: wrap;
@@ -16,51 +22,23 @@
 	}
 }
 
-/** Primary Nav Menu */
+/** Nav Menu Container */
 .main-navigation {
 	display: flex;
 	flex-direction: column;
 	width: auto;
 	text-align: center;
-	background: $color__accent;
 
-	/** On small device and button to show menu has been clicked */
-	@media #{$small-screen} {
-		width: 100%;
-		
-		&.toggled ul {
-			display: flex;
-			flex-direction: column;
-		}
-
-		#social-media-menu {
-			order: 1;
-			flex-direction: row;
-			border-top: 1px solid grey;
-		}
-
-		#primary-menu {
-			order: 2;
-		}
-	}
-
-	&.toggled ul {
-		display: flex;
-	}
-
+	// Both primary and social media menus
 	ul {
 		display: flex;
 
 		@media #{$small-screen} {
 			display: none;
-
-			li:first-child a {
-				border-top: 2px solid grey;
-			}
 		}
 	}
 
-	/** Primary menu list items */
+	/** Both Menu List Items */
 	li {
 		margin-right: 20px;
 		float: none;
@@ -73,11 +51,11 @@
 		}
 	}
 
-	/** Primary menu links */
+	/** Both menu links */
 	a {
 		color: white;
-		padding: 5px 5px 0 5px;
-		border-bottom: 2px solid grey;
+		padding: 5px 5px 0;
+		@include border-style(bottom, 2px);
 
 		/** Links when hovered */
 		&:hover {
@@ -89,6 +67,30 @@
 		/** Small screen links */
 		@media #{$small-screen} {
 			padding: 5px 0;
+		}
+	}
+
+	// Menu's are flex when toggled regardless of screen size
+	// Overrides default of block for toggled ul's
+	&.toggled ul {
+		display: flex;
+	}
+
+	/** On small device and button to show menu has been clicked */
+	@media #{$small-screen} {
+		width: 100%;
+		
+		&.toggled ul {
+			flex-direction: column;
+		}
+
+		#social-media-menu {
+			order: 1;
+			flex-direction: row;
+		}
+
+		#primary-menu {
+			order: 2;
 		}
 	}
 }
@@ -108,7 +110,6 @@
 
 #social-media-menu {
 	justify-content: center;
-	align-items: center;
 
 	li {
 		margin: 0;
@@ -119,6 +120,22 @@
 
 		@media #{$small-screen} {
 			padding: 5px 5px 0;
+		}
+	}
+
+	@media #{$small-screen} {
+		@include border-style(top, 1px);
+	}
+}
+
+#primary-menu {
+	@media #{$small-screen} {
+		li:first-child a {
+			@include border-style(top, 2px);
+		}
+
+		li:last-child a {
+			border-bottom: none;
 		}
 	}
 }

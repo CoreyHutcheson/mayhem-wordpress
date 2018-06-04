@@ -980,6 +980,7 @@ object {
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
+/** Mixin used for link borders */
 .site-header {
   display: flex;
   flex-wrap: wrap;
@@ -998,38 +999,15 @@ object {
   vertical-align: bottom;
 }
 
-/** Primary Nav Menu */
+/** Nav Menu Container */
 .main-navigation {
   display: flex;
   flex-direction: column;
   width: auto;
   text-align: center;
-  background: #333;
+  /** Both Menu List Items */
+  /** Both menu links */
   /** On small device and button to show menu has been clicked */
-  /** Primary menu list items */
-  /** Primary menu links */
-}
-
-@media screen and (max-width: 37.5em) {
-  .main-navigation {
-    width: 100%;
-  }
-  .main-navigation.toggled ul {
-    display: flex;
-    flex-direction: column;
-  }
-  .main-navigation #social-media-menu {
-    order: 1;
-    flex-direction: row;
-    border-top: 1px solid grey;
-  }
-  .main-navigation #primary-menu {
-    order: 2;
-  }
-}
-
-.main-navigation.toggled ul {
-  display: flex;
 }
 
 .main-navigation ul {
@@ -1039,9 +1017,6 @@ object {
 @media screen and (max-width: 37.5em) {
   .main-navigation ul {
     display: none;
-  }
-  .main-navigation ul li:first-child a {
-    border-top: 2px solid grey;
   }
 }
 
@@ -1061,7 +1036,7 @@ object {
 
 .main-navigation a {
   color: white;
-  padding: 5px 5px 0 5px;
+  padding: 5px 5px 0;
   border-bottom: 2px solid grey;
   /** Links when hovered */
   /** Small screen links */
@@ -1076,6 +1051,26 @@ object {
 @media screen and (max-width: 37.5em) {
   .main-navigation a {
     padding: 5px 0;
+  }
+}
+
+.main-navigation.toggled ul {
+  display: flex;
+}
+
+@media screen and (max-width: 37.5em) {
+  .main-navigation {
+    width: 100%;
+  }
+  .main-navigation.toggled ul {
+    flex-direction: column;
+  }
+  .main-navigation #social-media-menu {
+    order: 1;
+    flex-direction: row;
+  }
+  .main-navigation #primary-menu {
+    order: 2;
   }
 }
 
@@ -1094,7 +1089,6 @@ object {
 
 #social-media-menu {
   justify-content: center;
-  align-items: center;
 }
 
 #social-media-menu li {
@@ -1108,6 +1102,21 @@ object {
 @media screen and (max-width: 37.5em) {
   #social-media-menu a {
     padding: 5px 5px 0;
+  }
+}
+
+@media screen and (max-width: 37.5em) {
+  #social-media-menu {
+    border-top: 1px solid grey;
+  }
+}
+
+@media screen and (max-width: 37.5em) {
+  #primary-menu li:first-child a {
+    border-top: 2px solid grey;
+  }
+  #primary-menu li:last-child a {
+    border-bottom: none;
   }
 }
 
