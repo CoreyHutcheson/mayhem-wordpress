@@ -4,6 +4,29 @@
 }
 
 /**
+ * Header
+ */
+.site-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	background: black;
+	color: white;
+
+	&__branding {
+
+	}
+
+	&__toggle-button {
+
+	}
+
+	&__nav {
+
+	}
+}
+
+/**
  * Logo
  */
 .site-branding {
@@ -16,6 +39,13 @@
 	}
 }
 
+/**
+ * Menu Toggle Button
+ */
+.menu-toggle {
+	width: 50px;
+	border-radius: 5px;
+}
 
 /**
  * Nav Menu

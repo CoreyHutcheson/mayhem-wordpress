@@ -1012,6 +1012,7 @@ object {
   flex-direction: column;
   width: auto;
   text-align: center;
+  justify-content: center;
   /** Both Menu List Items */
   /** Both menu links */
   /** On small device and button to show menu has been clicked */
@@ -1019,6 +1020,7 @@ object {
 
 .main-navigation ul {
   display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 37.5em) {

@@ -22,9 +22,14 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
+
+	<!-- Useful for screen reader -->
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mayhem' ); ?></a>
 
+	<!-- .site-header -->
 	<header id="masthead" class="site-header">
+
+		<!-- .site-branding -->
 		<div class="site-branding site-header__branding">
 			<?php
 			the_custom_logo();
@@ -46,13 +51,15 @@
 					<p class="site-description"><?php echo $mayhem_description; /* WPCS: xss ok. */ ?></p>
 				<?php endif; 
 			endif; ?>
-		</div><!-- .site-branding -->
+		</div><!-- /.site-branding -->
 
+		<!-- .menu-toggle -->
 		<button class="menu-toggle site-header__toggle-button" aria-controls="primary-menu" aria-expanded="false">
 			<i class="fas fa-bars fa-2x"></i>
-		</button>
+		</button> <!-- /.menu-toggle -->
 
-		<nav id="site-navigation site-header__nav" class="main-navigation">
+		<!-- .main-navigation -->
+		<nav id="site-navigation" class="main-navigation site-header__nav">
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'primary',
@@ -68,7 +75,8 @@
 				'menu_class' => 'nav-menu',
 			) );
 			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		</nav><!-- /.main-navigation -->
+
+	</header><!-- /.site-header -->
 
 	<div id="content" class="site-content">

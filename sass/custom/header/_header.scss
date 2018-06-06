@@ -28,10 +28,12 @@
 	flex-direction: column;
 	width: auto;
 	text-align: center;
+	justify-content: center;
 
 	// Both primary and social media menus
 	ul {
 		display: flex;
+		justify-content: center;
 
 		@media #{$small-screen} {
 			display: none;
