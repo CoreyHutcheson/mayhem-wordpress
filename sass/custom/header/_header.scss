@@ -3,141 +3,100 @@
 	border-#{$border}: #{$width} solid grey;
 }
 
-// Primary container
+/**
+ * Header
+ */
 .site-header {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	background: $color__accent;
+	// background: black;
+	// color: white;
+
+	&__branding {
+
+	}
+
+	&__toggle-button {
+
+	}
+
+	&__nav {
+
+	}
 }
 
-/** Custom Logo */
+/**
+ * Logo
+ */
 .site-branding {
 	margin-right: auto;
 	padding: 20px;
-	
-	img {
+
+	&__img {
 		/** Used to remove small space at bottom of image */
 		vertical-align: bottom;
 	}
 }
 
-/** Nav Menu Container */
-.main-navigation {
-	display: flex;
-	flex-direction: column;
-	width: auto;
-	text-align: center;
-	justify-content: center;
-
-	// Both primary and social media menus
-	ul {
-		display: flex;
-		justify-content: center;
-
-		@media #{$small-screen} {
-			display: none;
-		}
-	}
-
-	/** Both Menu List Items */
-	li {
-		margin-right: 20px;
-		float: none;
-		position: static;
-
-		/** Small screen primary menu list items */
-		@media #{$small-screen} {
-			margin-right: 10px;
-			margin-left: 10px;
-		}
-	}
-
-	/** Both menu links */
-	a {
-		color: white;
-		padding: 5px 5px 0;
-		@include border-style(bottom, 2px);
-
-		/** Links when hovered */
-		&:hover {
-			background: white;
-			color: $color__accent;
-			border-radius: 5px;
-		}
-
-		/** Small screen links */
-		@media #{$small-screen} {
-			padding: 5px 0;
-		}
-	}
-
-	// Menu's are flex when toggled regardless of screen size
-	// Overrides default of block for toggled ul's
-	&.toggled ul {
-		display: flex;
-	}
-
-	/** On small device and button to show menu has been clicked */
-	@media #{$small-screen} {
-		width: 100%;
-		
-		&.toggled ul {
-			flex-direction: column;
-		}
-
-		#social-media-menu {
-			order: 1;
-			flex-direction: row;
-		}
-
-		#primary-menu {
-			order: 2;
-		}
-	}
-}
-
-/** Toggle Button */
+/**
+ * Menu Toggle Button
+ */
 .menu-toggle {
-	margin-right: 20px;
 	width: 50px;
 	border-radius: 5px;
 }
 
-/** Currently active menu item (page we are currently on) */
-.current-menu-item a {
-	background: white;
-	color: $color__accent;
-}
+/**
+ * Nav Menu
+ */
+// Block (ul)
+.nav-menu {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 
-#social-media-menu {
-	justify-content: center;
+	// Element (li)
+	&__list-item {
+		margin-right: 20px;
 
-	li {
-		margin: 0;
 	}
 
-	a {
-		border: none;
+	// Element (a)
+	&__link {
+		background: black;
+		color: white;
+		border: 1px solid black;
+		border-radius: 5px;
+		padding: 5px;
+		text-decoration: none;
+		@include border-style(bottom, 2px);
 
-		@media #{$small-screen} {
-			padding: 5px 5px 0;
-		}
-	}
-
-	@media #{$small-screen} {
-		@include border-style(top, 1px);
-	}
-}
-
-#primary-menu {
-	@media #{$small-screen} {
-		li:first-child a {
-			@include border-style(top, 2px);
+		&:visited {
+			color: white;
 		}
 
-		li:last-child a {
-			border-bottom: none;
+		/** Links when hovered */
+		&:hover {
+			background: white;
+			color: black;
+		}
+	}
+}
+
+// 'screen and (max-width: 37.5em)'
+@media #{$small-screen} {
+	.nav-menu {
+		display: none;
+
+		&__list-item {
+			margin-right: 10px;
+			margin-left: 10px;
+		}
+
+		&__link {
+			padding: 5px 0;
 		}
 	}
 }
