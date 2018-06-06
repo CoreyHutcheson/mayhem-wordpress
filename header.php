@@ -25,7 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mayhem' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
+		<div class="site-branding site-header__branding">
 			<?php
 			the_custom_logo();
 
@@ -48,24 +48,24 @@
 			endif; ?>
 		</div><!-- .site-branding -->
 
-		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+		<button class="menu-toggle site-header__toggle-button" aria-controls="primary-menu" aria-expanded="false">
 			<i class="fas fa-bars fa-2x"></i>
 		</button>
 
-		<nav id="site-navigation" class="main-navigation">
+		<nav id="site-navigation site-header__nav" class="main-navigation">
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'primary',
-				'menu_id' => 'primary-menu',
-				'container' => '',
+				'container_class' => 'main-navigation__nav-div',
+				'menu_class' => 'nav-menu',
 			) );
 			?>
 
 			<?php 
 			wp_nav_menu( array(
 				'theme_location' => 'social',
-				'menu_id' => 'social-media-menu',
-				'container' => '',
+				'container_class' => 'main-navigation__nav-div',
+				'menu_class' => 'nav-menu',
 			) );
 			?>
 		</nav><!-- #site-navigation -->

@@ -1,0 +1,65 @@
+/** Mixin used for link borders */
+@mixin border-style($border, $width) {
+	border-#{$border}: #{$width} solid grey;
+}
+
+/**
+ * Logo
+ */
+.site-branding {
+	margin-right: auto;
+	padding: 20px;
+
+	&__img {
+		/** Used to remove small space at bottom of image */
+		vertical-align: bottom;
+	}
+}
+
+
+/**
+ * Nav Menu
+ */
+// Block (ul)
+.nav-menu {
+	display: flex;
+
+	// Element (li)
+	&__list-item {
+		margin-right: 20px;
+		display: flex;
+		align-items: center;
+
+	}
+
+	// Element (a)
+	&__link {
+		background: black;
+		color: white;
+		padding: 5px 5px 0;
+		@include border-style(bottom, 2px);
+
+		/** Links when hovered */
+		&:hover {
+			background: white;
+			color: black;
+			border-radius: 5px;
+		}
+	}
+}
+
+// 'screen and (max-width: 37.5em)'
+@media #{$small-screen} {
+	.nav-menu {
+		display: none;
+
+		&__list-item {
+			margin-right: 10px;
+			margin-left: 10px;
+		}
+
+		&__link {
+			padding: 5px 0;
+		}
+	}
+}
