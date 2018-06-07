@@ -1,0 +1,51 @@
+// Block (ul)
+.nav-menu {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	// Element (li)
+	&__list-item {
+		margin-right: 20px;
+
+	}
+
+	// Element (a)
+	&__link {
+		background: black;
+		color: white;
+		border: 1px solid black;
+		border-radius: 5px;
+		padding: 5px;
+		text-decoration: none;
+		@include border-style(bottom, 2px);
+
+		&:visited {
+			color: white;
+		}
+
+		/** Links when hovered */
+		&:hover {
+			background: white;
+			color: black;
+		}
+	}
+}
+
+/** Nav Menu (small screens) */
+// 'screen and (max-width: 37.5em)'
+@media #{$small-screen} {
+	.nav-menu {
+		display: none;
+
+		&__list-item {
+			margin-right: 10px;
+			margin-left: 10px;
+		}
+
+		&__link {
+			padding: 5px 0;
+		}
+	}
+}

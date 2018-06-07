@@ -1006,39 +1006,26 @@ object {
 ## Header
 --------------------------------------------------------------*/
 /** Mixin used for link borders */
-/**
- * Header
- */
-.site-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-/**
- * Logo
- */
-.site-branding {
-  margin-right: auto;
-  padding: 20px;
-}
-
+/** Site Branding */
 .site-branding__img {
   /** Used to remove small space at bottom of image */
   vertical-align: bottom;
 }
 
-/**
- * Menu Toggle Button
- */
+/** Menu Toggle Button */
 .menu-toggle {
+  display: none;
   width: 50px;
   border-radius: 5px;
 }
 
-/**
- * Nav Menu
- */
+@media screen and (max-width: 37.5em) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/** Nav Menu */
 .nav-menu {
   display: flex;
   margin: 0;
@@ -1070,6 +1057,7 @@ object {
   color: black;
 }
 
+/** Nav Menu (small screens) */
 @media screen and (max-width: 37.5em) {
   .nav-menu {
     display: none;
@@ -1081,6 +1069,13 @@ object {
   .nav-menu__link {
     padding: 5px 0;
   }
+}
+
+/** Header  */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 /*--------------------------------------------------------------

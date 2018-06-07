@@ -3,9 +3,16 @@
 	border-#{$border}: #{$width} solid grey;
 }
 
-/**
- * Header
- */
+/** Site Branding */
+@import 'site-branding';
+
+/** Menu Toggle Button */
+@import 'menu-toggle-btn';
+
+/** Nav Menu */
+@import 'nav-menu';
+
+/** Header  */
 .site-header {
 	display: flex;
 	flex-wrap: wrap;
@@ -23,80 +30,5 @@
 
 	&__nav {
 
-	}
-}
-
-/**
- * Logo
- */
-.site-branding {
-	margin-right: auto;
-	padding: 20px;
-
-	&__img {
-		/** Used to remove small space at bottom of image */
-		vertical-align: bottom;
-	}
-}
-
-/**
- * Menu Toggle Button
- */
-.menu-toggle {
-	width: 50px;
-	border-radius: 5px;
-}
-
-/**
- * Nav Menu
- */
-// Block (ul)
-.nav-menu {
-	display: flex;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-
-	// Element (li)
-	&__list-item {
-		margin-right: 20px;
-
-	}
-
-	// Element (a)
-	&__link {
-		background: black;
-		color: white;
-		border: 1px solid black;
-		border-radius: 5px;
-		padding: 5px;
-		text-decoration: none;
-		@include border-style(bottom, 2px);
-
-		&:visited {
-			color: white;
-		}
-
-		/** Links when hovered */
-		&:hover {
-			background: white;
-			color: black;
-		}
-	}
-}
-
-// 'screen and (max-width: 37.5em)'
-@media #{$small-screen} {
-	.nav-menu {
-		display: none;
-
-		&__list-item {
-			margin-right: 10px;
-			margin-left: 10px;
-		}
-
-		&__link {
-			padding: 5px 0;
-		}
 	}
 }

@@ -1,0 +1,11 @@
+.menu-toggle {
+	display: none;
+	width: 50px;
+	border-radius: 5px;
+}
+
+@media #{$small-screen} {
+	.menu-toggle {
+		display: block;
+	}
+}

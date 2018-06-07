@@ -63,16 +63,16 @@
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'primary',
-				'container_class' => 'main-navigation__nav-div',
-				'menu_class' => 'nav-menu',
+				'menu_class' => 'nav-menu main-navigation__menu',
+				'container' => '',
 			) );
 			?>
 
 			<?php 
 			wp_nav_menu( array(
 				'theme_location' => 'social',
-				'container_class' => 'main-navigation__nav-div',
-				'menu_class' => 'nav-menu',
+				'menu_class' => 'nav-menu main-navigation__menu',
+				'container' => '',
 			) );
 			?>
 		</nav><!-- /.main-navigation -->
