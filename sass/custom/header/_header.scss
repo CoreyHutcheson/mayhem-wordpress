@@ -1,3 +1,6 @@
+$background_color: black;
+$text_color: white;
+
 /** Mixin used for link borders */
 @mixin border-style($border, $width) {
 	border-#{$border}: #{$width} solid grey;
@@ -12,25 +15,49 @@
 /** Nav Menu */
 @import 'nav-menu';
 
-// /** Header  */
-// .site-header {
-// 	display: flex;
-// 	flex-wrap: wrap;
-// 	align-items: center;
-// 	// background: black;
-// 	// color: white;
+/** Header  */
+.site-header {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 20px;
+	background: $background_color;
+	color: $text_color;
 
-//	Logo
-// 	&__branding {
+	// Logo
+	&__branding {
+		// Aligns branding to far left & menus/button to far right
+		// while still allowing for the '.site-header' padding
+		margin-right: auto;
+	}
 
-// 	}
+	&__toggle-button {
 
-// 	&__toggle-button {
+	}
 
-// 	}
+	// menu container
+	&__nav {
 
-//	menu container
-// 	&__nav {
+	}
+}
 
-// 	}
-// }
+@media #{$small-screen} {
+	.site-header {
+
+		&__branding {
+
+		}
+
+		&__toggle-button {
+
+		}
+
+		&__nav {
+			// Places nav container on a row of its own
+			// beneath the site-brand and menu-toggle
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}

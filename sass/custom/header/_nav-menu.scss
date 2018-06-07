@@ -1,6 +1,3 @@
-$background_color: black;
-$text_color: white;
-
 // Block (ul)
 .nav-menu {
 	display: flex;
@@ -57,11 +54,19 @@ $text_color: white;
 			// Primary Menu (ul) / flex-container
 			&:first-child {
 				flex-direction: column;
+
+				& li {
+					width: 100%;
+					text-align: center;
+					@include border-style(top, 2px);
+				}
 			}
 
 			// Social Menu (ul) / flex-container
 			&:last-child {
-				
+				order: -1; // Places social media menu at top of menu
+				border-top: 1px solid rgba(211, 211, 211, 0.1);
+				margin-top: 10px;
 			}
 		}
 
@@ -76,7 +81,10 @@ $text_color: white;
 		}
 
 		&__link {
-			padding: 5px 0;
+			padding: 5px;
+			margin: 1px;
+			border: none;
+			border-radius: 0px;
 		}
 	}
 }
