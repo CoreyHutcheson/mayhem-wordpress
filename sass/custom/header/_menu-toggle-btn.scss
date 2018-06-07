@@ -4,6 +4,7 @@
 	border-radius: 5px;
 }
 
+// Shows button on small screens
 @media #{$small-screen} {
 	.menu-toggle {
 		display: block;

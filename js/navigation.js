@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, menu, links, i, len;
+	var container, button, menus, links, i, len;
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
@@ -17,40 +17,51 @@
 		return;
 	}
 
-	menu = container.getElementsByTagName( 'ul' )[0];
+	// Gets HTMLCollection of all menus under '.site-navigation' container
+	menus = container.getElementsByTagName( 'ul' );
 
 	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
+	if ( menus.length === 0 ) {
 		button.style.display = 'none';
 		return;
 	}
 
-	menu.setAttribute( 'aria-expanded', 'false' );
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
+	// Loop through menus setting initial aria-expanded attribute and 
+	// making sure '.nav-menu' class is present
+	for ( let menu of menus ) {
+		// Add aria-expanded attribute and set to false
+		menu.setAttribute( 'aria-expanded', 'false' );
+
+		// Add '.nav-menu' class if menu element doesn't already have that class
+		if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
+			menu.className += ' nav-menu';
+		}
 	}
 
 	button.onclick = function() {
+		// If container has '.toggled' class
 		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
-			menu.setAttribute( 'aria-expanded', 'false' );
+			// Set menus aria-expanded attribute to false
+			menuLoop('false');
 			button.innerHTML = '<i class="fas fa-bars fa-2x"></i>';
 		} else {
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
-			menu.setAttribute( 'aria-expanded', 'true' );
+			// Set menus aria-expanded attribute to true
+			menuLoop('true');
 			button.innerHTML = '<i class="fas fa-times fa-2x"></i>';
 		}
 	};
 
-	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
+	// Get all the link elements within the container.
+	links    = container.getElementsByTagName( 'a' );
 
 	// Each time a menu link is focused or blurred, toggle focus.
-	for ( i = 0, len = links.length; i < len; i++ ) {
-		links[i].addEventListener( 'focus', toggleFocus, true );
-		links[i].addEventListener( 'blur', toggleFocus, true );
+	for ( let link of links) {
+		link.addEventListener( 'focus', toggleFocus, true );
+		link.addEventListener( 'blur', toggleFocus, true );
 	}
 
 	/**
@@ -73,6 +84,16 @@
 
 			self = self.parentElement;
 		}
+	}
+
+	/**
+	 * Loops through menus altering aria-expanded attribute
+	 */
+	function menuLoop(val) {
+		for (let menu of menus) {
+			menu.setAttribute( 'aria-expanded', `${val}` );
+		}
+		return;
 	}
 
 	/**
