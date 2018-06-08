@@ -20,7 +20,7 @@
 
 	// Element (a)
 	&__link {
-		display: inline-block; // So 'li' element contains 'a' element
+		display: block; // So 'a' element takes up all of 'li' space
 		background: $background_color;
 		color: $text_color;
 		border: 1px solid $background_color;

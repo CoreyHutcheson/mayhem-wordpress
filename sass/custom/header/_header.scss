@@ -43,6 +43,10 @@ $text_color: white;
 
 @media #{$small-screen} {
 	.site-header {
+		/* Added & altered in navigation.js file */
+		&[data-expanded="true"] {
+			padding-bottom: 0px;
+		}
 
 		&__branding {
 

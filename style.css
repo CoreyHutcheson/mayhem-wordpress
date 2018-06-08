@@ -1046,7 +1046,7 @@ object {
 }
 
 .nav-menu__link {
-  display: inline-block;
+  display: block;
   background: black;
   color: white;
   border: 1px solid black;
@@ -1118,6 +1118,12 @@ object {
 }
 
 @media screen and (max-width: 37.5em) {
+  .site-header {
+    /* Added & altered in navigation.js file */
+  }
+  .site-header[data-expanded="true"] {
+    padding-bottom: 0px;
+  }
   .site-header__nav {
     width: 100%;
     display: flex;

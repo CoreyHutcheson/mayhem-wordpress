@@ -5,7 +5,10 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, menus, links, i, len;
+	var header, container, button, menus, links, i, len;
+
+	header = document.getElementById( 'masthead' );
+	header.setAttribute( 'data-expanded', 'false' );
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
@@ -43,15 +46,21 @@
 		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
+			// Re-adds bottom-padding to masthead
+			header.setAttribute( 'data-expanded', 'false' );
 			// Set menus aria-expanded attribute to false
 			menuLoop('false');
 			button.innerHTML = '<i class="fas fa-bars fa-2x"></i>';
+
 		} else {
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
+			// Removes bottom-padding from masthead when menu expanded
+			header.setAttribute( 'data-expanded', 'true' );
 			// Set menus aria-expanded attribute to true
 			menuLoop('true');
 			button.innerHTML = '<i class="fas fa-times fa-2x"></i>';
+
 		}
 	};
 
