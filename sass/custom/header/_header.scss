@@ -1,5 +1,5 @@
-$background_color: black;
-$text_color: white;
+$background_color: #111;
+$text_color: #818181;
 
 /** Mixin used for link borders */
 @mixin border-style($border, $width) {
@@ -31,7 +31,7 @@ $text_color: white;
 		margin-right: auto;
 	}
 
-	&__toggle-button {
+	&__open-btn {
 
 	}
 
@@ -52,7 +52,7 @@ $text_color: white;
 
 		}
 
-		&__toggle-button {
+		&__open-btn {
 
 		}
 
@@ -67,6 +67,10 @@ $text_color: white;
 			overflow-x: hidden;
 			padding-top: 60px;
 			transition: 0.5s;
+
+			&.is-toggled {
+				width: 100%;
+			}
 		}
 
 		&__close-btn {

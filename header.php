@@ -54,13 +54,13 @@
 		</div><!-- /.site-branding -->
 
 		<!-- .menu-toggle -->
-		<button class="menu-toggle site-header__toggle-button" aria-controls="primary-menu" aria-expanded="false">
+		<button class="menu-toggle site-header__open-btn" aria-controls="primary-menu" aria-expanded="false">
 			<i class="fas fa-bars fa-2x"></i>
 		</button> <!-- /.menu-toggle -->
 
 		<!-- .main-navigation -->
 		<nav id="site-navigation" class="main-navigation site-header__nav">
-      <a href="javascript:void(0)" class="site-header__close-btn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="site-header__close-btn">&times;</a>
 
 			<?php
 			wp_nav_menu( array(

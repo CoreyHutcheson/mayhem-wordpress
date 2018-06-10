@@ -23,7 +23,6 @@
 		display: block; // So 'a' element takes up all of 'li' space
 		background: $background_color;
 		color: $text_color;
-		border: 1px solid $background_color;
 		border-radius: 5px;
 		padding: 5px;
 		text-decoration: none;
@@ -50,51 +49,20 @@
 // 'screen and (max-width: 37.5em)'
 @media #{$small-screen} {
 	.nav-menu {
-		display: none;
+		display: block;
+		white-space: nowrap;
 
-		&[aria-expanded="true"] {
-			display: flex;
-			
-			// Primary Menu (ul) / flex-container
-			&:first-child {
-				flex-direction: column;
-
-				& li {
-					width: 100%;
-					text-align: center;
-					@include border-style(top, 2px);
-				}
-			}
-
-			// Social Menu (ul) / flex-container
-			&:last-child {
-				order: -1; // Places social media menu at top of menu
-				border-top: 1px solid rgba(211, 211, 211, 0.1);
-				margin-top: 10px;
-			}
-		}
 
 		&__list-item {
-			margin-right: 10px;
-			margin-left: 10px;
-
-			&:last-child {
-				margin-right: 10px;
-				margin-left: 10px;
-			}
+			margin: 0px;
 		}
 
 		&__link {
 			padding: 8px 8px 8px 32px;
 			text-decoration: none;
 			font-size: 25px;
-			color: #818181;
 			display: block;
 			transition: 0.5s;
-
-			&:hover {
-				color: #f1f1f1;
-			}
 		}
 
 	}

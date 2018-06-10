@@ -5,27 +5,23 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var header, container, button, menus, links, i, len;
+	var container, openBtn, closeBtn, menus, links, i, len;
 
-	header = document.getElementById( 'masthead' );
-	header.setAttribute( 'data-expanded', 'false' );
-
-	container = document.getElementById( 'site-navigation' );
-	if ( ! container ) {
-		return;
-	}
-
-	button = document.getElementsByClassName( 'menu-toggle' )[0];
-	if ( 'undefined' === typeof button ) {
-		return;
-	}
-
+	container = document.querySelector( '.site-header__nav' );
+	openBtn = document.querySelector('.site-header__open-btn');
+	closeBtn = document.querySelector('.site-header__close-btn');
 	// Gets HTMLCollection of all menus under '.site-navigation' container
 	menus = container.getElementsByTagName( 'ul' );
 
+	// Return early if either the container, open, or close button
+	// isn't found
+	if (!container || !openBtn || !closeBtn) {
+		return;
+	}
+
 	// Hide menu toggle button if menu is empty and return early.
 	if ( menus.length === 0 ) {
-		button.style.display = 'none';
+		openBtn.style.display = 'none';
 		return;
 	}
 
@@ -41,26 +37,29 @@
 		}
 	}
 
-	button.onclick = function() {
-		// If container has '.toggled' class
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			// Set menus aria-expanded attribute to false
-			menuLoop('false');
-			button.innerHTML = '<i class="fas fa-bars fa-2x"></i>';
-		} else {
-			container.className += ' toggled';
-			container.style.width = "100%";
-			button.setAttribute( 'aria-expanded', 'true' );
-			// Set menus aria-expanded attribute to true
-			menuLoop('true');
-			button.innerHTML = '<i class="fas fa-times fa-2x"></i>';
-		}
+	openBtn.onclick = function() {
+		container.classList.add('is-toggled');
+		menuLoop('true');
 	};
 
-	// Get all the link elements within the container.
-	links    = container.getElementsByTagName( 'a' );
+	closeBtn.onclick = function() {
+		container.classList.remove('is-toggled');
+		menuLoop('false');
+	}
+
+	/**
+	 * Loops through menus altering aria-expanded attribute
+	 */
+	function menuLoop(val) {
+		for (let menu of menus) {
+			menu.setAttribute( 'aria-expanded', `${val}` );
+		}
+		return;
+	}
+
+	// Get all the link elements within the container,excluding
+	// the closeBtn link
+	links = container.querySelectorAll('ul a');
 
 	// Each time a menu link is focused or blurred, toggle focus.
 	for ( let link of links) {
@@ -83,25 +82,11 @@
 
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
+				self.classList.toggle('focus');
 			}
 
 			self = self.parentElement;
 		}
-	}
-
-	/**
-	 * Loops through menus altering aria-expanded attribute
-	 */
-	function menuLoop(val) {
-		for (let menu of menus) {
-			menu.setAttribute( 'aria-expanded', `${val}` );
-		}
-		return;
 	}
 
 	/**
@@ -135,9 +120,3 @@
 		}
 	}( container ) );
 } )();
-
-function closeNav() {
-	let container = document.querySelector('.site-header__nav');
-	container.style.width = "0";
-	
-}
