@@ -60,6 +60,8 @@
 
 		<!-- .main-navigation -->
 		<nav id="site-navigation" class="main-navigation site-header__nav">
+      <a href="javascript:void(0)" class="site-header__close-btn" onclick="closeNav()">&times;</a>
+
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'primary',

@@ -1100,10 +1100,15 @@ object {
     margin-left: 10px;
   }
   .nav-menu__link {
-    padding: 5px;
-    margin: 1px;
-    border: none;
-    border-radius: 0px;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.5s;
+  }
+  .nav-menu__link:hover {
+    color: #f1f1f1;
   }
 }
 
@@ -1121,17 +1126,30 @@ object {
   margin-right: auto;
 }
 
+.site-header__close-btn {
+  display: none;
+}
+
 @media screen and (max-width: 37.5em) {
-  .site-header {
-    /* Added & altered in navigation.js file */
-  }
-  .site-header[data-expanded="true"] {
-    padding-bottom: 0px;
-  }
   .site-header__nav {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+  }
+  .site-header__close-btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
   }
 }
 

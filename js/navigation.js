@@ -46,21 +46,16 @@
 		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
-			// Re-adds bottom-padding to masthead
-			header.setAttribute( 'data-expanded', 'false' );
 			// Set menus aria-expanded attribute to false
 			menuLoop('false');
 			button.innerHTML = '<i class="fas fa-bars fa-2x"></i>';
-
 		} else {
 			container.className += ' toggled';
+			container.style.width = "100%";
 			button.setAttribute( 'aria-expanded', 'true' );
-			// Removes bottom-padding from masthead when menu expanded
-			header.setAttribute( 'data-expanded', 'true' );
 			// Set menus aria-expanded attribute to true
 			menuLoop('true');
 			button.innerHTML = '<i class="fas fa-times fa-2x"></i>';
-
 		}
 	};
 
@@ -78,6 +73,10 @@
 	 */
 	function toggleFocus() {
 		var self = this;
+
+		if (self.classList.contains('site-header__close-btn')) {
+			return;
+		}
 
 		// Move up through the ancestors of the current link until we hit .nav-menu.
 		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
@@ -136,3 +135,9 @@
 		}
 	}( container ) );
 } )();
+
+function closeNav() {
+	let container = document.querySelector('.site-header__nav');
+	container.style.width = "0";
+	
+}

@@ -39,14 +39,14 @@ $text_color: white;
 	&__nav {
 
 	}
+
+	&__close-btn {
+		display: none;
+	}
 }
 
 @media #{$small-screen} {
 	.site-header {
-		/* Added & altered in navigation.js file */
-		&[data-expanded="true"] {
-			padding-bottom: 0px;
-		}
 
 		&__branding {
 
@@ -57,11 +57,25 @@ $text_color: white;
 		}
 
 		&__nav {
-			// Places nav container on a row of its own
-			// beneath the site-brand and menu-toggle
-			width: 100%;
-			display: flex;
-			flex-direction: column;
+			height: 100%;
+			width: 0;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: #111;
+			overflow-x: hidden;
+			padding-top: 60px;
+			transition: 0.5s;
+		}
+
+		&__close-btn {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 25px;
+			font-size: 36px;
+			margin-left: 50px;
 		}
 	}
 }
