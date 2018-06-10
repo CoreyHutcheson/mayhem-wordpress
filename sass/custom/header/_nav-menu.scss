@@ -29,6 +29,10 @@
 		text-decoration: none;
 		@include border-style(bottom, 2px);
 
+		&--no-border {
+			border-bottom: none;
+		}
+
 		&:visited {
 			color: $text_color;
 		}

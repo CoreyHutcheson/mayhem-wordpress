@@ -42,6 +42,10 @@ add_filter('nav_menu_css_class', 'mayhem_add_nav_menu_list_item_class', 10, 3);
  */
 function mayhem_add_nav_menu_link_class($atts, $item, $args) {
 	$atts['class'] = 'nav-menu__link';
+	// Add special no-border modifier class to social media links
+	if ($args->theme_location === 'social') {
+		$atts['class'] .= ' nav-menu__link--no-border';
+	}
 
 	return $atts;
 }

@@ -1057,6 +1057,10 @@ object {
   /** Links when hovered */
 }
 
+.nav-menu__link--no-border {
+  border-bottom: none;
+}
+
 .nav-menu__link:visited {
   color: white;
 }
