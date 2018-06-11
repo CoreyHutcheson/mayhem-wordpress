@@ -1014,15 +1014,8 @@ object {
 
 /** Menu Toggle Button */
 .menu-toggle {
-  display: none;
   width: 50px;
   border-radius: 5px;
-}
-
-@media screen and (max-width: 37.5em) {
-  .menu-toggle {
-    display: block;
-  }
 }
 
 /** Nav Menu */
@@ -1101,11 +1094,18 @@ object {
   margin-right: auto;
 }
 
+.site-header__open-btn {
+  display: none;
+}
+
 .site-header__close-btn {
   display: none;
 }
 
 @media screen and (max-width: 37.5em) {
+  .site-header__open-btn {
+    display: block;
+  }
   .site-header__nav {
     height: 100%;
     width: 0;

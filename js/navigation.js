@@ -5,17 +5,17 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, openBtn, closeBtn, menus, links, i, len;
+	var menuContainer, openBtn, closeBtn, menus, links;
 
-	container = document.querySelector( '.site-header__nav' );
+	menuContainer = document.querySelector( '.site-header__nav' );
 	openBtn = document.querySelector('.site-header__open-btn');
 	closeBtn = document.querySelector('.site-header__close-btn');
-	// Gets HTMLCollection of all menus under '.site-navigation' container
-	menus = container.getElementsByTagName( 'ul' );
+	// Gets HTMLCollection of all menus under '#site-navigation' container
+	menus = menuContainer.getElementsByTagName( 'ul' );
 
 	// Return early if either the container, open, or close button
 	// isn't found
-	if (!container || !openBtn || !closeBtn) {
+	if (!menuContainer || !openBtn || !closeBtn) {
 		return;
 	}
 
@@ -27,23 +27,22 @@
 
 	// Loop through menus setting initial aria-expanded attribute and 
 	// making sure '.nav-menu' class is present
-	for ( let menu of menus ) {
-		// Add aria-expanded attribute and set to false
+	Array.from(menus).forEach(function(menu) {
 		menu.setAttribute( 'aria-expanded', 'false' );
-
-		// Add '.nav-menu' class if menu element doesn't already have that class
-		if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-			menu.className += ' nav-menu';
-		}
-	}
+		menu.classList.add('nav-menu');
+	});
 
 	openBtn.onclick = function() {
-		container.classList.add('is-toggled');
+		// Changes menuContainer width to 100%
+		menuContainer.classList.add('is-toggled');
+		// Sets aria-expanded attribute to true
 		menuLoop('true');
 	};
 
 	closeBtn.onclick = function() {
-		container.classList.remove('is-toggled');
+		// Changes menuContainer width to 0%
+		menuContainer.classList.remove('is-toggled');
+		// Sets aria-expanded attribute to false
 		menuLoop('false');
 	}
 
@@ -57,9 +56,9 @@
 		return;
 	}
 
-	// Get all the link elements within the container,excluding
+	// Get all the link elements within the container, excluding
 	// the closeBtn link
-	links = container.querySelectorAll('ul a');
+	links = menuContainer.querySelectorAll('ul a');
 
 	// Each time a menu link is focused or blurred, toggle focus.
 	for ( let link of links) {
@@ -92,9 +91,9 @@
 	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
-	( function( container ) {
+	( function( menuContainer ) {
 		var touchStartFn, i,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+			parentLink = menuContainer.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
 
 		if ( 'ontouchstart' in window ) {
 			touchStartFn = function( e ) {
@@ -118,5 +117,5 @@
 				parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
 			}
 		}
-	}( container ) );
+	}( menuContainer ) );
 } )();

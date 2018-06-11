@@ -54,7 +54,7 @@
 		</div><!-- /.site-branding -->
 
 		<!-- .menu-toggle -->
-		<button class="menu-toggle site-header__open-btn" aria-controls="primary-menu" aria-expanded="false">
+		<button class="menu-toggle site-header__open-btn" aria-controls="site-navigation" aria-expanded="false">
 			<i class="fas fa-bars fa-2x"></i>
 		</button> <!-- /.menu-toggle -->
 

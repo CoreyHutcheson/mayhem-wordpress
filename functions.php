@@ -182,4 +182,4 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * Load custom hooks
  */
-require get_template_directory() . '/inc/custom-hooks.php';
+require get_template_directory() . '/inc/custom-hooks/custom-hooks.php';

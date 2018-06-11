@@ -32,7 +32,7 @@ $text_color: #818181;
 	}
 
 	&__open-btn {
-
+		display: none;
 	}
 
 	// menu container
@@ -53,7 +53,7 @@ $text_color: #818181;
 		}
 
 		&__open-btn {
-
+			display: block;
 		}
 
 		&__nav {
