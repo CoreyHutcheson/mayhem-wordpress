@@ -15,6 +15,22 @@ $text_color: #818181;
 /** Nav Menu */
 @import 'nav-menu';
 
+/** General resets for header only */
+.site-header a {
+	text-decoration: none;
+	white-space: nowrap;
+
+	&:visited {
+		color: $text_color;
+	}
+
+	&:hover {
+		/* Inverse Colors */
+		background: $text_color;
+		color: $background_color;
+	}
+}
+
 /** Header  */
 .site-header {
 	display: flex;
@@ -45,6 +61,13 @@ $text_color: #818181;
 	}
 }
 
+.main-navigation__site-name {
+	display: none;
+}
+
+/**
+ * Mobile (small-screens)
+ */
 @media #{$small-screen} {
 	.site-header {
 
@@ -96,11 +119,23 @@ $text_color: #818181;
 			display: flex;
 			background: lighten($background_color, 5%);
 
+			/* Social Media Links */
 			a {
 				padding: 0px 6px;
 				margin: 4px;
 			}
 		}
 
+		&__site-name {
+			display: block;
+			background: lighten($background_color, 5%);
+			margin: 0px;
+			text-align: center;
+
+			a {
+				padding: 0px 10px;
+			}
+		}
 	}
+
 }

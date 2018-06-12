@@ -1076,6 +1076,22 @@ object {
   }
 }
 
+/** General resets for header only */
+.site-header a {
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-header a:visited {
+  color: #818181;
+}
+
+.site-header a:hover {
+  /* Inverse Colors */
+  background: #818181;
+  color: #111;
+}
+
 /** Header  */
 .site-header {
   display: flex;
@@ -1098,6 +1114,13 @@ object {
   display: none;
 }
 
+.main-navigation__site-name {
+  display: none;
+}
+
+/**
+ * Mobile (small-screens)
+ */
 @media screen and (max-width: 37.5em) {
   .site-header__open-btn {
     display: block;
@@ -1137,10 +1160,20 @@ object {
   .main-navigation ul:last-of-type {
     display: flex;
     background: #1e1e1e;
+    /* Social Media Links */
   }
   .main-navigation ul:last-of-type a {
     padding: 0px 6px;
     margin: 4px;
+  }
+  .main-navigation__site-name {
+    display: block;
+    background: #1e1e1e;
+    margin: 0px;
+    text-align: center;
+  }
+  .main-navigation__site-name a {
+    padding: 0px 10px;
   }
 }
 

@@ -60,6 +60,12 @@
 
 		<!-- .main-navigation -->
 		<nav id="site-navigation" class="main-navigation site-header__nav">
+			<h1 class="main-navigation__site-name">
+				<a href="<?php echo home_url(); ?>">
+					<?php bloginfo('name'); ?>
+				</a>
+			</h1>
+
       <a href="javascript:void(0)" class="site-header__close-btn">&times;</a>
 
 			<?php
