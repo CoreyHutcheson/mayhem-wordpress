@@ -84,4 +84,23 @@ $text_color: #818181;
 			color: $text_color;
 		}
 	}
+
+	.main-navigation {
+		/* First/Primary Menu */
+		& ul:first-of-type {
+			box-shadow: 0px -1px 0px 0px $text_color;
+		}
+
+		/* Last/Social Menu */
+		& ul:last-of-type {
+			display: flex;
+			background: lighten($background_color, 5%);
+
+			a {
+				padding: 0px 6px;
+				margin: 4px;
+			}
+		}
+
+	}
 }

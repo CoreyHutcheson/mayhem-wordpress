@@ -1127,6 +1127,21 @@ object {
     text-decoration: none;
     color: #818181;
   }
+  .main-navigation {
+    /* First/Primary Menu */
+    /* Last/Social Menu */
+  }
+  .main-navigation ul:first-of-type {
+    box-shadow: 0px -1px 0px 0px #818181;
+  }
+  .main-navigation ul:last-of-type {
+    display: flex;
+    background: #1e1e1e;
+  }
+  .main-navigation ul:last-of-type a {
+    padding: 0px 6px;
+    margin: 4px;
+  }
 }
 
 /*--------------------------------------------------------------
