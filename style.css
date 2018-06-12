@@ -1114,6 +1114,7 @@ object {
   display: none;
 }
 
+/* H1 site name header for mobile menus */
 .main-navigation__site-name {
   display: none;
 }
@@ -1147,6 +1148,7 @@ object {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    padding: 0px 10px;
     text-decoration: none;
     color: #818181;
   }
@@ -1173,7 +1175,8 @@ object {
     text-align: center;
   }
   .main-navigation__site-name a {
-    padding: 0px 10px;
+    display: block;
+    padding: 5px 10px;
   }
 }
 

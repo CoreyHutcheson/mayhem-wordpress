@@ -61,6 +61,7 @@ $text_color: #818181;
 	}
 }
 
+/* H1 site name header for mobile menus */
 .main-navigation__site-name {
 	display: none;
 }
@@ -103,6 +104,7 @@ $text_color: #818181;
 			right: 25px;
 			font-size: 36px;
 			margin-left: 50px;
+			padding: 0px 10px;
 			text-decoration: none;
 			color: $text_color;
 		}
@@ -133,7 +135,8 @@ $text_color: #818181;
 			text-align: center;
 
 			a {
-				padding: 0px 10px;
+				display: block;
+				padding: 5px 10px;
 			}
 		}
 	}
