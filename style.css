@@ -1026,8 +1026,6 @@ object {
   margin: 0;
   padding: 0;
   list-style: none;
-  background: #111;
-  color: #818181;
 }
 
 .nav-menu__list-item {
@@ -1040,8 +1038,6 @@ object {
 
 .nav-menu__link {
   display: block;
-  background: #111;
-  color: #818181;
   border-radius: 5px;
   padding: 5px;
   text-decoration: none;
@@ -1072,10 +1068,10 @@ object {
     margin: 0px;
   }
   .nav-menu__link {
+    display: block;
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    display: block;
     transition: 0.5s;
   }
 }
@@ -1113,7 +1109,7 @@ object {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background: #111;
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
@@ -1128,6 +1124,8 @@ object {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    text-decoration: none;
+    color: #818181;
   }
 }
 

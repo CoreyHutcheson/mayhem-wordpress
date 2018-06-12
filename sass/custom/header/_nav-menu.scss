@@ -6,8 +6,6 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	background: $background_color;
-	color: $text_color;
 
 	// Element (li)
 	&__list-item {
@@ -21,8 +19,6 @@
 	// Element (a)
 	&__link {
 		display: block; // So 'a' element takes up all of 'li' space
-		background: $background_color;
-		color: $text_color;
 		border-radius: 5px;
 		padding: 5px;
 		text-decoration: none;
@@ -52,16 +48,15 @@
 		display: block;
 		white-space: nowrap;
 
-
 		&__list-item {
 			margin: 0px;
 		}
 
 		&__link {
+			display: block;
 			padding: 8px 8px 8px 32px;
 			text-decoration: none;
 			font-size: 25px;
-			display: block;
 			transition: 0.5s;
 		}
 
