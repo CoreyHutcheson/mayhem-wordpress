@@ -1,11 +1,6 @@
 $background_color: #111;
 $text_color: #818181;
 
-/** Mixin used for link borders */
-@mixin border-style($border, $width) {
-	border-#{$border}: #{$width} solid grey;
-}
-
 /** Site Branding */
 @import 'site-branding';
 
@@ -47,7 +42,7 @@ $text_color: #818181;
 		margin-right: auto;
 	}
 
-	&__open-btn {
+	&__menu-toggle-btn {
 		display: none;
 	}
 
@@ -72,7 +67,7 @@ $text_color: #818181;
 
 		}
 
-		&__open-btn {
+		&__menu-toggle-btn {
 			display: block;
 		}
 

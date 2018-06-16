@@ -5,22 +5,22 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var menuContainer, openBtn, menus, links;
+	var menuContainer, menuBtn, menus, links;
 
 	menuContainer = document.querySelector( '.site-header__nav' );
-	openBtn = document.querySelector('.site-header__open-btn');
+	menuBtn = document.querySelector('.site-header__menu-toggle-btn');
 	// Gets HTMLCollection of all menus under '#site-navigation' container
 	menus = menuContainer.getElementsByTagName( 'ul' );
 
 	// Return early if either the container, open, or close button
 	// isn't found
-	if (!menuContainer || !openBtn) {
+	if (!menuContainer || !menuBtn) {
 		return;
 	}
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( menus.length === 0 ) {
-		openBtn.style.display = 'none';
+		menuBtn.style.display = 'none';
 		return;
 	}
 
@@ -31,10 +31,10 @@
 		menu.classList.add('nav-menu');
 	});
 
-	openBtn.onclick = function() {
+	menuBtn.onclick = function() {
 		// Changes menuContainer width to 100%
 		menuContainer.classList.toggle('is-toggled');
-		openBtn.classList.toggle('js-is-open');
+		menuBtn.classList.toggle('js-menu-is-open');
 		// Sets aria-expanded attribute to true
 		menuLoop('true');
 	};

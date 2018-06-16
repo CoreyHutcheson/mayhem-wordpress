@@ -53,11 +53,11 @@
 			endif; ?>
 		</div><!-- /.site-branding -->
 
-		<!-- .menu-toggle -->
-		<div class="toggle-btn site-header__open-btn" aria-controls="site-navigation" aria-expanded="false">
-			<span class="toggle-btn__bar1"></span>
-			<span class="toggle-btn__bar2"></span>
-			<span class="toggle-btn__bar3"></span>
+		<!-- .menu-toggle-btn -->
+		<div class="menu-toggle-btn site-header__menu-toggle-btn" aria-controls="site-navigation" aria-expanded="false">
+			<span></span>
+			<span></span>
+			<span></span>
 		</div> <!-- /.menu-toggle -->
 
 		<!-- .main-navigation -->

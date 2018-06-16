@@ -23,6 +23,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+# Globals
+	## Variables
+	## Mixins
+	## Functions
 # Normalize
 # Typography
 # Elements
@@ -41,9 +45,15 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
+# Custom
+	## Header
+	## Footer
+/*--------------------------------------------------------------
+# Globals
 --------------------------------------------------------------*/
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
+@import "functions/functions";
 
 /*--------------------------------------------------------------
 # Normalize
@@ -109,3 +119,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Custom
 --------------------------------------------------------------*/
 @import "custom/custom";
+
+
+
+
+
