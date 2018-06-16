@@ -1013,9 +1013,41 @@ object {
 }
 
 /** Menu Toggle Button */
-.menu-toggle {
-  width: 50px;
-  border-radius: 5px;
+.toggle-btn {
+  width: 40px;
+  height: 40px;
+}
+
+.toggle-btn span {
+  display: block;
+  width: 100%;
+  height: 6px;
+  position: relative;
+  left: 0px;
+  margin-top: 5.5px;
+  background: #eee;
+  transition: 0.5s ease-in-out;
+  transform-origin: left center;
+}
+
+.js-is-open .toggle-btn__bar1,
+.js-is-open .toggle-btn__bar3 {
+  width: 33.24155px;
+  left: 20%;
+}
+
+.js-is-open .toggle-btn__bar1 {
+  transform: rotate(43.74624deg);
+}
+
+.js-is-open .toggle-btn__bar2 {
+  width: 0%;
+  opacity: 0;
+  left: 20%;
+}
+
+.js-is-open .toggle-btn__bar3 {
+  transform: rotate(-43.74624deg);
 }
 
 /** Nav Menu */
@@ -1110,10 +1142,6 @@ object {
   display: none;
 }
 
-.site-header__close-btn {
-  display: none;
-}
-
 /* H1 site name header for mobile menus */
 .main-navigation__site-name {
   display: none;
@@ -1139,18 +1167,7 @@ object {
     transition: 0.5s;
   }
   .site-header__nav.is-toggled {
-    width: 100%;
-  }
-  .site-header__close-btn {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    padding: 0px 10px;
-    text-decoration: none;
-    color: #818181;
+    width: 80%;
   }
   .main-navigation {
     /* First/Primary Menu */

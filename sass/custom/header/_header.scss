@@ -55,10 +55,6 @@ $text_color: #818181;
 	&__nav {
 
 	}
-
-	&__close-btn {
-		display: none;
-	}
 }
 
 /* H1 site name header for mobile menus */
@@ -93,20 +89,8 @@ $text_color: #818181;
 			transition: 0.5s;
 
 			&.is-toggled {
-				width: 100%;
+				width: 80%;
 			}
-		}
-
-		&__close-btn {
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 25px;
-			font-size: 36px;
-			margin-left: 50px;
-			padding: 0px 10px;
-			text-decoration: none;
-			color: $text_color;
 		}
 	}
 

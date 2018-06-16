@@ -54,9 +54,11 @@
 		</div><!-- /.site-branding -->
 
 		<!-- .menu-toggle -->
-		<button class="menu-toggle site-header__open-btn" aria-controls="site-navigation" aria-expanded="false">
-			<i class="fas fa-bars fa-2x"></i>
-		</button> <!-- /.menu-toggle -->
+		<div class="toggle-btn site-header__open-btn" aria-controls="site-navigation" aria-expanded="false">
+			<span class="toggle-btn__bar1"></span>
+			<span class="toggle-btn__bar2"></span>
+			<span class="toggle-btn__bar3"></span>
+		</div> <!-- /.menu-toggle -->
 
 		<!-- .main-navigation -->
 		<nav id="site-navigation" class="main-navigation site-header__nav">
@@ -65,9 +67,7 @@
 					<?php bloginfo('name'); ?>
 				</a>
 			</h1>
-
-      <a href="javascript:void(0)" class="site-header__close-btn">&times;</a>
-
+			
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'primary',

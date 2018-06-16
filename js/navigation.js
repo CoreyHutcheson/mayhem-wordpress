@@ -5,17 +5,16 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var menuContainer, openBtn, closeBtn, menus, links;
+	var menuContainer, openBtn, menus, links;
 
 	menuContainer = document.querySelector( '.site-header__nav' );
 	openBtn = document.querySelector('.site-header__open-btn');
-	closeBtn = document.querySelector('.site-header__close-btn');
 	// Gets HTMLCollection of all menus under '#site-navigation' container
 	menus = menuContainer.getElementsByTagName( 'ul' );
 
 	// Return early if either the container, open, or close button
 	// isn't found
-	if (!menuContainer || !openBtn || !closeBtn) {
+	if (!menuContainer || !openBtn) {
 		return;
 	}
 
@@ -34,17 +33,11 @@
 
 	openBtn.onclick = function() {
 		// Changes menuContainer width to 100%
-		menuContainer.classList.add('is-toggled');
+		menuContainer.classList.toggle('is-toggled');
+		openBtn.classList.toggle('js-is-open');
 		// Sets aria-expanded attribute to true
 		menuLoop('true');
 	};
-
-	closeBtn.onclick = function() {
-		// Changes menuContainer width to 0%
-		menuContainer.classList.remove('is-toggled');
-		// Sets aria-expanded attribute to false
-		menuLoop('false');
-	}
 
 	/**
 	 * Loops through menus altering aria-expanded attribute
@@ -56,8 +49,7 @@
 		return;
 	}
 
-	// Get all the link elements within the container, excluding
-	// the closeBtn link
+	// Get all the link elements within the container
 	links = menuContainer.querySelectorAll('ul a');
 
 	// Each time a menu link is focused or blurred, toggle focus.
