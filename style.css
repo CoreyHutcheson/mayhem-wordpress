@@ -1117,6 +1117,12 @@ object {
   }
 }
 
+.current-menu-item .nav-menu__link,
+.current-menu-item .nav-menu__link:visited {
+  background: #818181;
+  color: #111;
+}
+
 /** General resets for header only */
 .site-header a {
   text-decoration: none;

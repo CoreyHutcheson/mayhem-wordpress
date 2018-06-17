@@ -1,3 +1,8 @@
+@mixin inverseColor() {
+	background: $text_color;
+	color: $background_color;
+}
+
 // Block (ul)
 .nav-menu {
 	display: flex;
@@ -34,9 +39,7 @@
 
 		/** Links when hovered */
 		&:hover {
-			// Inverse the colors
-			background: $text_color;
-			color: $background_color;
+			@include inverseColor();
 		}
 	}
 }
@@ -61,4 +64,9 @@
 		}
 
 	}
+}
+
+.current-menu-item .nav-menu__link,
+.current-menu-item .nav-menu__link:visited {
+	@include inverseColor();
 }
