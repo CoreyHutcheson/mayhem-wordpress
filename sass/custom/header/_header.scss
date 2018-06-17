@@ -76,15 +76,14 @@ $text_color: #818181;
 			width: 0;
 			position: fixed;
 			z-index: 1;
-			top: 0;
+			top: 100px;
 			left: 0;
 			background: $background_color;
 			overflow-x: hidden;
-			padding-top: 60px;
 			transition: 0.5s;
 
 			&.is-toggled {
-				width: 80%;
+				width: 100%;
 			}
 		}
 	}

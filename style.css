@@ -1168,15 +1168,14 @@ object {
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: 100px;
     left: 0;
     background: #111;
     overflow-x: hidden;
-    padding-top: 60px;
     transition: 0.5s;
   }
   .site-header__nav.is-toggled {
-    width: 80%;
+    width: 100%;
   }
   .main-navigation {
     /* First/Primary Menu */

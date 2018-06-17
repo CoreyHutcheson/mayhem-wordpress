@@ -24,6 +24,9 @@
 		return;
 	}
 
+	// Positions nav container to be below header
+	menuContainer.style.top = findHeaderBottomCoord() + 'px';
+
 	// Loop through menus setting initial aria-expanded attribute and 
 	// making sure '.nav-menu' class is present
 	Array.from(menus).forEach(function(menu) {
@@ -32,21 +35,33 @@
 	});
 
 	menuBtn.onclick = function() {
-		// Changes menuContainer width to 100%
+		// Sets menu nav container width to 100% when toggled
 		menuContainer.classList.toggle('is-toggled');
+		// Performs toggle btn transform animation
 		menuBtn.classList.toggle('js-menu-is-open');
-		// Sets aria-expanded attribute to true
-		menuLoop('true');
+		// Toggles menu's aria-expanded attribute
+		toggleMenuAria();
 	};
 
 	/**
 	 * Loops through menus altering aria-expanded attribute
 	 */
-	function menuLoop(val) {
+	function toggleMenuAria() {
+		// Checks if menu container is toggled or not
+		let val = menuContainer.classList.contains('is-toggled') ? 'true' : 'false';
+
 		for (let menu of menus) {
 			menu.setAttribute( 'aria-expanded', `${val}` );
 		}
 		return;
+	}
+
+	/**
+	 * Returns header's bottom coordinate
+	 */
+	function findHeaderBottomCoord() {
+		let headerCoords = document.querySelector('.site-header').getBoundingClientRect();
+		return headerCoords.bottom;
 	}
 
 	// Get all the link elements within the container

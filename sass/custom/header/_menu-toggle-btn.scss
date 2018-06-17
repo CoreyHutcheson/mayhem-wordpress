@@ -28,6 +28,7 @@ $rotate-angle: acos( (pow($c, 2) + pow($a, 2) - pow($b, 2)) / (2 * $c * $a));
   }
 }
 
+// Transforms for toggle btn spans
 .js-menu-is-open {
   span:nth-child(1),
   span:nth-child(3) {
