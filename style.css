@@ -57,6 +57,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 #474b4f
 #6b6e70
 	*/
+@import url("https://fonts.googleapis.com/css?family=Raleway:500,700");
 /** Mixin used for link borders */
 /*--------------------------------------------------------------
 # Normalize
@@ -1034,7 +1035,7 @@ object {
   position: relative;
   left: 0px;
   margin-top: 5.5px;
-  background: #eee;
+  background: #f8fa2c;
   transition: 0.5s ease-in-out;
   transform-origin: left center;
 }
@@ -1123,22 +1124,6 @@ object {
   color: #111;
 }
 
-/** General resets for header only */
-.site-header a {
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.site-header a:visited {
-  color: #818181;
-}
-
-.site-header a:hover {
-  /* Inverse Colors */
-  background: #818181;
-  color: #111;
-}
-
 /** Header  */
 .site-header {
   display: flex;
@@ -1154,11 +1139,6 @@ object {
 }
 
 .site-header__menu-toggle-btn {
-  display: none;
-}
-
-/* H1 site name header for mobile menus */
-.main-navigation__site-name {
   display: none;
 }
 
@@ -1198,16 +1178,6 @@ object {
   .main-navigation ul:last-of-type a {
     padding: 0px 6px;
     margin: 4px;
-  }
-  .main-navigation__site-name {
-    display: block;
-    background: #1e1e1e;
-    margin: 0px;
-    text-align: center;
-  }
-  .main-navigation__site-name a {
-    display: block;
-    padding: 5px 10px;
   }
 }
 
