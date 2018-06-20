@@ -10,6 +10,7 @@ $b: (($margin * 2) + ($bar-thickness * 2)) / 1px;
 $c: sqrt(pow($a, 2) + pow($b, 2));
 $new-bar-length: $c * 1px;
 $rotate-angle: acos( (pow($c, 2) + pow($a, 2) - pow($b, 2)) / (2 * $c * $a));
+// End Calculations
 
 .menu-toggle-btn {
   width: $btn-size;
@@ -22,7 +23,7 @@ $rotate-angle: acos( (pow($c, 2) + pow($a, 2) - pow($b, 2)) / (2 * $c * $a));
     position: relative;
     left: 0px;
     margin-top: $margin;
-    background: #eee;
+    background: $color__brand;
     transition: 0.5s ease-in-out;
     transform-origin: left center;
   }

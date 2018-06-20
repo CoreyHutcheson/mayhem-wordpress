@@ -28,7 +28,5 @@
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
 
-/** Mixin used for link borders */
-@mixin border-style($border, $width) {
-	border-#{$border}: #{$width} solid grey;
-}
+// Media Query Mixins
+@import 'mixins-media-queries';

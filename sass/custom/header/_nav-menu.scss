@@ -1,48 +1,78 @@
-@mixin inverseColor() {
-	background: $text_color;
-	color: $background_color;
-}
-
 // Block (ul)
 .nav-menu {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0;
+	margin: 0 0 .25em;
 	padding: 0;
 	list-style: none;
 
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
 	// Element (li)
 	&__list-item {
-		margin-right: 20px;
+		margin-right: .5em;
 
-		&:last-child {
-			margin-right: 0px;
+		&:last-of-type {
+			margin-right: 0;
 		}
 	}
 
 	// Element (a)
 	&__link {
-		display: block; // So 'a' element takes up all of 'li' space
-		border-radius: 5px;
-		padding: 5px;
+		display: inline-block; // So 'a' element takes up all of 'li' space
+		padding: .5em;
+		position: relative;
+		font-family: $font__stack--nav;
+		font-weight: 500;
 		text-decoration: none;
-		@include border-style(bottom, 2px);
+		text-transform: uppercase;
+		letter-spacing: 1px;
 
-		&--no-border {
-			border-bottom: none;
-		}
-
+		&:link,
 		&:visited {
-			color: $text_color;
+			color: rgba(255,255,255,0.5);
 		}
 
-		/** Links when hovered */
 		&:hover {
-			@include inverseColor();
+			color: rgba(255,255,255,1.0);
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			height: 3px;
+			width: 0;
+			background: rgba(255,255,255,1.0);
+			transition: all 0.35s ease;
+		}
+
+		&:before {
+			top: 0;
+			right: 0;
+		}
+
+		&:after {
+			bottom: 0;
+			left: 0;
+		}
+
+		&:hover:before,
+		&:hover:after {
+			width: 100%;
 		}
 	}
 }
+
+.current-menu-item a:before,
+.current-menu-item a:after {
+	background: $color__brand;
+	width: 100%;
+}
+
 
 /** Nav Menu (small screens) */
 // 'screen and (max-width: 37.5em)'
@@ -64,9 +94,4 @@
 		}
 
 	}
-}
-
-.current-menu-item .nav-menu__link,
-.current-menu-item .nav-menu__link:visited {
-	@include inverseColor();
 }

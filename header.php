@@ -62,11 +62,6 @@
 
 		<!-- .main-navigation -->
 		<nav id="site-navigation" class="main-navigation site-header__nav">
-			<h1 class="main-navigation__site-name">
-				<a href="<?php echo home_url(); ?>">
-					<?php bloginfo('name'); ?>
-				</a>
-			</h1>
 			
 			<?php
 			wp_nav_menu( array(

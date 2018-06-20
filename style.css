@@ -57,7 +57,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 #474b4f
 #6b6e70
 	*/
-/** Mixin used for link borders */
+@import url("https://fonts.googleapis.com/css?family=Raleway:500,700");
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -1034,7 +1034,7 @@ object {
   position: relative;
   left: 0px;
   margin-top: 5.5px;
-  background: #eee;
+  background: #f8fa2c;
   transition: 0.5s ease-in-out;
   transform-origin: left center;
 }
@@ -1064,39 +1064,69 @@ object {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin: 0 0 .25em;
   padding: 0;
   list-style: none;
 }
 
-.nav-menu__list-item {
-  margin-right: 20px;
+.nav-menu:last-of-type {
+  margin-bottom: 0;
 }
 
-.nav-menu__list-item:last-child {
-  margin-right: 0px;
+.nav-menu__list-item {
+  margin-right: .5em;
+}
+
+.nav-menu__list-item:last-of-type {
+  margin-right: 0;
 }
 
 .nav-menu__link {
-  display: block;
-  border-radius: 5px;
-  padding: 5px;
+  display: inline-block;
+  padding: .5em;
+  position: relative;
+  font-family: "Raleway", Arial, sans-serif;
+  font-weight: 500;
   text-decoration: none;
-  border-bottom: 2px solid grey;
-  /** Links when hovered */
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.nav-menu__link--no-border {
-  border-bottom: none;
-}
-
-.nav-menu__link:visited {
-  color: #818181;
+.nav-menu__link:link, .nav-menu__link:visited {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .nav-menu__link:hover {
-  background: #818181;
-  color: #111;
+  color: white;
+}
+
+.nav-menu__link:before, .nav-menu__link:after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background: white;
+  transition: all 0.35s ease;
+}
+
+.nav-menu__link:before {
+  top: 0;
+  right: 0;
+}
+
+.nav-menu__link:after {
+  bottom: 0;
+  left: 0;
+}
+
+.nav-menu__link:hover:before, .nav-menu__link:hover:after {
+  width: 100%;
+}
+
+.current-menu-item a:before,
+.current-menu-item a:after {
+  background: #f8fa2c;
+  width: 100%;
 }
 
 /** Nav Menu (small screens) */
@@ -1117,28 +1147,6 @@ object {
   }
 }
 
-.current-menu-item .nav-menu__link,
-.current-menu-item .nav-menu__link:visited {
-  background: #818181;
-  color: #111;
-}
-
-/** General resets for header only */
-.site-header a {
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.site-header a:visited {
-  color: #818181;
-}
-
-.site-header a:hover {
-  /* Inverse Colors */
-  background: #818181;
-  color: #111;
-}
-
 /** Header  */
 .site-header {
   display: flex;
@@ -1154,11 +1162,6 @@ object {
 }
 
 .site-header__menu-toggle-btn {
-  display: none;
-}
-
-/* H1 site name header for mobile menus */
-.main-navigation__site-name {
   display: none;
 }
 
@@ -1198,16 +1201,6 @@ object {
   .main-navigation ul:last-of-type a {
     padding: 0px 6px;
     margin: 4px;
-  }
-  .main-navigation__site-name {
-    display: block;
-    background: #1e1e1e;
-    margin: 0px;
-    text-align: center;
-  }
-  .main-navigation__site-name a {
-    display: block;
-    padding: 5px 10px;
   }
 }
 
