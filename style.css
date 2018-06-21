@@ -1064,7 +1064,8 @@ object {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 .25em;
+  margin: 0;
+  margin-bottom: 0.25rem;
   padding: 0;
   list-style: none;
 }
@@ -1074,7 +1075,7 @@ object {
 }
 
 .nav-menu__list-item {
-  margin-right: .5em;
+  margin-right: .75rem;
 }
 
 .nav-menu__list-item:last-of-type {
@@ -1083,7 +1084,7 @@ object {
 
 .nav-menu__link {
   display: inline-block;
-  padding: .5em;
+  padding: .25rem;
   position: relative;
   font-family: "Raleway", Arial, sans-serif;
   font-weight: 500;
@@ -1103,7 +1104,7 @@ object {
 .nav-menu__link:before, .nav-menu__link:after {
   content: '';
   position: absolute;
-  height: 3px;
+  height: 2px;
   width: 0;
   background: white;
   transition: all 0.35s ease;
@@ -1175,7 +1176,7 @@ object {
   .site-header__nav {
     height: 100%;
     width: 0;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     top: 100px;
     left: 0;
