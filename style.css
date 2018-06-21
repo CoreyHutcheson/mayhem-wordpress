@@ -1039,8 +1039,7 @@ object {
   transform-origin: left center;
 }
 
-.js-menu-is-open span:nth-child(1),
-.js-menu-is-open span:nth-child(3) {
+.js-menu-is-open span {
   width: 33.24155px;
   left: 20%;
 }
@@ -1052,7 +1051,6 @@ object {
 .js-menu-is-open span:nth-child(2) {
   width: 0%;
   opacity: 0;
-  left: 20%;
 }
 
 .js-menu-is-open span:nth-child(3) {
@@ -1061,35 +1059,22 @@ object {
 
 /** Nav Menu */
 .nav-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   margin: 0;
-  margin-bottom: 0.25rem;
   padding: 0;
+  white-space: nowrap;
   list-style: none;
 }
 
-.nav-menu:last-of-type {
-  margin-bottom: 0;
-}
-
-.nav-menu__list-item {
-  margin-right: .75rem;
-}
-
-.nav-menu__list-item:last-of-type {
-  margin-right: 0;
-}
-
 .nav-menu__link {
-  display: inline-block;
-  padding: .25rem;
+  display: block;
+  padding: 8px 8px 8px 32px;
   position: relative;
   font-family: "Raleway", Arial, sans-serif;
+  font-size: 25px;
   font-weight: 500;
-  text-decoration: none;
   text-transform: uppercase;
+  text-decoration: none;
   letter-spacing: 1px;
 }
 
@@ -1124,38 +1109,47 @@ object {
   width: 100%;
 }
 
+.current-menu-item a:link,
+.current-menu-item a:visited {
+  color: white;
+}
+
 .current-menu-item a:before,
 .current-menu-item a:after {
   background: #f8fa2c;
   width: 100%;
 }
 
-/** Nav Menu (small screens) */
-@media screen and (max-width: 37.5em) {
+@media (min-width: 900px) {
   .nav-menu {
-    display: block;
-    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.25rem;
+  }
+  .nav-menu:last-of-type {
+    margin-bottom: 0;
   }
   .nav-menu__list-item {
-    margin: 0px;
+    margin-right: .75rem;
+  }
+  .nav-menu__list-item:last-of-type {
+    margin-right: 0;
   }
   .nav-menu__link {
-    display: block;
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    transition: 0.5s;
+    font-size: 1rem;
+    display: inline-block;
+    padding: .25rem;
   }
 }
 
-/** Header  */
 .site-header {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
-  background: #111;
-  color: #818181;
+  background: #111111;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .site-header__branding {
@@ -1163,45 +1157,67 @@ object {
 }
 
 .site-header__menu-toggle-btn {
-  display: none;
+  display: block;
 }
 
-/**
- * Mobile (small-screens)
- */
-@media screen and (max-width: 37.5em) {
+.site-header__nav {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: 0;
+  background: inherit;
+  overflow-x: hidden;
+  transition: width .5s;
+}
+
+.site-header__nav.is-toggled {
+  width: 100%;
+}
+
+.main-navigation {
+  /* First/Primary Menu */
+  /* Last/Social Menu */
+}
+
+.main-navigation ul:first-of-type {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.main-navigation ul:last-of-type {
+  display: flex;
+  justify-content: center;
+  background: #1e1e1e;
+  /* Social Media Links */
+}
+
+.main-navigation ul:last-of-type a {
+  padding: 0px 6px;
+  margin: 4px;
+}
+
+@media (min-width: 900px) {
   .site-header__menu-toggle-btn {
-    display: block;
+    display: none;
   }
   .site-header__nav {
-    height: 100%;
-    width: 0;
-    position: absolute;
-    z-index: 1;
-    top: 100px;
-    left: 0;
-    background: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    position: static;
+    transition: none;
   }
   .site-header__nav.is-toggled {
-    width: 100%;
-  }
-  .main-navigation {
-    /* First/Primary Menu */
-    /* Last/Social Menu */
+    width: auto;
   }
   .main-navigation ul:first-of-type {
-    box-shadow: 0px -1px 0px 0px #818181;
+    border-top: none;
   }
   .main-navigation ul:last-of-type {
-    display: flex;
-    background: #1e1e1e;
-    /* Social Media Links */
-  }
-  .main-navigation ul:last-of-type a {
-    padding: 0px 6px;
-    margin: 4px;
+    background: inherit;
   }
 }
 
@@ -1228,7 +1244,7 @@ object {
   /** Widget header elements */
 }
 
-@media screen and (max-width: 37.5em) {
+@media screen and (min-width: 37.5em) {
   .site-footer .widget-area {
     display: block;
     padding: 20px;
@@ -1245,7 +1261,7 @@ object {
   border-right: none;
 }
 
-@media screen and (max-width: 37.5em) {
+@media screen and (min-width: 37.5em) {
   .site-footer .widget-area section {
     border-right: none;
     border-bottom: 1px solid grey;

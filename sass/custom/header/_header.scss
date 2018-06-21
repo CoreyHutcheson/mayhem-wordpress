@@ -1,6 +1,3 @@
-$background_color: #111;
-$text_color: #818181;
-
 /** Site Branding */
 @import 'site-branding';
 
@@ -10,80 +7,100 @@ $text_color: #818181;
 /** Nav Menu */
 @import 'nav-menu';
 
-/** Header  */
 .site-header {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
 	padding: 20px;
-	background: $background_color;
-	color: $text_color;
 
-	// Logo
+	background: $color__header-background;
+	color: $color__text-primary;
+	
 	&__branding {
-		// Aligns branding to far left & menus/button to far right
-		// while still allowing for the '.site-header' padding
 		margin-right: auto;
 	}
 
 	&__menu-toggle-btn {
-		display: none;
+		display: block;
 	}
 
-	// menu container
 	&__nav {
+		// Display and Box Model
+		height: 100%;
+		width: 0;
 
+		// Positioning
+		position: absolute;
+		z-index: 1;
+		top: 100px;
+		left: 0;
+
+		background: inherit;
+		overflow-x: hidden;
+		transition: width .5s;
+
+		&.is-toggled {
+			width: 100%;
+		}
 	}
 }
 
-/**
- * Mobile (small-screens)
- */
-@media #{$small-screen} {
-	.site-header {
-		
-		&__branding {
+.main-navigation {
+	/* First/Primary Menu */
+	ul:first-of-type {
+		border-top: 1px solid $color__text-primary;
+	}
 
+	/* Last/Social Menu */
+	ul:last-of-type {
+		display: flex;
+		justify-content: center;
+		background: lighten($color__header-background, 5%);
+
+		/* Social Media Links */
+		a {
+			padding: 0px 6px;
+			margin: 4px;
+		}
+	}
+}
+
+@include for-tablet-landscape-up {
+	.site-header {
+
+		&__branding {
+			
 		}
 
 		&__menu-toggle-btn {
-			display: block;
+			display: none;
 		}
 
 		&__nav {
-			height: 100%;
-			width: 0;
-			position: absolute;
-			z-index: 1;
-			top: 100px;
-			left: 0;
-			background: $background_color;
-			overflow-x: hidden;
-			transition: 0.5s;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: auto;
+
+			position: static;
+			
+			transition: none;
 
 			&.is-toggled {
-				width: 100%;
+				width: auto;
 			}
 		}
 	}
 
 	.main-navigation {
-		/* First/Primary Menu */
-		& ul:first-of-type {
-			box-shadow: 0px -1px 0px 0px $text_color;
+
+		ul:first-of-type {
+			border-top: none;
 		}
 
-		/* Last/Social Menu */
-		& ul:last-of-type {
-			display: flex;
-			background: lighten($background_color, 5%);
-
-			/* Social Media Links */
-			a {
-				padding: 0px 6px;
-				margin: 4px;
-			}
+		ul:last-of-type {
+			background: inherit;
 		}
 	}
-
 }

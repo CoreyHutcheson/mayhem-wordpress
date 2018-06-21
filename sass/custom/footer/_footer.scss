@@ -13,11 +13,11 @@
 .site-footer .widget-area {
 	display: flex;
 	padding: 20px 20px 0;
-	background: $color__accent;
+	background: #222629;
 	color: white;
 
 	/** Widget area on small screens */
-	@media #{$small-screen} {
+	@media screen and (min-width: 37.5em) {
 		display: block;
 		padding: 20px;
 	}
@@ -33,7 +33,7 @@
 		}
 
 		// Style sections on small screens
-		@media #{$small-screen} {
+		@media screen and (min-width: 37.5em) {
 			border-right: none;
 			border-bottom: 1px solid grey;
 			margin: 0;

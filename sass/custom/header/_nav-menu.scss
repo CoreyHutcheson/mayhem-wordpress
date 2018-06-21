@@ -1,44 +1,38 @@
-// Block (ul)
 .nav-menu {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	display: block;
 	margin: 0;
-	margin-bottom: 0.25rem;
 	padding: 0;
+
+	white-space: nowrap;
 	list-style: none;
 
-	&:last-of-type {
-		margin-bottom: 0;
-	}
-
-	// Element (li)
 	&__list-item {
-		margin-right: .75rem;
-
-		&:last-of-type {
-			margin-right: 0;
-		}
+		
 	}
 
-	// Element (a)
 	&__link {
-		display: inline-block; // So 'a' element takes up all of 'li' space
-		padding: .25rem;
+		// Display and Box Model
+		display: block;
+		padding: 8px 8px 8px 32px;
+		
+		// Position
 		position: relative;
+		
+		// Typography
 		font-family: $font__stack--nav;
+		font-size: 25px;
 		font-weight: 500;
-		text-decoration: none;
 		text-transform: uppercase;
+		text-decoration: none;
 		letter-spacing: 1px;
 
 		&:link,
 		&:visited {
-			color: rgba(255,255,255,0.5);
+			color: $color__text-primary;
 		}
 
 		&:hover {
-			color: rgba(255,255,255,1.0);
+			color: $color__text-primary--selected;
 		}
 
 		&:before,
@@ -47,7 +41,7 @@
 			position: absolute;
 			height: 2px;
 			width: 0;
-			background: rgba(255,255,255,1.0);
+			background: $color__text-primary--selected;
 			transition: all 0.35s ease;
 		}
 
@@ -68,31 +62,44 @@
 	}
 }
 
-.current-menu-item a:before,
-.current-menu-item a:after {
-	background: $color__brand;
-	width: 100%;
+.current-menu-item {
+	a:link,
+	a:visited {
+		color: $color__text-primary--selected;
+	}
+	
+	a:before,
+	a:after {
+		background: $color__brand;
+		width: 100%;
+	}
 }
 
-
-/** Nav Menu (small screens) */
-// 'screen and (max-width: 37.5em)'
-@media #{$small-screen} {
+@include for-tablet-landscape-up {
 	.nav-menu {
-		display: block;
-		white-space: nowrap;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 0.25rem;
+		
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 
 		&__list-item {
-			margin: 0px;
+			margin-right: .75rem;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
 		}
 
 		&__link {
-			display: block;
-			padding: 8px 8px 8px 32px;
-			text-decoration: none;
-			font-size: 25px;
-			transition: 0.5s;
+			font-size: 1rem;
+			display: inline-block; // So 'a' element takes up all of 'li' space
+			padding: .25rem;	
 		}
-
 	}
 }
+
+
