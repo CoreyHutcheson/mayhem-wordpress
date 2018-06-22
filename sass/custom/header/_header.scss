@@ -37,7 +37,7 @@
 
 		background: inherit;
 		overflow-x: hidden;
-		transition: width .5s;
+		transition: width .5s cubic-bezier(.17,.67,.16,.99);
 
 		&.is-toggled {
 			width: 100%;

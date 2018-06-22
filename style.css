@@ -1149,7 +1149,7 @@ object {
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
-  background: #111111;
+  background: #262626;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -1170,7 +1170,7 @@ object {
   left: 0;
   background: inherit;
   overflow-x: hidden;
-  transition: width .5s;
+  transition: width 0.5s cubic-bezier(0.17, 0.67, 0.16, 0.99);
 }
 
 .site-header__nav.is-toggled {
@@ -1189,7 +1189,7 @@ object {
 .main-navigation ul:last-of-type {
   display: flex;
   justify-content: center;
-  background: #1e1e1e;
+  background: #333333;
   /* Social Media Links */
 }
 
