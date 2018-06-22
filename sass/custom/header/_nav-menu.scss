@@ -31,8 +31,16 @@
 			color: $color__text-primary;
 		}
 
-		&:hover {
+		&:hover,
+		&:active,
+		&:focus {
+			outline: 0;
 			color: $color__text-primary--selected;
+
+			&:before,
+			&:after {
+				width: 100%;
+			}
 		}
 
 		&:before,
@@ -53,11 +61,6 @@
 		&:after {
 			bottom: 0;
 			left: 0;
-		}
-
-		&:hover:before,
-		&:hover:after {
-			width: 100%;
 		}
 	}
 }

@@ -1082,8 +1082,13 @@ object {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.nav-menu__link:hover {
+.nav-menu__link:hover, .nav-menu__link:active, .nav-menu__link:focus {
+  outline: 0;
   color: white;
+}
+
+.nav-menu__link:hover:before, .nav-menu__link:hover:after, .nav-menu__link:active:before, .nav-menu__link:active:after, .nav-menu__link:focus:before, .nav-menu__link:focus:after {
+  width: 100%;
 }
 
 .nav-menu__link:before, .nav-menu__link:after {
@@ -1103,10 +1108,6 @@ object {
 .nav-menu__link:after {
   bottom: 0;
   left: 0;
-}
-
-.nav-menu__link:hover:before, .nav-menu__link:hover:after {
-  width: 100%;
 }
 
 .current-menu-item a:link,
