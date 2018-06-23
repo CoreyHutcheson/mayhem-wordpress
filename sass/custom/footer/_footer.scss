@@ -1,19 +1,9 @@
 // Footer Widget
 @import 'footer-widget';
 
-.site-footer {
-
-
-	&__widget-container {
-
-	}
-}
-
 @include for-tablet-landscape-up {
-	.site-footer {
-
-		&__widget-container {
-			display: flex;
-		}
+	.site-footer__widget-container {
+		display: flex;
 	}
+
 }

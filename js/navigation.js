@@ -24,9 +24,6 @@
 		return;
 	}
 
-	// Positions nav container to be below header
-	menuContainer.style.top = findHeaderBottomCoord() + 'px';
-
 	// Loop through menus setting initial aria-expanded attribute and 
 	// making sure '.nav-menu' class is present
 	Array.from(menus).forEach(function(menu) {
@@ -35,6 +32,8 @@
 	});
 
 	menuBtn.onclick = function() {
+		// Positions nav container to be below header
+		menuContainer.style.top = findNavTopCoord() + 'px';
 		// Sets menu nav container width to 100% when toggled
 		menuContainer.classList.toggle('is-toggled');
 		// Performs toggle btn transform animation
@@ -57,11 +56,15 @@
 	}
 
 	/**
-	 * Returns header's bottom coordinate
+	 * Returns Nav Menu's needed top position coordinate
 	 */
-	function findHeaderBottomCoord() {
-		let headerCoords = document.querySelector('.site-header').getBoundingClientRect();
-		return headerCoords.bottom;
+	function findNavTopCoord() {
+		let header = document.querySelector('.site-header');
+		let headerRect = header.getBoundingClientRect();
+		let scrollTop = document.documentElement.scrollTop;
+		let headerTop = headerRect.top + scrollTop;
+
+		return headerTop + headerRect.height;
 	}
 
 	// Get all the link elements within the container
