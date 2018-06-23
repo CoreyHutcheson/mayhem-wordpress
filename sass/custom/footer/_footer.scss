@@ -1,54 +1,9 @@
-/*
-	Reset margin/padding on all widget-area
-	h2 and p tag elements
- */
-.widget-area {
-	h2, p {
-		margin: 0;
-		padding: 0;
+// Footer Widget
+@import 'footer-widget';
+
+.site-footer {
+
+	&__widget-container {
+		color: $color__background-footer;
 	}
 }
-
-/** Style footer widget area */
-.site-footer .widget-area {
-	display: flex;
-	padding: 20px 20px 0;
-	background: #222629;
-	color: white;
-
-	/** Widget area on small screens */
-	@media screen and (min-width: 37.5em) {
-		display: block;
-		padding: 20px;
-	}
-
-	/** Style individual widgets sections */
-	section {
-		flex: 1;
-		text-align: center;
-		border-right: 1px solid grey;
-
-		&:last-child {
-			border-right: none;
-		}
-
-		// Style sections on small screens
-		@media screen and (min-width: 37.5em) {
-			border-right: none;
-			border-bottom: 1px solid grey;
-			margin: 0;
-
-			&:last-child {
-				border-bottom: none;
-			}
-		}
-	}
-
-	/** Widget header elements */
-	h2 {
-		display: inline-block;
-		border-bottom: 2px solid grey;
-	}
-
-}
-

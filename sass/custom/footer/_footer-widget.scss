@@ -1,0 +1,52 @@
+.footer-widget {
+	// Display and Box Model
+	margin: 0;
+	padding: 0.5rem 0;
+
+	// Typography
+	font-family: $font__stack--raleway;
+	font-weight: 500;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	color: $color__text-primary;
+
+	// Other
+	border-bottom: 1px solid $color__text-primary;
+	background: $color__background-footer;
+
+	&:last-of-type {
+		border-bottom: none;
+	}
+
+	&__title {
+		margin: 0;
+	}
+}
+
+// .textwidget 
+// Content container
+.footer-widget div {
+
+	// footer-widget contents
+	p {
+		margin: 0;
+	}
+}
+
+@include for-tablet-landscape-up {
+	.site-footer__widget-container {
+		display: flex;
+	}
+
+	.footer-widget {
+		flex: 1;
+		border-bottom: none;
+		border-right: 1px solid $color__text-primary;
+
+		&:last-of-type{
+			border-right: none;
+		}
+	}
+}

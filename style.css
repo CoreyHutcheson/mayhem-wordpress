@@ -1225,55 +1225,46 @@ object {
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
-/*
-	Reset margin/padding on all widget-area
-	h2 and p tag elements
- */
-.widget-area h2, .widget-area p {
+.footer-widget {
   margin: 0;
-  padding: 0;
-}
-
-/** Style footer widget area */
-.site-footer .widget-area {
-  display: flex;
-  padding: 20px 20px 0;
-  background: #222629;
-  color: white;
-  /** Widget area on small screens */
-  /** Style individual widgets sections */
-  /** Widget header elements */
-}
-
-@media screen and (min-width: 37.5em) {
-  .site-footer .widget-area {
-    display: block;
-    padding: 20px;
-  }
-}
-
-.site-footer .widget-area section {
-  flex: 1;
+  padding: 0.5rem 0;
+  font-family: "Raleway", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   text-align: center;
-  border-right: 1px solid grey;
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  background: #262626;
 }
 
-.site-footer .widget-area section:last-child {
-  border-right: none;
+.footer-widget:last-of-type {
+  border-bottom: none;
 }
 
-@media screen and (min-width: 37.5em) {
-  .site-footer .widget-area section {
-    border-right: none;
-    border-bottom: 1px solid grey;
-    margin: 0;
+.footer-widget__title {
+  margin: 0;
+}
+
+.footer-widget div p {
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .site-footer__widget-container {
+    display: flex;
   }
-  .site-footer .widget-area section:last-child {
+  .footer-widget {
+    flex: 1;
     border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .footer-widget:last-of-type {
+    border-right: none;
   }
 }
 
-.site-footer .widget-area h2 {
-  display: inline-block;
-  border-bottom: 2px solid grey;
+.site-footer__widget-container {
+  color: #262626;
 }

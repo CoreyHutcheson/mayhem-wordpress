@@ -13,7 +13,7 @@
 	flex-wrap: wrap;
 	padding: 20px;
 
-	background: $color__header-background;
+	background: $color__background-header;
 	color: $color__text-primary;
 	
 	&__branding {
@@ -55,7 +55,7 @@
 	ul:last-of-type {
 		display: flex;
 		justify-content: center;
-		background: lighten($color__header-background, 5%);
+		background: lighten($color__background-header, 5%);
 
 		/* Social Media Links */
 		a {

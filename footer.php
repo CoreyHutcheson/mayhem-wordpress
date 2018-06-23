@@ -13,9 +13,11 @@
 
 	</div><!-- #content -->
 
+	<!-- .site-footer -->
 	<footer id="colophon" class="site-footer">
 		<?php get_sidebar('footer'); ?>
-	</footer><!-- #colophon -->
+	</footer><!-- /.site-footer -->
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

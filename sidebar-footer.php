@@ -22,6 +22,7 @@ if ( ! is_active_sidebar( 'footer-widget' ) ) {
 }
 ?>
 
-<aside id="footer-widget" class="widget-area">
+<!-- .site-footer__widget-container -->
+<aside id="footer-widget" class="site-footer__widget-container widget-area">
 	<?php dynamic_sidebar( 'footer-widget' ); ?>
-</aside><!-- #secondary -->
+</aside><!-- /.site-footer__widget-container -->

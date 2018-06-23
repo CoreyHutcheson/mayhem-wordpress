@@ -122,9 +122,9 @@ function mayhem_widgets_init() {
 		'name'          => esc_html__( 'Footer Widget', 'mayhem' ),
 		'id'            => 'footer-widget',
 		'description'   => esc_html__( 'Footer Widget Area.', 'mayhem' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="footer-widget widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_title'  => '<h2 class="footer-widget__title widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
