@@ -1,20 +1,26 @@
 .footer-widget {
 	// Display and Box Model
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	margin: 0;
 	padding: 0.5rem 0;
 
 	// Typography
 	font-family: $font__stack--raleway;
 	font-weight: 500;
-	font-size: 0.75rem;
-	text-transform: uppercase;
+	font-size: 1rem;
 	letter-spacing: 1px;
+	text-transform: uppercase;
 	text-align: center;
+
+	// Color
 	color: $color__text-primary;
+	background: $color__background-footer;
 
 	// Other
 	border-bottom: 1px solid $color__text-primary;
-	background: $color__background-footer;
 
 	&:last-of-type {
 		border-bottom: none;
@@ -22,31 +28,42 @@
 
 	&__title {
 		margin: 0;
+		font-size: 1.25rem;
 	}
-}
 
-// .textwidget 
-// Content container
-.footer-widget div {
+	// Text container
+	div {
 
-	// footer-widget contents
-	p {
-		margin: 0;
+		// Contents
+		p {
+			margin: 0;
+			font-size: .9rem;
+		}
 	}
 }
 
 @include for-tablet-landscape-up {
-	.site-footer__widget-container {
-		display: flex;
-	}
-
 	.footer-widget {
 		flex: 1;
 		border-bottom: none;
 		border-right: 1px solid $color__text-primary;
+		padding: 20px 0;
 
-		&:last-of-type{
+		&:last-of-type {
 			border-right: none;
+		}
+
+		&__title {
+
+		}
+
+		// Text container
+		div {
+
+			// Contents
+			p {
+
+			}
 		}
 	}
 }

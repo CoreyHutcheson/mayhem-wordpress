@@ -3,7 +3,17 @@
 
 .site-footer {
 
+
 	&__widget-container {
-		color: $color__background-footer;
+
+	}
+}
+
+@include for-tablet-landscape-up {
+	.site-footer {
+
+		&__widget-container {
+			display: flex;
+		}
 	}
 }
