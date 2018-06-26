@@ -5,11 +5,11 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var menuContainer, menuBtn, menus, links;
+	var header, menuContainer, menuBtn, menus, links;
 
+	header = document.querySelector( '.site-header' );
 	menuContainer = document.querySelector( '.site-header__nav' );
 	menuBtn = document.querySelector('.site-header__menu-toggle-btn');
-	// Gets HTMLCollection of all menus under '#site-navigation' container
 	menus = menuContainer.getElementsByTagName( 'ul' );
 
 	// Return early if either the container, open, or close button
@@ -33,7 +33,7 @@
 
 	menuBtn.onclick = function() {
 		// Positions nav container to be below header
-		menuContainer.style.top = findNavTopCoord() + 'px';
+		menuContainer.style.top = findTopCoord(header) + 'px';
 		// Sets menu nav container width to 100% when toggled
 		menuContainer.classList.toggle('is-toggled');
 		// Performs toggle btn transform animation
@@ -56,15 +56,14 @@
 	}
 
 	/**
-	 * Returns Nav Menu's needed top position coordinate
+	 * Returns elements needed top coordinate position
 	 */
-	function findNavTopCoord() {
-		let header = document.querySelector('.site-header');
-		let headerRect = header.getBoundingClientRect();
+	function findTopCoord(element) {
+		let elementRect = element.getBoundingClientRect();
 		let scrollTop = document.documentElement.scrollTop;
-		let headerTop = headerRect.top + scrollTop;
+		let top = scrollTop + elementRect.top + elementRect.height;
 
-		return headerTop + headerRect.height;
+		return top;
 	}
 
 	// Get all the link elements within the container
