@@ -1232,6 +1232,7 @@ body {
     align-items: center;
     width: auto;
     position: static;
+    transform: none;
     transition: none;
   }
   .site-header__nav.is-toggled {
@@ -1243,6 +1244,13 @@ body {
   .main-navigation ul:last-of-type {
     background: inherit;
   }
+}
+
+/*--------------------------------------------------------------
+## Content
+--------------------------------------------------------------*/
+.site-content {
+  padding: 0 10%;
 }
 
 /*--------------------------------------------------------------
