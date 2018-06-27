@@ -27,7 +27,8 @@
 	&__nav {
 		// Display and Box Model
 		height: 100%;
-		width: 0;
+		width: 100%;
+		transform: translateX(-100%);
 
 		// Positioning
 		position: absolute;
@@ -37,10 +38,10 @@
 
 		background: inherit;
 		overflow-x: hidden;
-		transition: width .5s cubic-bezier(.17,.67,.16,.99);
+		transition: transform .5s cubic-bezier(.17,.67,.16,.99);
 
 		&.is-toggled {
-			width: 100%;
+			transform: translateX(0);
 		}
 	}
 }
