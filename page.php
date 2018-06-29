@@ -22,7 +22,18 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			global $post;
+			$post_slug = $post->post_name;
+			// Sets potential template part location for this post
+			$file_location = get_template_directory() . '/template-parts/content-page-' . $post_slug .'.php';
+
+			// Loads specific template part if file exists
+			// or general content-page if not
+			if (file_exists($file_location)) {
+				get_template_part( 'template-parts/content', 'page-' . $post_slug);
+			} else {
+				get_template_part( 'template-parts/content', 'page' );
+			}
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
