@@ -1,0 +1,56 @@
+* [1;34mecec9b6[m -[33m (HEAD -> master, origin/master, roster)[m new content sass folder and file added / 10% padding on .site-content added [32m(34 hours ago) [1;34m<Corey>[m
+* [1;34m83bc534[m -[33m[m Renamed sass files to include -main postfix [32m(35 hours ago) [1;34m<Corey>[m
+* [1;34m0b246d7[m -[33m[m added export file [32m(2 days ago) [1;34m<Corey>[m
+* [1;34mfac0da6[m -[33m[m changed nav transition from width to translateX [32m(2 days ago) [1;34m<Corey>[m
+* [1;34m3de73e4[m -[33m[m added page-gallery.php and content-page-gallery template [32m(2 days ago) [1;34m<Corey>[m
+* [1;34m2678c61[m -[33m[m Altered page layout css so content grows to fill page height [32m(2 days ago) [1;34m<Corey>[m
+* [1;34meee5b17[m -[33m[m hooked up layout folder and file [32m(2 days ago) [1;34m<Corey>[m
+* [1;34m0f06292[m -[33m[m created layout folder and file [32m(2 days ago) [1;34m<Corey>[m
+* [1;34meb90c05[m -[33m[m Refactred findTopCoord function [32m(2 days ago) [1;34m<Corey>[m
+* [1;34m3588cba[m -[33m (origin/footer)[m changed function to find nav menu top position coords [32m(5 days ago) [1;34m<Corey>[m
+* [1;34m0ed7aa3[m -[33m[m initial working footer [32m(5 days ago) [1;34m<Corey>[m
+* [1;34m883081b[m -[33m[m footer additions and css [32m(5 days ago) [1;34m<Corey>[m
+* [1;34m745f960[m -[33m[m menu transition changed to cubic-bezier / header background color changed to #262626 [32m(6 days ago) [1;34m<Corey>[m
+* [1;34mb58608e[m -[33m[m replaced link outline with same effect as hover [32m(6 days ago) [1;34m<Corey>[m
+* [1;34mf998fe8[m -[33m[m added potential color palette [32m(7 days ago) [1;34m<Corey>[m
+* [1;34mc0c5546[m -[33m[m changed to mobile first media queries on header / altered color variables [32m(7 days ago) [1;34m<Corey>[m
+* [1;34m6f388a9[m -[33m[m removed layout folders / adjusted nav menu animation and margins [32m(8 days ago) [1;34m<Corey>[m
+* [1;34m29edbcb[m -[33m[m Added nav menu animation / Refactored for media query changes [32m(8 days ago) [1;34m<Corey>[m
+* [1;34m508a3a3[m -[33m[m Removes site name from small screen menu / Adds color__brand variable / Adds Raleway font and font__stack--nav variable [32m(9 days ago) [1;34m<Corey>[m
+* [1;34m0ab67ef[m -[33m[m removed height and width from custom logo functions [32m(9 days ago) [1;34m<Corey>[m
+* [1;34m26db129[m -[33m[m adds .current-menu-item inverse color functionality [32m(11 days ago) [1;34m<Corey>[m
+* [1;34m17b498e[m -[33m[m Header position calcs to place menu container at the bottom [32m(12 days ago) [1;34m<Corey>[m
+* [1;34mfefecb7[m -[33m[m Added functions sass folder / renamed toggle-btn to menu-toggle-btn [32m(12 days ago) [1;34m<Corey>[m
+* [1;34mf2aa6ff[m -[33m[m Added toggle btn animation effects [32m(13 days ago) [1;34m<Corey>[m
+* [1;34m0c0f5a6[m -[33m[m Tidy up header css [32m(2 weeks ago) [1;34m<Corey>[m
+* [1;34mc4509e3[m -[33m[m Site Name added to mobile menu [32m(2 weeks ago) [1;34m<Corey>[m
+* [1;34m7adc872[m -[33m[m Social menu now flex on mobile / Border-top of primary menu on mobile [32m(2 weeks ago) [1;34m<Corey>[m
+* [1;34m6478f76[m -[33m[m Tidy'd up css for header [32m(2 weeks ago) [1;34m<Corey>[m
+* [1;34mef08d34[m -[33m[m Made custom-hooks file more modular by creating custom-hooks folder and linking to various files from there [32m(2 weeks ago) [1;34m<Corey>[m
+* [1;34m295ef1f[m -[33m[m working implementation of slide-out menu with appropriate colors [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34m9e29d41[m -[33m[m initial implementation of slide-over menu [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34md865e02[m -[33m[m removed border-bottom from social menu items [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34m3a9ac93[m -[33m[m Fixed header bottom margin on expanded menu / fixed a elements on hover [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34mad0d4b1[m -[33m[m additional changes to header css [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34mdd1133e[m -[33m[m Navigation.js now works with multiple menus / nav-menu.scss changes [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34m31da457[m -[33m[m Created scss file for each header block element [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34m50faf4e[m -[33m[m BEM changs to nav menu [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34m4c1b250[m -[33m[m converting to BEM 2 [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34m2846f2d[m -[33m[m converting to BEM CSS naming convention [32m(3 weeks ago) [1;34m<Corey>[m
+* [1;34me259ccf[m -[33m[m color test [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34maf60d24[m -[33m[m color test [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34m1cba88b[m -[33m[m potential color palette [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34m07303d3[m -[33m[m Revised social media menu formatting [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34m0ea4107[m -[33m[m working social menu location [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34ma2dcf91[m -[33m[m changed black color [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34m5c83da7[m -[33m[m Reorganized social media alteration filter [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34md678ef0[m -[33m[m working font-awesome social media links [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34mf2ebcd2[m -[33m[m ACF upgrade added [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34mcc13fff[m -[33m[m initial footer implemented [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34mb920f8d[m -[33m[m implemented dropdown close button [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34m143f62f[m -[33m[m added current-menu-item support [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34mf445e9d[m -[33m[m updated media query [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34mc64fc10[m -[33m[m working header dropdown menu [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34m689b3d9[m -[33m[m absolutely positioned dropdown [32m(4 weeks ago) [1;34m<Corey>[m
+* [1;34m91fdf09[m -[33m[m Setup Sass [32m(5 weeks ago) [1;34m<Corey>[m
+* [1;34me6f17f2[m -[33m[m initial commit [32m(5 weeks ago) [1;34m<Corey>[m
