@@ -1305,3 +1305,35 @@ body {
     display: flex;
   }
 }
+
+/*--------------------------------------------------------------
+## Roster
+--------------------------------------------------------------*/
+.choices-container {
+  display: flex;
+}
+
+.choices-container__input {
+  display: none;
+}
+
+.choices-container__label {
+  background: #333;
+  color: #ddd;
+  padding: 10px 20px;
+  border-right: 1px solid red;
+}
+
+.choices-container__label:first-of-type {
+  border-radius: 20px 0 0 20px;
+}
+
+.choices-container__label:last-of-type {
+  border-radius: 0 20px 20px 0;
+  border-right: none;
+}
+
+.choices-container__label:checked {
+  background: yellow;
+  color: black;
+}

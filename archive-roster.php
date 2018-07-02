@@ -15,7 +15,7 @@ get_header();
 
 			<form action="" class="site-main__form choices-container">
 				<label class="choices-container__label" for="all">All
-			    <input type="radio" name="roster-choice" class="choices-container__input" id="all">
+			    <input type="radio" name="roster-choice" class="choices-container__input" id="all" checked>
 			  </label>
 			  
 			  <label class="choices-container__label" for="wrestlers">Wrestlers

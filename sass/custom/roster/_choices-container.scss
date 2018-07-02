@@ -1,0 +1,24 @@
+.choices-container {
+  display: flex;
+  
+  &__input {
+    display: none;
+  }
+  
+  &__label {
+    background: #333;
+    color: #ddd;
+    padding: 10px 20px;
+    border-right: 1px solid red;
+    
+    &:first-of-type {
+      border-radius: 20px 0 0 20px;
+    }
+    
+    &:last-of-type {
+      border-radius: 0 20px 20px 0;
+      border-right: none;
+    }
+
+  }
+}
