@@ -146,3 +146,35 @@ if ( ! function_exists( 'mayhem_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+if ( ! function_exists( 'mayhem_roster_query' ) ) :
+	/**
+	 * Queries roster post type using category name
+	 */
+	function mayhem_roster_query($cat_name) {
+		$args = array(
+			'post_type' => 'roster',
+			'category_name' => $cat_name
+		);
+
+		$header = $cat_name . 's';
+		$query = new WP_Query($args);
+
+		if ( $query->have_posts() ) : ?>
+
+			<h1 class="roster__header"><?php echo $header ?></h1>
+
+			<?php 
+			while ( $query->have_posts() ) :
+				$query->the_post(); 
+			?>
+			<!-- Start Loop Content -->
+
+			<span><?php the_title(); ?></span>
+
+			<!-- End Loop Content -->
+			<?php 
+			endwhile;
+		endif;
+	}
+endif;
