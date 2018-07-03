@@ -13,34 +13,30 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-			<form action="" class="site-main__form choices-container">
-				<label class="choices-container__label" for="all">All
-			    <input type="radio" name="roster-choice" class="choices-container__input" id="all" checked>
-			  </label>
+			<form action="" class="site-main__form c-choice-toggle">
+				<input type="radio" name="roster-choice" class="c-choice-toggle__input" id="all" checked>
+			  <label class="c-choice-toggle__label" for="all">All</label>
 			  
-			  <label class="choices-container__label" for="wrestlers">Wrestlers
-			    <input type="radio" name="roster-choice" class="choices-container__input" id="wrestlers">
-			  </label>
+		  	<input type="radio" name="roster-choice" class="c-choice-toggle__input" id="wrestlers">
+			  <label class="c-choice-toggle__label" for="wrestlers">Wrestlers</label>
 			  
-			  <label class="choices-container__label" for="managers">Managers
-			    <input type="radio" name="roster-choice" class="choices-container__input" id="managers">
-			  </label>
+		  	<input type="radio" name="roster-choice" class="c-choice-toggle__input" id="managers">
+			  <label class="c-choice-toggle__label" for="managers">Managers</label>
 			  
-			  <label class="choices-container__label" for="referees">Referees
-			    <input type="radio" name="roster-choice" class="choices-container__input" id="referees">
-			  </label>
+		  	<input type="radio" name="roster-choice" class="c-choice-toggle__input" id="referees">
+			  <label class="c-choice-toggle__label" for="referees">Referees</label>
 			</form>
 
-			<div class="site-main__roster roster-container">
-				<div class="roster-container__wrestlers roster">
+			<div class="site-main__roster roster-list">
+				<div class="roster-list__wrestlers c-roster-card">
 					<?php mayhem_roster_query('Wrestler'); ?>
 				</div>
 
-				<div class="roster-container__managers roster">
+				<div class="roster-list__managers c-roster-card">
 					<?php mayhem_roster_query('Manager'); ?>
 				</div>
 
-				<div class="roster-container__referees roster">
+				<div class="roster-list__referees c-roster-card">
 					<?php mayhem_roster_query('Referee'); ?>
 				</div>
 			</div>
