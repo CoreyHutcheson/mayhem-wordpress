@@ -3,11 +3,16 @@
 
   &__input {
     display: none;
+
+    &:checked + label {
+      background: $color__brand;
+      color: $color__background-header;
+    }
   }
 
   &__label {
-    background: #333;
-    color: #ddd;
+    background: $color__background-header;
+    color: $color__text-primary;
     padding: 5px 20px;
     border-right: 1px solid $color__text-primary;
     user-select: none;
@@ -19,6 +24,12 @@
     &:last-of-type {
       border-radius: 0 20px 20px 0;
       border-right: none;
+    }
+
+    &:active {
+      background: lighten($color__background-header, 2%);
+      box-shadow: inset 0px 0px 5px #c1c1c1;
+      outline: none;
     }
   }
 }
