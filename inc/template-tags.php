@@ -154,8 +154,10 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 	function mayhem_roster_query($cat_name) {
 		$args = array(
 			'post_type' => 'roster',
-			'category_name' => $cat_name
+			'category_name' => ucwords($cat_name)
 		);
+
+		PC::debug($args);
 
 		$header = $cat_name . 's';
 		$query = new WP_Query($args);
