@@ -4,23 +4,23 @@
  */
 (function() {
 	let choiceContainer = document.querySelector('.c-choice-toggle');
-	let rosterCards = document.querySelectorAll('.c-roster-card');
+	let rosterContainers = document.querySelectorAll('.site-main__roster > div');
 
 	choiceContainer.addEventListener('click', function(e) {
 		let target = e.target;
 
-		// Return if not the label that was clicked
 		if (target.nodeName !== 'LABEL') return;
 
 		let value = target.getAttribute('for');
+		let neededClass = `roster-container__${value}`;
 
-		for (let card of rosterCards) {
+		for (let container of rosterContainers) {
 			if (value === 'all') {
-				card.classList.remove('hide');
-			} else if (!card.classList.contains(`roster-list__${value}`)) {
-				card.classList.add('hide');
+				container.classList.remove('hide');
+			} else if (!container.classList.contains(`roster-container__${value}`)) {
+				container.classList.add('hide');
 			} else {
-				card.classList.remove('hide');
+				container.classList.remove('hide');
 			}
 		}
 	});

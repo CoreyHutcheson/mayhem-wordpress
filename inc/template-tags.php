@@ -164,9 +164,9 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 
 		if ( $roster_query->have_posts() ) : ?>
 
-			<h1 class="roster__header"><?php echo $header ?></h1>
+			<h1 class="roster-container__header"><?php echo $header ?></h1>
 
-			<div class="roster__content">
+			<div class="roster-container__content">
 			
 				<?php while ( $roster_query->have_posts() ) :
 					$roster_query->the_post(); ?>
