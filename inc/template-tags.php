@@ -164,14 +164,14 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 
 		if ( $roster_query->have_posts() ) : ?>
 
-			<h1 class="roster__header"><?php echo $header ?></h1>
+			<h1 class="c-roster-card__header"><?php echo $header ?></h1>
 
 			<?php 
 			while ( $roster_query->have_posts() ) :
 				$roster_query->the_post(); 
 			?>
 			<!-- Start Loop Content -->
-			
+
 			<span><?php the_title(); ?></span>
 
 			<!-- End Loop Content -->
