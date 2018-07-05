@@ -27,16 +27,16 @@ get_header();
 		  		<label class="c-choice-toggle__label" for="referees">Referees</label>
 			</form>
 
-			<div class="site-main__roster roster-list">
-				<div class="roster-list__wrestlers c-roster-card">
+			<div class="site-main__roster roster">
+				<div class="roster__wrestlers">
 					<?php mayhem_roster_query('Wrestler'); ?>
 				</div>
 
-				<div class="roster-list__managers c-roster-card">
+				<div class="roster__managers">
 					<?php mayhem_roster_query('Manager'); ?>
 				</div>
 
-				<div class="roster-list__referees c-roster-card">
+				<div class="roster__referees">
 					<?php mayhem_roster_query('Referee'); ?>
 				</div>
 			</div>
