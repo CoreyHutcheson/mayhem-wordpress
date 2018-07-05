@@ -171,9 +171,7 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 				<?php while ( $roster_query->have_posts() ) :
 					$roster_query->the_post(); ?>
 
-					<!-- Start Loop Content -->
-					<?php create_card(); ?>
-					<!-- End Loop Content -->
+					<?php mayhem_create_roster_card(); ?>
 
 				<?php endwhile; ?>
 			
@@ -183,14 +181,17 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 	}
 endif;
 
-function create_card() {
-	// Get all custom roster fields
-	$fields = get_fields(); ?>
+if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 
-	<div class="c-roster-card">
-		<?php the_title(); ?>
-	</div>
+	function mayhem_create_roster_card() {
+		// Get all custom roster fields
+		$fields = get_fields(); ?>
 
-	<?php
-	return;
-}
+		<div class="c-roster-card">
+			<?php the_title(); ?>
+		</div>
+
+		<?php
+		return;
+	}
+endif;
