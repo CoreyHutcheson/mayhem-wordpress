@@ -154,24 +154,24 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 	function mayhem_roster_query($cat_name) {
 		$args = array(
 			'post_type' => 'roster',
-			'category_name' => ucwords($cat_name)
+			'orderby' => 'title',
+			'order' => 'ASC',
+			'category_name' => lcfirst($cat_name)
 		);
 
-		PC::debug($args);
-
 		$header = $cat_name . 's';
-		$query = new WP_Query($args);
+		$roster_query = new WP_Query($args);
 
-		if ( $query->have_posts() ) : ?>
+		if ( $roster_query->have_posts() ) : ?>
 
 			<h1 class="roster__header"><?php echo $header ?></h1>
 
 			<?php 
-			while ( $query->have_posts() ) :
-				$query->the_post(); 
+			while ( $roster_query->have_posts() ) :
+				$roster_query->the_post(); 
 			?>
 			<!-- Start Loop Content -->
-
+			
 			<span><?php the_title(); ?></span>
 
 			<!-- End Loop Content -->
