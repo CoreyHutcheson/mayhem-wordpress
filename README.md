@@ -1,9 +1,3 @@
 TO-DO:
 
-1) Revamp Label / Input formatting
-	label
-		input
-		span
-	/label
-
-2) Get choices-container checked status working
+1) Change roster.js to work with new class naming convention
