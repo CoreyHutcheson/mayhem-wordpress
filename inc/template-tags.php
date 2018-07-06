@@ -183,12 +183,16 @@ endif;
 
 if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 
-	function mayhem_create_roster_card() {
-		// Get all custom roster fields
-		$fields = get_fields(); ?>
+	function mayhem_create_roster_card() { ?>
 
 		<div class="c-roster-card">
-			<?php the_title(); ?>
+			<div class="c-roster-card__name">
+				<?php the_title(); ?>
+			</div>
+
+			<div class="c-roster-card__description">
+				<?php the_field('description'); ?>
+			</div>
 		</div>
 
 		<?php
