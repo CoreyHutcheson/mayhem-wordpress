@@ -14,8 +14,8 @@ get_header();
 		<main id="main" class="site-main">
 
 			<form action="" class="site-main__form c-choice-toggle">
-				<input type="radio" name="roster-choice" class="c-choice-toggle__input" id="all" checked>
-				<label class="c-choice-toggle__label" for="all">All</label>
+					<input type="radio" name="roster-choice" class="c-choice-toggle__input" id="all" checked>
+					<label class="c-choice-toggle__label" for="all">All</label>
 			  
 		  		<input type="radio" name="roster-choice" class="c-choice-toggle__input" id="wrestlers">
 		  		<label class="c-choice-toggle__label" for="wrestlers">Wrestlers</label>
