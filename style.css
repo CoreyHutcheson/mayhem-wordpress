@@ -518,6 +518,8 @@ img {
   /* Make sure images are scaled correctly. */
   max-width: 100%;
   /* Adhere to container width. */
+  vertical-align: bottom;
+  /* Remove small gap underneath images */
 }
 
 figure {
@@ -1346,4 +1348,8 @@ body {
   background: #2b2b2b;
   box-shadow: inset 0px 0px 5px #c1c1c1;
   outline: none;
+}
+
+.c-roster-card {
+  background: pink;
 }
