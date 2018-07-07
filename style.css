@@ -1356,6 +1356,7 @@ body {
 
 .c-roster-card {
   width: 150px;
+  margin: 5%;
 }
 
 .c-roster-card__description {
@@ -1366,4 +1367,10 @@ body {
   .c-roster-card {
     width: 300px;
   }
+}
+
+.roster-container__content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }

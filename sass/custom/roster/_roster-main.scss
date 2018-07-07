@@ -3,3 +3,34 @@
 
 // Roster Cards
 @import 'c-roster-card';
+
+// Main Layout
+.l-roster-main {
+
+	&__form {
+
+	}
+
+	&__roster {
+
+	}
+}
+
+// Roster Container
+.roster-container {
+
+	// roster-container__wrestlers, etc
+	div {
+
+	}
+
+	&__header {
+
+	}
+
+	&__content {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+}
