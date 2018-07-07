@@ -11,9 +11,9 @@ get_header();
 ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		<main id="main" class="site-main l-roster-main">
 
-			<form action="" class="site-main__form c-choice-toggle">
+			<form action="" class="l-roster-main__form c-choice-toggle">
 					<input type="radio" name="roster-choice" class="c-choice-toggle__input" id="all" checked>
 					<label class="c-choice-toggle__label" for="all">All</label>
 			  
@@ -27,7 +27,7 @@ get_header();
 		  		<label class="c-choice-toggle__label" for="referees">Referees</label>
 			</form>
 
-			<div class="site-main__roster roster-container">
+			<div class="l-roster-main__roster roster-container">
 				<div class="roster-container__wrestlers">
 					<?php mayhem_roster_query('Wrestler'); ?>
 				</div>
