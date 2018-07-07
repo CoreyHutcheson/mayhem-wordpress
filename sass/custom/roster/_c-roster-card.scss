@@ -1,3 +1,25 @@
 .c-roster-card {
-	
+	width: 150px;
+
+	&__image-container {
+
+	}
+
+	&__img {
+
+	}
+
+	&__name {
+
+	}
+
+	&__description {
+		display: none;
+	}
+}
+
+@include for-tablet-landscape-up {
+	.c-roster-card {
+		width: 300px;
+	}
 }
