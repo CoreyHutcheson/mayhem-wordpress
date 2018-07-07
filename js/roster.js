@@ -4,7 +4,7 @@
  */
 (function() {
 	let choiceContainer = document.querySelector('.c-choice-toggle');
-	let rosterContainers = document.querySelectorAll('.site-main__roster > div');
+	let rosterContainers = document.querySelectorAll('.roster-container > div');
 
 	choiceContainer.addEventListener('click', function(e) {
 		let target = e.target;
