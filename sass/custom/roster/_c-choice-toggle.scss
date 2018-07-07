@@ -1,5 +1,6 @@
 .c-choice-toggle {
   display: flex;
+  justify-content: center;
 
   &__input {
     display: none;
@@ -13,7 +14,7 @@
   &__label {
     background: $color__background-header;
     color: $color__text-primary;
-    padding: 5px 5px;
+    padding: 5px 5%;
     border-right: 1px solid $color__text-primary;
     user-select: none;
 
