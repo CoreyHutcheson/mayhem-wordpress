@@ -1,6 +1,7 @@
 .c-choice-toggle {
   display: flex;
   justify-content: center;
+  text-align: center;
 
   &__input {
     display: none;
@@ -12,11 +13,14 @@
   }
 
   &__label {
+    flex: 1;
+    max-width: 200px;
     background: $color__background-header;
     color: $color__text-primary;
-    padding: 5px 5%;
+    padding: 5px 5px;
     border-right: 1px solid $color__text-primary;
     user-select: none;
+    font-size: .85rem;
 
     &:first-of-type {
       border-radius: 20px 0 0 20px;
@@ -31,6 +35,15 @@
       background: lighten($color__background-header, 2%);
       box-shadow: inset 0px 0px 5px #c1c1c1;
       outline: none;
+    }
+  }
+}
+
+@include for-tablet-landscape-up {
+  .c-choice-toggle {
+
+    &__label {
+      font-size: 1rem;
     }
   }
 }
