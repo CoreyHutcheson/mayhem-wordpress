@@ -186,6 +186,7 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 	function mayhem_create_roster_card() { ?>
 
 		<div class="c-roster-card">
+
 			<div class="c-roster-card__image-container">
 				<?php the_post_thumbnail( null, array("class" => "c-roster-card__img") ); ?>
 			</div>
@@ -193,6 +194,14 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 			<div class="c-roster-card__info">
 				<div class="c-roster-card__name">
 					<?php the_title(); ?>
+				</div>
+
+				<div class="c-roster-card__location">
+					
+				</div>
+
+				<div class="c-roster-card__excerpt">
+					
 				</div>
 
 				<div class="c-roster-card__description">
