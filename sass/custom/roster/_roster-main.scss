@@ -8,7 +8,7 @@
 .l-roster-main {
 
 	&__form {
-
+		margin-top: 1rem;
 	}
 
 	&__roster {
@@ -18,6 +18,7 @@
 
 // Roster Container
 .roster-container {
+	text-align: center;
 
 	// roster-container__wrestlers, etc
 	div {
@@ -25,7 +26,7 @@
 	}
 
 	&__header {
-
+		margin: .5rem 0;
 	}
 
 	&__content {
