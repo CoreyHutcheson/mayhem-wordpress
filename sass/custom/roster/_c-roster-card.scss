@@ -44,8 +44,14 @@
 	}
 }
 
-@include for-tablet-landscape-up {
+@media (min-width: 768px) {
 	.c-roster-card {
 		flex: 0 1 calc(33% - 32px);
+	}
+}
+
+@media (min-width: 1024px) {
+	.c-roster-card {
+		flex: 0 1 calc(25% - 32px);
 	}
 }
