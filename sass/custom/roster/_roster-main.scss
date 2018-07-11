@@ -37,6 +37,7 @@
 @include for-tablet-portrait-up {
 	.roster-container__content {
 		flex-direction: row;
+		align-items: flex-end;
 		flex-wrap: wrap;
 	}
 }

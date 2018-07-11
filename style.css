@@ -1443,6 +1443,7 @@ body {
 @media (min-width: 600px) {
   .roster-container__content {
     flex-direction: row;
+    align-items: flex-end;
     flex-wrap: wrap;
   }
 }

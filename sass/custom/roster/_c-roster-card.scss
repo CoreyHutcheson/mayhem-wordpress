@@ -1,8 +1,8 @@
-$margin: 1rem;
+$card-margin: 1rem;
 
 .c-roster-card {
 	display: flex;
-	margin: $margin;
+	margin: $card-margin;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 
@@ -53,19 +53,19 @@ $margin: 1rem;
 
 @include for-tablet-portrait-up {
 	.c-roster-card {
-		flex: 0 1 calc(50% - (#{$margin} * 2));
+		flex: 0 1 calc(50% - (#{$card-margin} * 2));
 		flex-direction: column;
 	}
 }
 
 @media (min-width: 768px) {
 	.c-roster-card {
-		flex: 0 1 calc(33% - (#{$margin} * 2));
+		flex: 0 1 calc(33% - (#{$card-margin} * 2));
 	}
 }
 
 @media (min-width: 1024px) {
 	.c-roster-card {
-		flex: 0 1 calc(25% - (#{$margin} * 2));
+		flex: 0 1 calc(25% - (#{$card-margin} * 2));
 	}
 }
