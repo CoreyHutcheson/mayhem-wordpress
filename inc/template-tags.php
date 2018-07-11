@@ -164,7 +164,9 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 
 		if ( $roster_query->have_posts() ) : ?>
 
-			<h1 class="roster-container__header"><?php echo $header ?></h1>
+			<h1 class="roster-container__header">
+				<?php echo $header ?>
+			</h1>
 
 			<div class="roster-container__content">
 			
@@ -197,15 +199,27 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 				</div>
 
 				<div class="c-roster-card__location">
-					
+					<?php the_field('location'); ?>
 				</div>
 
-				<div class="c-roster-card__excerpt">
-					
+				<div class="c-roster-card__quick-fact">
+					<?php the_field('quick_fact'); ?>
 				</div>
 
 				<div class="c-roster-card__description">
 					<?php the_field('description'); ?>
+				</div>
+
+				<div class="c-roster-card__website">
+					<?php
+					$link = get_field('website');
+
+					if ($link) : ?>
+						<a href="<?php echo $link['url']; ?>" 
+							 target="<?php echo $link['target']; ?>">
+							<i class="fas fa-globe"></i>
+						</a>
+					<?php endif; ?>
 				</div>
 			</div>
 
