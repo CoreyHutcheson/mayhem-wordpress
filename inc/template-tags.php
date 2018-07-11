@@ -221,6 +221,15 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 						</a>
 					<?php endif; ?>
 				</div>
+
+				<div class="c-roster-card__champion">
+					<?php 
+					// If a champion, shows belt image
+					if (get_field('champion')) :
+						echo wp_get_attachment_image(215);
+					endif;
+					?>
+				</div>
 			</div>
 
 		</div>
