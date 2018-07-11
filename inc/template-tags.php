@@ -226,9 +226,12 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 					<?php 
 					// If a champion, shows belt image
 					if (get_field('champion')) :
-						$icon_path = get_template_directory_uri() . '/assets/belt-icon.png'; ?>
-						<img src="<?php echo $icon_path; ?>">
-					<?php endif; ?>
+						$belt = wp_get_attachment_by_file_name('belt-icon');
+						if ($belt) :
+							echo wp_get_attachment_image($belt->ID);
+						endif;
+					endif; 
+					?>
 				</div>
 			</div>
 
@@ -236,5 +239,23 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 
 		<?php
 		return;
+	}
+endif;
+
+if ( ! function_exists( 'wp_get_attachment_by_file_name' ) ) :
+
+	function wp_get_attachment_by_file_name($file_name) {
+		$args = array(
+            'posts_per_page' => 1,
+            'post_type'      => 'attachment',
+            'name'           => trim ( $file_name ),
+        );
+
+        $get_attachment = new WP_Query( $args );
+
+        if ( $get_attachment->posts[0] )
+            return $get_attachment->posts[0];
+        else
+          return false;
 	}
 endif;
