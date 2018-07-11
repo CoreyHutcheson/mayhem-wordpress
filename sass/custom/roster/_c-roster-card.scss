@@ -3,6 +3,7 @@ $card-margin: 1rem;
 .c-roster-card {
 	display: flex;
 	margin: $card-margin;
+	margin-top: .5rem;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 
