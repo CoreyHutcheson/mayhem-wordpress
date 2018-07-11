@@ -226,9 +226,9 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 					<?php 
 					// If a champion, shows belt image
 					if (get_field('champion')) :
-						echo wp_get_attachment_image(215);
-					endif;
-					?>
+						$icon_path = get_template_directory_uri() . '/assets/belt-icon.png'; ?>
+						<img src="<?php echo $icon_path; ?>">
+					<?php endif; ?>
 				</div>
 			</div>
 
