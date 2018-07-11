@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:500,700');
 
-$font__main: sans-serif;
+// Custom Typography
+$font__stack--raleway: 'Raleway', Arial, sans-serif;
+
+$font__main: $font__stack--raleway;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
 
-// Custom Typography
-$font__stack--raleway: 'Raleway', Arial, sans-serif;
+
