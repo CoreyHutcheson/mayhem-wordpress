@@ -13,7 +13,7 @@
 
 	<?php mayhem_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content instagram-gallery">
 		<?php
 		the_content();
 

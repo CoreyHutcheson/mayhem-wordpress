@@ -1,3 +1,9 @@
 .site-content {
 	padding: 0 5%;
 }
+
+// Hide inserted <p> and <br> elements from gallery shortcode
+.instagram-gallery > p,
+.instagram-gallery > br {
+	display: none;
+}
