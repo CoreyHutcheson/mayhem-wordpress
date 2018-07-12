@@ -50,6 +50,37 @@ $card-margin: 1rem;
 		top: 0;
 		right: 3px;
 	}
+
+	// Greys out card on hover and focus
+	&:hover,
+	&:focus {
+		position: relative;
+		
+		// Target divs to prevent lowering opacity on pseudo elements
+		div {
+			opacity: .7;
+		}
+	}
+}
+
+// Uses the after pseudo element to show 'Details' box
+.c-roster-card:hover:after {
+	content: 'Details';
+	display: block;
+	position: absolute;
+
+	// Centers the element
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	opacity: .6;
+	z-index: 1;
+	background: rgba(0, 0, 0, 1.0);
+	color: white;
+	text-transform: uppercase;
+	padding: 10px 20px;
+	border-radius: 5px;
 }
 
 @include for-tablet-portrait-up {

@@ -1418,6 +1418,30 @@ body {
   right: 3px;
 }
 
+.c-roster-card:hover, .c-roster-card:focus {
+  position: relative;
+}
+
+.c-roster-card:hover div, .c-roster-card:focus div {
+  opacity: .7;
+}
+
+.c-roster-card:hover:after {
+  content: 'Details';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: .6;
+  z-index: 1;
+  background: black;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
 @media (min-width: 600px) {
   .c-roster-card {
     flex: 0 1 calc(50% - (1rem * 2));
