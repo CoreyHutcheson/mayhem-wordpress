@@ -53,7 +53,8 @@ $card-margin: 1rem;
 
 	// Greys out card on hover and focus
 	&:hover,
-	&:focus {
+	&:focus,
+	&:active {
 		position: relative;
 		
 		// Target divs to prevent lowering opacity on pseudo elements
@@ -64,7 +65,9 @@ $card-margin: 1rem;
 }
 
 // Uses the after pseudo element to show 'Details' box
-.c-roster-card:hover:after {
+.c-roster-card:hover:after,
+.c-roster-card:focus:after,
+.c-roster-card:active:after {
 	content: 'Details';
 	display: block;
 	position: absolute;
