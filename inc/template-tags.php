@@ -235,6 +235,8 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 				</div>
 			</div>
 
+			<div class="c-roster-card__hover-element">More</div>
+
 		</div>
 
 		<?php

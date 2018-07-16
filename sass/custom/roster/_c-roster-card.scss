@@ -1,11 +1,13 @@
 $card-margin: 1rem;
 
 .c-roster-card {
+	position: relative;
 	display: flex;
 	margin: $card-margin;
 	margin-top: .5rem;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
+	user-select: none;
 
 	&__image-container {
 		flex: 1 1 25%;
@@ -14,6 +16,26 @@ $card-margin: 1rem;
 
 	&__img {
 
+	}
+
+	&__hover-element {
+		position: absolute;
+		// Centers the element
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		display: none;
+		z-index: 1;
+		padding: 10px 20px;
+		border-radius: 5px;
+
+		background: $color__brand;
+		color: rgba(0, 0, 0, 1.0);
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: 2px;
+		cursor: pointer;
 	}
 
 	&__info {
@@ -51,39 +73,19 @@ $card-margin: 1rem;
 		right: 3px;
 	}
 
-	// Greys out card on hover and focus
 	&:hover,
 	&:focus,
 	&:active {
-		position: relative;
-		
-		// Target divs to prevent lowering opacity on pseudo elements
-		div {
-			opacity: .7;
+		.c-roster-card__image-container,
+		.c-roster-card__info {
+			opacity: 0.6;
+		}
+
+		.c-roster-card__hover-element {
+			display: block;
+			opacity: 0.8;
 		}
 	}
-}
-
-// Uses the after pseudo element to show 'Details' box
-.c-roster-card:hover:after,
-.c-roster-card:focus:after,
-.c-roster-card:active:after {
-	content: 'Details';
-	display: block;
-	position: absolute;
-
-	// Centers the element
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-
-	opacity: .6;
-	z-index: 1;
-	background: rgba(0, 0, 0, 1.0);
-	color: white;
-	text-transform: uppercase;
-	padding: 10px 20px;
-	border-radius: 5px;
 }
 
 @include for-tablet-portrait-up {
