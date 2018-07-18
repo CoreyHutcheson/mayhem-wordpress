@@ -1015,13 +1015,6 @@ object {
 # Custom
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-## Helper Functions
---------------------------------------------------------------*/
-.hide {
-  display: none;
-}
-
-/*--------------------------------------------------------------
 ## Layout
 --------------------------------------------------------------*/
 html {
@@ -1468,6 +1461,74 @@ body {
   }
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__wrapper {
+  border: 3px solid red;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 50px 1fr;
+  min-width: 300px;
+  max-width: 50%;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.modal__content {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  border: 2px solid blue;
+}
+
+.modal__close-btn {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.modal__prev-btn {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__next-btn {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__nav-btn {
+  color: black;
+}
+
+.modal__nav-btn:hover {
+  background: black;
+  color: white;
+}
+
+.modal .fas {
+  font-size: 3rem;
+}
+
 .l-roster-main__form {
   margin-top: 1rem;
 }
@@ -1489,4 +1550,12 @@ body {
     align-items: flex-end;
     flex-wrap: wrap;
   }
+}
+
+/*--------------------------------------------------------------
+## Helper Functions
+## Custom Helper functions must be at the end to overwrite correctly
+--------------------------------------------------------------*/
+.is-hidden {
+  display: none;
 }

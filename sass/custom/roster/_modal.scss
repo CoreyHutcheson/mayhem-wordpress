@@ -1,0 +1,70 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 2;
+  @include flexCenter();
+  
+  &__wrapper {
+    border: 3px solid red;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 50px 1fr;
+    min-width: 300px;
+    max-width: 50%;
+    max-height: 90vh;
+    overflow: auto;
+  }
+  
+  &__content {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    border: 2px solid blue;
+  }
+
+  &__img-container {
+
+  }
+
+  &__info {
+
+  }
+  
+  &__close-btn {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+  }
+  
+  &__prev-btn {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    @include flexCenter();
+  }
+  
+  &__next-btn {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    @include flexCenter();
+  }
+  
+  &__nav-btn {
+    color: black;
+    
+    &:hover {
+      background: black;
+      color: white;
+    }
+  }
+
+  // Modal Font Awesome Icons
+  .fas {
+    font-size: 3rem;
+  }
+}

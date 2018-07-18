@@ -35,11 +35,11 @@ function clickedChoiceToggle(target, rosterContainers) {
 
 	for (let container of rosterContainers) {
 		if (value === 'all') {
-			container.classList.remove('hide');
+			container.classList.remove('is-hidden');
 		} else if (!container.classList.contains(neededClass)) {
-			container.classList.add('hide');
+			container.classList.add('is-hidden');
 		} else {
-			container.classList.remove('hide');
+			container.classList.remove('is-hidden');
 		}
 	}
 }
@@ -52,13 +52,19 @@ function clickedHoverElement(target) {
 			// Removing class from current and adding to siblings
 	
 	// Remove js-card-expanded from all cards except clickedCard
-	let allCards = document.querySelectorAll('.c-roster-card');
-	for (let card of allCards) {
-		if (card === clickedCard) {
-			card.classList.add('js-card-expanded');
-		} else {
-			card.classList.remove('js-card-expanded');
-		}
-	}
+	allowOnlyOneModal(clickedCard);
 
+	function allowOnlyOneModal(clickedCard) {
+		let allCards = document.querySelectorAll('.c-roster-card');
+
+		for (let card of allCards) {
+			if (card !== clickedCard) {
+				card.classList.remove('js-is-modal');
+			} else {
+				card.classList.add('js-is-modal');
+			}
+		}
+
+		return;
+	}
 }

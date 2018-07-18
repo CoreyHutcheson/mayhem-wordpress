@@ -28,5 +28,11 @@
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
 
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // Media Query Mixins
 @import 'mixins-media-queries';

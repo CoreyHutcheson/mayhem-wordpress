@@ -148,7 +148,7 @@ function mayhem_scripts() {
 	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.0.13/css/all.css');
 
 	/** Enqueue roster.js if on archive-roster.php page */
-	if (is_archive('roster')) {
+	if (is_post_type_archive('roster')) {
 		wp_enqueue_script( 'mayhem-roster', get_template_directory_uri() . '/js/roster.js', array(), '20151215', true );
 	}
 }

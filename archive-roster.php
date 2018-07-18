@@ -44,7 +44,7 @@ get_header();
 			</div>
 
 			<!-- Modal Container -->
-			<div class="modal">
+			<div class="modal is-hidden">
 				<div class="modal__wrapper">
 
 					<span class="modal__close-btn modal__nav-btn">
