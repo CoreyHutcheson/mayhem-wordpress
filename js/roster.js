@@ -47,24 +47,48 @@ function clickedChoiceToggle(target, rosterContainers) {
 function clickedHoverElement(target) {
 	let clickedCard = target.closest('.c-roster-card');
 
-	// Add class to card to show in a modal view
-	// Add left and right arrows that will cycle through siblings
-			// Removing class from current and adding to siblings
-	
-	// Remove js-card-expanded from all cards except clickedCard
+	// Remove js-is-modal class from all cards except clickedCard
 	allowOnlyOneModal(clickedCard);
+	getCardDetails();
 
-	function allowOnlyOneModal(clickedCard) {
-		let allCards = document.querySelectorAll('.c-roster-card');
 
-		for (let card of allCards) {
-			if (card !== clickedCard) {
-				card.classList.remove('js-is-modal');
-			} else {
-				card.classList.add('js-is-modal');
-			}
+
+
+}
+
+function allowOnlyOneModal(clickedCard) {
+	let allCards = document.querySelectorAll('.c-roster-card');
+
+	for (let card of allCards) {
+		if (card !== clickedCard) {
+			card.classList.remove('js-is-modal');
+		} else {
+			card.classList.add('js-is-modal');
 		}
-
-		return;
 	}
+
+	return;
+}
+
+function getCardDetails() {
+	let cardToBeModal = document.querySelector('.js-is-modal');
+	let cardObject = {};
+	traverseNode(cardObject, cardToBeModal);
+
+	function traverseNode(obj, node) {
+		let children = node.children;
+		if(children.length > 0 ) {
+			for(let child of children) {
+				traverseNode(obj, child);
+			}
+		} else {
+			let str = node.className.split('c-roster-card__');
+			let keyName = str[1] ? str[1].split(' ')[0] : null;
+			console.log(keyName);
+			// obj[node.className] = node.textContent;
+		}
+	}
+
+	console.log(cardObject);
+
 }
