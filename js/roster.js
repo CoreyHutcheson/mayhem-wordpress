@@ -49,13 +49,17 @@ function clickedHoverElement(target) {
 
 	// Remove js-is-modal class from all cards except clickedCard
 	allowOnlyOneModal(clickedCard);
-	getCardDetails();
+	let modalContent = getModalDetails(clickedCard);
 
-
-
-
+	// Place modalContent in appropriate place inside DOM
+	document.querySelector('.js-modal-content').appendChild(modalContent);
+	// Remove hidden class on modal
+	document.querySelector('.modal').classList.remove('is-hidden');
 }
 
+/**
+ * Apply js-is-modal class to appropraite card, removing it from all other cards
+ */
 function allowOnlyOneModal(clickedCard) {
 	let allCards = document.querySelectorAll('.c-roster-card');
 
@@ -70,25 +74,17 @@ function allowOnlyOneModal(clickedCard) {
 	return;
 }
 
-function getCardDetails() {
-	let cardToBeModal = document.querySelector('.js-is-modal');
-	let cardObject = {};
-	traverseNode(cardObject, cardToBeModal);
+function getModalDetails(card) {
+	let cardClone = card.cloneNode(true);
 
-	function traverseNode(obj, node) {
-		let children = node.children;
-		if(children.length > 0 ) {
-			for(let child of children) {
-				traverseNode(obj, child);
-			}
-		} else {
-			let str = node.className.split('c-roster-card__');
-			let keyName = str[1] ? str[1].split(' ')[0] : null;
-			console.log(keyName);
-			// obj[node.className] = node.textContent;
-		}
-	}
+	// Loop over all elements replacing c-roster-card__ class with
+	// modal__ class
+	Array.from(cardClone.getElementsByTagName('*')).forEach(e => {
+	  e.className = e.className.replace('c-roster-card__', 'modal__');
+	});
 
-	console.log(cardObject);
+	// Change cardClone's className to .modal__content (removing js-is-modal)
+	cardClone.className = 'modal__content';
 
+	return cardClone;
 }

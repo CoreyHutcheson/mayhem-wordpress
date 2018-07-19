@@ -198,6 +198,12 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 					<?php the_title(); ?>
 				</div>
 
+				<?php if (get_field('nickname')) : ?>
+					<div class="c-roster-card__nickname">
+						<?php the_field('nickname'); ?>
+					</div>
+				<?php endif; ?>
+
 				<div class="c-roster-card__location">
 					<?php the_field('location'); ?>
 				</div>
@@ -228,7 +234,7 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 					if (get_field('champion')) :
 						$belt = wp_get_attachment_by_file_name('belt-icon');
 						if ($belt) :
-							echo wp_get_attachment_image($belt->ID);
+							echo wp_get_attachment_image($belt->ID, null, null, array('class' => 'c-roster-card__belt'));
 						endif;
 					endif; 
 					?>

@@ -49,6 +49,10 @@ $card-margin: 1rem;
 		font-weight: 700;
 	}
 
+	&__nickname {
+		display: none;
+	}
+
 	&__location {
 		font-weight: 500;
 	}

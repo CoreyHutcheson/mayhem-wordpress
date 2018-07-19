@@ -63,8 +63,13 @@
     }
   }
 
+  &__hover-element {
+    display: none;
+  }
+
   // Modal Font Awesome Icons
   .fas {
     font-size: 3rem;
   }
+
 }

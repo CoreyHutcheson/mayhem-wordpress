@@ -55,16 +55,7 @@ get_header();
 						<i class="fas fa-arrow-left"></i>
 					</span>
 
-					<div class="modal__content">
-						<div class="modal__img-container"></div>
-						<div class="modal__info">
-							<div class="modal__name"></div>
-							<div class="modal__location"></div>
-							<div class="modal__quick-fact"></div>
-							<div class="modal__description"></div>
-							<div class="modal__website"></div>
-							<div class="modal__champion"></div>
-						</div>
+					<div class="js-modal-content">
 					</div>
 
 					<span class="modal__next-btn modal__nav-btn">

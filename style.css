@@ -1406,6 +1406,10 @@ body {
   font-weight: 700;
 }
 
+.c-roster-card__nickname {
+  display: none;
+}
+
 .c-roster-card__location {
   font-weight: 500;
 }
@@ -1523,6 +1527,10 @@ body {
 .modal__nav-btn:hover {
   background: black;
   color: white;
+}
+
+.modal__hover-element {
+  display: none;
 }
 
 .modal .fas {
