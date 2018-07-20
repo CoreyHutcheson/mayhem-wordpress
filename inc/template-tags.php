@@ -194,9 +194,12 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 			</div>
 
 			<div class="c-roster-card__info">
-				<div class="c-roster-card__name">
-					<?php the_title(); ?>
-				</div>
+
+				<?php if (get_the_title()) : ?>
+					<div class="c-roster-card__name">
+						<?php the_title(); ?>
+					</div>
+				<?php endif; ?>
 
 				<?php if (get_field('nickname')) : ?>
 					<div class="c-roster-card__nickname">
@@ -204,42 +207,46 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 					</div>
 				<?php endif; ?>
 
-				<div class="c-roster-card__location">
-					<?php the_field('location'); ?>
-				</div>
+				<?php if (get_field('location')) : ?>
+					<div class="c-roster-card__location">
+						<?php the_field('location'); ?>
+					</div>
+				<?php endif; ?>
 
-				<div class="c-roster-card__quick-fact">
-					<?php the_field('quick_fact'); ?>
-				</div>
+				<?php if (get_field('quick_fact')) : ?>
+					<div class="c-roster-card__quick-fact">
+						<?php the_field('quick_fact'); ?>
+					</div>
+				<?php endif; ?>
 
-				<div class="c-roster-card__description">
-					<?php the_field('description'); ?>
-				</div>
+				<?php if (get_field('description')) : ?>
+					<div class="c-roster-card__description">
+						<?php the_field('description'); ?>
+					</div>
+				<?php endif; ?>
 
-				<div class="c-roster-card__website">
-					<?php
-					$link = get_field('website');
-
+				<?php if (get_field('website')) :
+					$link = get_field('website'); 
 					if ($link) : ?>
-						<a href="<?php echo $link['url']; ?>" 
-							 target="<?php echo $link['target']; ?>">
-							<i class="fas fa-globe"></i>
-						</a>
+						<div class="c-roster-card__website">
+							<a href="<?php echo $link['url']; ?>" 
+								 target="<?php echo $link['target']; ?>">
+								<i class="fas fa-globe"></i>
+							</a>
+						</div>
 					<?php endif; ?>
-				</div>
+				<?php endif; ?>
 
-				<div class="c-roster-card__champion">
-					<?php 
-					// If a champion, shows belt image
-					if (get_field('champion')) :
-						$belt = wp_get_attachment_by_file_name('belt-icon');
-						if ($belt) :
-							echo wp_get_attachment_image($belt->ID, null, null, array('class' => 'c-roster-card__belt'));
-						endif;
-					endif; 
-					?>
-				</div>
-			</div>
+				<?php if (get_field('champion')) :
+					$belt = wp_get_attachment_by_file_name('belt-icon');
+					if ($belt) : ?>
+						<div class="c-roster-card__champion">
+							<?php echo wp_get_attachment_image($belt->ID, null, null, array('class' => 'c-roster-card__belt')); ?>
+						</div>
+					<?php endif; ?>
+				<?php endif; ?>
+
+			</div> <!-- /.c-roster-card__info -->
 
 			<div class="c-roster-card__hover-element">More</div>
 
