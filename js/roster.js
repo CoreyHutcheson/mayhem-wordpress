@@ -64,7 +64,7 @@ function clickedHoverElement(target) {
 
 	// Remove js-is-modal class from all cards except clickedCard
 	allowOnlyOneModal(clickedCard);
-	populateModalContent();
+	populateModalContent(clickedCard);
 }
 
 /**
@@ -88,8 +88,8 @@ function allowOnlyOneModal(clickedCard) {
  * Populates the .modal__content container with the correct card
  * details.
  */
-function populateModalContent() {
-	let cardToBeModal = document.querySelector('.js-is-modal');
+function populateModalContent(cardToBeModal) {
+
 	let modalContentElement = document.querySelector('.js-modal-content');
 	let newModalDetails = getCardDetails(cardToBeModal);
 
@@ -146,5 +146,10 @@ function assignNewModal(num) {
 	let newIndex = currentIndex + num;
 	newIndex = (newIndex < 0) ? (allCards.length - 1) : (newIndex % allCards.length);
 
-	populateModalContent();
+	// Remove js-is-modal class from current card
+	allCards[currentIndex].classList.remove('js-is-modal');
+	// Assign js-is-modal class to new card to become modal
+	allCards[newIndex].classList.add('js-is-modal');
+
+	populateModalContent(allCards[newIndex]);
 }
