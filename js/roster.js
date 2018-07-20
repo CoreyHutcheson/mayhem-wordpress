@@ -4,152 +4,188 @@
 	const rosterContainers = mainRosterContainer.children;
 	const modal = document.querySelector('.modal');
 
+	// Add click event to roster filter toggle
 	choiceContainer.addEventListener('click', function(e) {
 		let target = e.target;
-
-		// Toggle Label was clicked
-		if (target.nodeName === 'LABEL') {
-			clickedChoiceToggle(target, rosterContainers);
+		if (target.nodeName.toLowerCase() !== 'label') 
 			return;
-		}
+
+		clickedChoiceToggle(target, rosterContainers);
+		return;
 	});
 
+	// Add click event to more/details hover element
 	mainRosterContainer.addEventListener('click', function(e) {
 		let target = e.target;
-
-		// Hover Element (More/Details Btn) was clicked
-		if (target.classList.contains('c-roster-card__hover-element')) {
-			clickedHoverElement(target);
+		if (!target.classList.contains('c-roster-card__hover-element')) 
 			return;
-		}
+
+		clickedHoverElement(target);
+		return;
 	})
 
 	// Add click event to modal buttons
 	modal.addEventListener('click', function(e) {
 		let target = e.target;
 
-		if (target.closest('.modal__close-btn') || 
-			target.classList.contains('modal')) {
-			closeModal();
+		if (target.closest('.modal__close-btn') || target.classList.contains('modal')) {
+			// Close button or outside of modal-wrapper was clicked
+			closeModal(modal);
 		} else if (target.closest('.modal__prev-btn')) {
-			clickedPrevButton();
+			assignNewModal(-1);
 		} else if (target.closest('.modal__next-btn')) {
-			clickedNextButton();
+			assignNewModal(1);
 		}
 	})
 
 })();
 
 /**
- * Shows and Hides the appropriate roster divs when toggle button
- * changes
+ * Toggles display of appropriate roster divs
+ * @param  {object - node} target : clicked hover element
+ * @param  {array - HTMLCollection} rosterContainers : children of mainRosterContainer
+ * @return {undefined}
  */
 function clickedChoiceToggle(target, rosterContainers) {
 	let value = target.getAttribute('for');
 	let neededClass = `roster-container__${value}`;
 
-	for (let container of rosterContainers) {
-		if (value === 'all') {
-			container.classList.remove('is-hidden');
-		} else if (!container.classList.contains(neededClass)) {
-			container.classList.add('is-hidden');
-		} else {
-			container.classList.remove('is-hidden');
-		}
+	if (value === 'all') {
+		// All toggle button was clicked.  Unhide all roster containers.
+		Array.prototype.forEach.call(rosterContainers, rc => rc.classList.remove('is-hidden'));
+		return;
 	}
+
+	// Loop through roster containers hiding all that don't have the needed class
+	Array.prototype.forEach.call(rosterContainers, rc => {
+		if (!rc.classList.contains(neededClass)) {
+			rc.classList.add('is-hidden');
+		} else {
+			rc.classList.remove('is-hidden');
+		}
+	});
 }
 
+/**
+ * Expands clicked card to modal
+ * @param  {object - node} target : clicked details hover element
+ * @return {undefined}
+ */
 function clickedHoverElement(target) {
 	let clickedCard = target.closest('.c-roster-card');
 
-	// Remove js-is-modal class from all cards except clickedCard
-	allowOnlyOneModal(clickedCard);
+	applyCardModalClass(clickedCard);
 	populateModalContent(clickedCard);
 }
 
 /**
- * Apply js-is-modal class to appropraite card, removing it from all other cards
+ * Applies 'js-is-modal' class to appropriate card, removing all other instances of the class
+ * @param  {object - node} card : The card that should have 'js-is-modal' class added to it
+ * @return {undefined}
  */
-function allowOnlyOneModal(clickedCard) {
-	let allCards = document.querySelectorAll('.c-roster-card');
-
-	for (let card of allCards) {
-		if (card !== clickedCard) {
-			card.classList.remove('js-is-modal');
-		} else {
-			card.classList.add('js-is-modal');
-		}
-	}
-
+function applyCardModalClass(card) {
+	removeModalClassFromCards();
+	addModalClassToCard(card);
 	return;
 }
 
 /**
- * Populates the .modal__content container with the correct card
- * details.
+ * Removes 'js-is-modal' class from all cards
+ * @return {undefined}
+ */
+function removeModalClassFromCards() {
+	let allCards = document.querySelectorAll('.c-roster-card');
+	Array.prototype.forEach.call(allCards, e => e.classList.remove('js-is-modal'));
+	return;
+}
+
+/**
+ * Adds 'js-is-modal' class to argument card
+ * @param {object - node} card [description]
+ * @return {undefined}
+ */
+function addModalClassToCard(card) {
+	card.classList.add('js-is-modal');
+	return;
+}
+
+/**
+ * [populateModalContent description]
+ * @param  {[type]} cardToBeModal [description]
+ * @return {[type]}               [description]
  */
 function populateModalContent(cardToBeModal) {
+	/**
+	 * Clones card, and changes the classes from '.c-roster-card__' to '.modal__'
+	 * @param  {object - node} card : card to clone
+	 * @return {object - node} clone of card with changed classes
+	 */
+	const getCardDetails = (card) => {
+		let clone = card.cloneNode(true);
+		let elements = clone.getElementsByTagName('*');
+
+		Array.prototype.forEach.call(elements, e => {
+			e.className = e.className.replace('c-roster-card__', 'modal__');
+		});
+
+		clone.className = 'modal__content';
+
+		return clone;
+	};
 
 	let modalContentElement = document.querySelector('.js-modal-content');
 	let newModalDetails = getCardDetails(cardToBeModal);
 
-	// Clear current modal content
-	while (modalContentElement.firstChild) {
-		modalContentElement.removeChild(modalContentElement.firstChild);
-	}
-
-	// Insert the new modal details into the modal content container
+	cleanNode(modalContentElement);
 	modalContentElement.appendChild(newModalDetails);
 	// Remove the modal .is-hidden class if applicable
 	document.querySelector('.modal').classList.remove('is-hidden');
 }
 
 /**
- * Takes card and returns a clone with '.modal__' class names
+ * Removes all child elements from a given node
+ * @param  {object - node} node : the node that is to be cleaned
+ * @return {undefined}
  */
-function getCardDetails(clickedCard) {
-	let cardClone = clickedCard.cloneNode(true);
-
-	// Loop over all elements replacing c-roster-card__ class with
-	// modal__ class
-	Array.from(cardClone.getElementsByTagName('*')).forEach(e => {
-	  e.className = e.className.replace('c-roster-card__', 'modal__');
-	});
-
-	// Change cardClone's className to .modal__content (removing js-is-modal)
-	cardClone.className = 'modal__content';
-
-	return cardClone;
+function cleanNode(node) {
+	while (node.firstChild) {
+		node.removeChild(node.firstChild);
+	}
 }
 
-function closeModal() {
+/**
+ * Closes the modal by adding 'is-hidden' class and removing all 'js-is-modal' classes from cards
+ * @param  {object - node} modal - document.querySelector('.modal');
+ * @return {undefined}
+ */
+function closeModal(modal) {
 	// Add hidden class to modal
-	let modal = document.querySelector('.modal');
 	modal.classList.add('is-hidden');
-
-	// Remove js-is-modal class from all cards
-	let allCards = document.querySelectorAll('.c-roster-card');
-	Array.from(allCards).forEach(e => e.classList.remove('js-is-modal'));
+	removeModalClassFromCards();
 }
 
-function clickedPrevButton() {
-	assignNewModal(-1);
-}
-
-function clickedNextButton() {
-	assignNewModal(1);
-}
-
+/**
+ * Changes current modal card
+ * @param  {number} num : positive or negative value indicating whether to increase or decrease the current modal index
+ * @return {undefined}
+ */
 function assignNewModal(num) {
-	let allCards = Array.from(document.querySelectorAll('.c-roster-card'));
-	let currentIndex = allCards.findIndex(x => x.classList.contains('js-is-modal'));
-	let newIndex = currentIndex + num;
-	newIndex = (newIndex < 0) ? (allCards.length - 1) : (newIndex % allCards.length);
+	/**
+	 * Gets newIndex by finding current card with 'js-is-modal' class and adding the [pos/neg] num to it
+	 * @param  {array - nodeList} cards : list of all '.c-roster-card' cards
+	 * @param  {number} : number to add to oldIndex
+	 * @return {number} : new index value
+	 */
+	const getNewIndex = (cards, num) => {
+		let oldIndex = Array.prototype.findIndex.call(cards, x => x.classList.contains('js-is-modal'));
+		let newIndex = oldIndex + num;
+		return (newIndex < 0) ? (cards.length - 1) : (newIndex % cards.length);
+	};
 
-	// Remove js-is-modal class from current card
-	allCards[currentIndex].classList.remove('js-is-modal');
-	// Assign js-is-modal class to new card to become modal
-	allCards[newIndex].classList.add('js-is-modal');
+	let allCards = document.querySelectorAll('.c-roster-card');
+	let newIndex = getNewIndex(allCards, num);
+	let newCard = allCards[newIndex];
 
-	populateModalContent(allCards[newIndex]);
+	applyCardModalClass(newCard);
+	populateModalContent(newCard);
 }
