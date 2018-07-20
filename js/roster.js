@@ -2,6 +2,7 @@
 	const choiceContainer = document.querySelector('.c-choice-toggle');
 	const mainRosterContainer = document.querySelector('.roster-container');
 	const rosterContainers = mainRosterContainer.children;
+	const modal = document.querySelector('.modal');
 
 	choiceContainer.addEventListener('click', function(e) {
 		let target = e.target;
@@ -20,6 +21,21 @@
 		if (target.classList.contains('c-roster-card__hover-element')) {
 			clickedHoverElement(target);
 			return;
+		}
+	})
+
+	// Add click event to modal buttons
+	modal.addEventListener('click', function(e) {
+		let target = e.target;
+
+		if (target.closest('.modal__close-btn')) {
+			clickedCloseButton();
+		} else if (target.closest('.modal__prev-btn')) {
+			clickedPrevButton();
+		} else if (target.closest('.modal__next-btn')) {
+			clickedNextButton();
+		} else if (target.classList.contains('modal')) {
+			clickedOutsideModalWrapper();
 		}
 	})
 
@@ -49,12 +65,7 @@ function clickedHoverElement(target) {
 
 	// Remove js-is-modal class from all cards except clickedCard
 	allowOnlyOneModal(clickedCard);
-	let modalContent = getModalDetails(clickedCard);
-
-	// Place modalContent in appropriate place inside DOM
-	document.querySelector('.js-modal-content').appendChild(modalContent);
-	// Remove hidden class on modal
-	document.querySelector('.modal').classList.remove('is-hidden');
+	populateModalContent();
 }
 
 /**
@@ -74,8 +85,26 @@ function allowOnlyOneModal(clickedCard) {
 	return;
 }
 
-function getModalDetails(card) {
-	let cardClone = card.cloneNode(true);
+/**
+ * Populates the .modal__content container with the correct card
+ * details.
+ */
+function populateModalContent() {
+	let cardToBeModal = document.querySelector('.js-is-modal');
+	let modalContentElement = document.querySelector('.js-modal-content');
+	let newModalDetails = getCardDetails(cardToBeModal);
+
+	// Insert the new modal details into the modal content container
+	modalContentElement.appendChild(newModalDetails);
+	// Remove the modal .is-hidden class if applicable
+	document.querySelector('.modal').classList.remove('is-hidden');
+}
+
+/**
+ * Takes card and returns a clone with '.modal__' class names
+ */
+function getCardDetails(clickedCard) {
+	let cardClone = clickedCard.cloneNode(true);
 
 	// Loop over all elements replacing c-roster-card__ class with
 	// modal__ class
@@ -87,4 +116,20 @@ function getModalDetails(card) {
 	cardClone.className = 'modal__content';
 
 	return cardClone;
+}
+
+function clickedCloseButton() {
+	console.log('close');
+}
+
+function clickedPrevButton() {
+	console.log('prev');
+}
+
+function clickedNextButton() {
+	console.log('next');
+}
+
+function clickedOutsideModalWrapper() {
+	console.log('outside');
 }
