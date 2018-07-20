@@ -9,7 +9,6 @@
   @include flexCenter();
   
   &__wrapper {
-    border: 3px solid red;
     display: grid;
     grid-template-columns: 50px 1fr 50px;
     grid-template-rows: 50px 1fr;
@@ -22,7 +21,6 @@
   &__content {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    border: 2px solid blue;
   }
 
   &__img-container {
@@ -40,18 +38,30 @@
     justify-content: flex-end;
     align-items: center;
     padding-right: 10px;
+
+    &:hover {
+      border-radius: 20px 20px 0 0;
+    }
   }
   
   &__prev-btn {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     @include flexCenter();
+
+    &:hover {
+      border-radius: 20px 0 0 20px;
+    }
   }
   
   &__next-btn {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
     @include flexCenter();
+
+    &:hover {
+      border-radius: 0 20px 20px 0;
+    }
   }
   
   &__nav-btn {
@@ -59,7 +69,7 @@
     
     &:hover {
       background: black;
-      color: white;
+      color: $color__brand;
     }
   }
 
@@ -72,4 +82,29 @@
     font-size: 3rem;
   }
 
+  .fa-globe {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal {
+
+    &__wrapper {
+      max-width: 70vw;
+      max-height: 80vh;
+    }
+
+    &__content {
+      @include flexCenter();
+    }
+
+    &__image-container {
+      flex: 1 1 50%;
+    }
+
+    &__info {
+      flex: 1 1 50%;
+    }
+  }
 }
