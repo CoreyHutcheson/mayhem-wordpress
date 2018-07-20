@@ -94,6 +94,11 @@ function populateModalContent() {
 	let modalContentElement = document.querySelector('.js-modal-content');
 	let newModalDetails = getCardDetails(cardToBeModal);
 
+	// Clear current modal content
+	while (modalContentElement.firstChild) {
+		modalContentElement.removeChild(modalContentElement.firstChild);
+	}
+
 	// Insert the new modal details into the modal content container
 	modalContentElement.appendChild(newModalDetails);
 	// Remove the modal .is-hidden class if applicable
@@ -119,17 +124,52 @@ function getCardDetails(clickedCard) {
 }
 
 function clickedCloseButton() {
-	console.log('close');
+	console.log('close modal on click');
 }
 
 function clickedPrevButton() {
-	console.log('prev');
+	assignNewModal('prev');
 }
 
 function clickedNextButton() {
-	console.log('next');
+	assignNewModal('next');
 }
 
 function clickedOutsideModalWrapper() {
-	console.log('outside');
+	console.log('close modal on click');
+}
+
+function assignNewModal(clickedBtn) {
+	let allCards = document.querySelectorAll('.c-roster-card');
+
+	for (let [index, card] of allCards.entries()) {
+		if (!card.classList.contains('js-is-modal')) continue;
+
+		// Remove js-is-modal class from current card
+		card.classList.remove('js-is-modal');
+
+		if (clickedBtn === 'prev') {
+
+			if (index === 0) {
+				allCards[allCards.length - 1].classList.add('js-is-modal');
+			} else {
+				allCards[index - 1].classList.add('js-is-modal');
+			}
+
+		} else if (clickedBtn === 'next') {
+
+			if (index === allCards.length - 1) {
+				console.log('test1');
+				allCards[0].classList.add('js-is-modal');
+			} else {
+				console.log('test2');
+				allCards[index + 1].classList.add('js-is-modal');
+			}
+
+		}
+
+		break;
+	}
+
+	populateModalContent();
 }
