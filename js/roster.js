@@ -28,14 +28,13 @@
 	modal.addEventListener('click', function(e) {
 		let target = e.target;
 
-		if (target.closest('.modal__close-btn')) {
-			clickedCloseButton();
+		if (target.closest('.modal__close-btn') || 
+			target.classList.contains('modal')) {
+			closeModal();
 		} else if (target.closest('.modal__prev-btn')) {
 			clickedPrevButton();
 		} else if (target.closest('.modal__next-btn')) {
 			clickedNextButton();
-		} else if (target.classList.contains('modal')) {
-			clickedOutsideModalWrapper();
 		}
 	})
 
@@ -123,8 +122,14 @@ function getCardDetails(clickedCard) {
 	return cardClone;
 }
 
-function clickedCloseButton() {
-	console.log('close modal on click');
+function closeModal() {
+	// Add hidden class to modal
+	let modal = document.querySelector('.modal');
+	modal.classList.add('is-hidden');
+
+	// Remove js-is-modal class from all cards
+	let allCards = document.querySelectorAll('.c-roster-card');
+	Array.from(allCards).forEach(e => e.classList.remove('js-is-modal'));
 }
 
 function clickedPrevButton() {
@@ -133,10 +138,6 @@ function clickedPrevButton() {
 
 function clickedNextButton() {
 	assignNewModal('next');
-}
-
-function clickedOutsideModalWrapper() {
-	console.log('close modal on click');
 }
 
 function assignNewModal(clickedBtn) {
