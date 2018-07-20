@@ -133,44 +133,18 @@ function closeModal() {
 }
 
 function clickedPrevButton() {
-	assignNewModal('prev');
+	assignNewModal(-1);
 }
 
 function clickedNextButton() {
-	assignNewModal('next');
+	assignNewModal(1);
 }
 
-function assignNewModal(clickedBtn) {
-	let allCards = document.querySelectorAll('.c-roster-card');
-
-	for (let [index, card] of allCards.entries()) {
-		if (!card.classList.contains('js-is-modal')) continue;
-
-		// Remove js-is-modal class from current card
-		card.classList.remove('js-is-modal');
-
-		if (clickedBtn === 'prev') {
-
-			if (index === 0) {
-				allCards[allCards.length - 1].classList.add('js-is-modal');
-			} else {
-				allCards[index - 1].classList.add('js-is-modal');
-			}
-
-		} else if (clickedBtn === 'next') {
-
-			if (index === allCards.length - 1) {
-				console.log('test1');
-				allCards[0].classList.add('js-is-modal');
-			} else {
-				console.log('test2');
-				allCards[index + 1].classList.add('js-is-modal');
-			}
-
-		}
-
-		break;
-	}
+function assignNewModal(num) {
+	let allCards = Array.from(document.querySelectorAll('.c-roster-card'));
+	let currentIndex = allCards.findIndex(x => x.classList.contains('js-is-modal'));
+	let newIndex = currentIndex + num;
+	newIndex = (newIndex < 0) ? (allCards.length - 1) : (newIndex % allCards.length);
 
 	populateModalContent();
 }
