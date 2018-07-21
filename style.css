@@ -1480,8 +1480,8 @@ body {
 
 .modal__wrapper {
   display: grid;
-  grid-template-columns: 50px 1fr 50px;
-  grid-template-rows: 50px 1fr;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr;
   min-width: 300px;
   max-width: 50%;
   max-height: 90vh;
@@ -1491,6 +1491,15 @@ body {
 .modal__content {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+}
+
+.modal__info {
+  position: relative;
+  padding: 5px;
+}
+
+.modal__hover-element {
+  display: none;
 }
 
 .modal__close-btn {
@@ -1509,6 +1518,7 @@ body {
 .modal__prev-btn {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+  padding: 0 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1521,6 +1531,7 @@ body {
 .modal__next-btn {
   grid-column: 3 / 4;
   grid-row: 2 / 3;
+  padding: 0 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1539,16 +1550,78 @@ body {
   color: #f8fa2c;
 }
 
-.modal__hover-element {
-  display: none;
-}
-
 .modal .fas {
   font-size: 3rem;
 }
 
 .modal .fa-globe {
   font-size: 1rem;
+}
+
+.modal__name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.modal__nickname {
+  display: flex;
+  align-items: baseline;
+  font-size: .8rem;
+  margin-top: -4px;
+}
+
+.modal__nickname:before {
+  content: 'Nickname:';
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.modal__location {
+  display: flex;
+  align-items: baseline;
+  font-size: .8rem;
+  margin-top: -3px;
+  line-height: 12px;
+}
+
+.modal__location:before {
+  content: 'Hometown:';
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.modal__quick-fact {
+  position: relative;
+  font-size: .8rem;
+  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  line-height: 13px;
+}
+
+.modal__quick-fact:before {
+  content: 'Facts:';
+  font-weight: 800;
+  position: absolute;
+  top: -8px;
+  left: 11px;
+  background: white;
+  padding: 0 3px;
+}
+
+.modal__website {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+}
+
+.modal__champion {
+  position: absolute;
+  top: 0;
+  right: 5px;
 }
 
 @media (min-width: 768px) {
