@@ -147,10 +147,12 @@ if ( ! function_exists( 'mayhem_post_thumbnail' ) ) :
 	}
 endif;
 
+/**
+ * Queries roster post type using category name
+ * Loops through query result creating cards for each gimmick in category
+ */
 if ( ! function_exists( 'mayhem_roster_query' ) ) :
-	/**
-	 * Queries roster post type using category name
-	 */
+
 	function mayhem_roster_query($cat_name) {
 		$args = array(
 			'post_type' => 'roster',
@@ -183,6 +185,9 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 	}
 endif;
 
+/**
+ * Creates html roster card for each gimmick
+ */
 if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 
 	function mayhem_create_roster_card() { ?>
@@ -201,29 +206,16 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 					</div>
 				<?php endif; ?>
 
-				<?php if (get_field('nickname')) : ?>
-					<div class="c-roster-card__nickname">
-						<?php the_field('nickname'); ?>
-					</div>
-				<?php endif; ?>
-
-				<?php if (get_field('location')) : ?>
-					<div class="c-roster-card__location">
-						<?php the_field('location'); ?>
-					</div>
-				<?php endif; ?>
-
-				<?php if (get_field('quick_fact')) : ?>
-					<div class="c-roster-card__quick-fact">
-						<?php the_field('quick_fact'); ?>
-					</div>
-				<?php endif; ?>
-
-				<?php if (get_field('description')) : ?>
-					<div class="c-roster-card__description">
-						<?php the_field('description'); ?>
-					</div>
-				<?php endif; ?>
+				<?php // Loops through array creating a div if the custom field exists
+					$arr = array('nickname', 'location', 'quick-fact', 'description');
+					foreach ($arr as $value) :
+						if (get_field($value)) : ?>
+							<div class="c-roster-card__<?php echo $value ?>">
+								<?php the_field($value); ?>
+							</div>
+						<?php endif;
+					endforeach;
+				?>
 
 				<?php if (get_field('website')) :
 					$link = get_field('website'); 
@@ -257,6 +249,9 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 	}
 endif;
 
+/**
+ * Queries attachments by file name
+ */
 if ( ! function_exists( 'wp_get_attachment_by_file_name' ) ) :
 
 	function wp_get_attachment_by_file_name($file_name) {
