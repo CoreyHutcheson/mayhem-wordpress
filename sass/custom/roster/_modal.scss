@@ -1,10 +1,14 @@
+$modal__text: #2a2a2a;
+$modal__background: black;
+$modal__offwhite: #ddd;
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: white;
+  background: $modal__background;
   z-index: 2;
   @include flexCenter();
   
@@ -21,15 +25,6 @@
   &__content {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-  }
-
-  &__img-container {
-
-  }
-
-  &__info {
-    position: relative;
-    padding: 5px;
   }
 
   &__hover-element {
@@ -73,10 +68,10 @@
   
   // Close/Prev/Next
   &__nav-btn {
-    color: black;
+    color: $modal__offwhite;
     
     &:hover {
-      background: black;
+      background: rgba(255, 255, 255, 0.4);
       color: $color__brand;
     }
   }
@@ -93,17 +88,26 @@
 
 // Custom Fields info
 .modal {
+  &__info {
+    position: relative;
+    padding: 5px;
+    font-size: .8rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    background: $modal__offwhite;
+    color: $modal__text;
+  }
+
   &__name {
     font-size: 1.1rem;
     font-weight: 700;
-    line-height: normal;
+    text-align: center;
   }
 
   &__nickname {
     display: flex;
     align-items: baseline;
-    font-size: .8rem;
-    margin-top: -4px;
 
     &:before {
       content: 'Nickname:';
@@ -115,9 +119,6 @@
   &__location {
     display: flex;
     align-items: baseline;
-    font-size: .8rem;
-    margin-top: -3px;
-    line-height: 12px;
 
     &:before {
       content: 'Hometown:';
@@ -128,39 +129,62 @@
 
   &__quick-fact {
     position: relative;
-    font-size: .8rem;
     text-align: center;
-    padding: 5px;
+    padding: 10px 5px 5px;
     margin-top: 10px;
-    border: 1px solid black;
+    border: 1px solid $modal__text;
     border-radius: 10px;
-    line-height: 13px;
 
     &:before {
       content: 'Facts:';
-      font-weight: 800;
+      font-weight: 700;
       position: absolute;
-      top: -8px;
-      left: 11px;
-      background: white;
+      top: -9px;
+      left: 12px;
+      background: $modal__offwhite;
       padding: 0 3px;
     }
   }
 
   &__description {
-
+    position: relative;
+    border: 1px solid $modal__text;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px 5px 5px;
+    text-align: center;
+    
+    &:before {
+      content: 'Description:';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 700;
+      background: $modal__offwhite;
+      padding: 0 3px;
+    }
   }
 
   &__website {
-    position: absolute;
-    bottom: 0;
-    right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 5px;
+    
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
   }
 
   &__champion {
-    position: absolute;
-    top: 0;
-    right: 5px;
+    order: -1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 }
 
@@ -173,7 +197,8 @@
     }
 
     &__content {
-      @include flexCenter();
+      display: flex;
+      justify-content: center;
     }
 
     &__image-container {
@@ -182,6 +207,10 @@
 
     &__info {
       flex: 1 1 50%;
+    }
+
+    &__website {
+      margin-top: auto;
     }
   }
 }
