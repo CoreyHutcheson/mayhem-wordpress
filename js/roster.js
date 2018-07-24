@@ -1,16 +1,16 @@
 (function() {
-	const choiceContainer = document.querySelector('.c-choice-toggle');
+	const choiceToggle = document.querySelector('.c-choice-toggle');
 	const mainRosterContainer = document.querySelector('.roster-container');
 	const rosterContainers = mainRosterContainer.children;
 	const modal = document.querySelector('.modal');
 
 	// Add click event to roster filter toggle
-	choiceContainer.addEventListener('click', function(e) {
+	choiceToggle.addEventListener('click', function(e) {
 		let target = e.target;
 		if (target.nodeName.toLowerCase() !== 'label') 
 			return;
 
-		clickedChoiceToggle(target, rosterContainers);
+		toggleRosterContainers(target, rosterContainers);
 		return;
 	});
 
@@ -20,7 +20,7 @@
 		if (!target.classList.contains('c-roster-card__hover-element')) 
 			return;
 
-		clickedHoverElement(target);
+		displayModal(target);
 		return;
 	})
 
@@ -42,11 +42,11 @@
 
 /**
  * Toggles display of appropriate roster divs
- * @param  {object - node} target : clicked hover element
+ * @param  {object - node} target : clicked toggle button
  * @param  {array - HTMLCollection} rosterContainers : children of mainRosterContainer
  * @return {undefined}
  */
-function clickedChoiceToggle(target, rosterContainers) {
+function toggleRosterContainers(target, rosterContainers) {
 	let value = target.getAttribute('for');
 	let neededClass = `roster-container__${value}`;
 
@@ -71,10 +71,11 @@ function clickedChoiceToggle(target, rosterContainers) {
  * @param  {object - node} target : clicked details hover element
  * @return {undefined}
  */
-function clickedHoverElement(target) {
+function displayModal(target) {
 	let clickedCard = target.closest('.c-roster-card');
-	// Add overflow: hidden to body
+	// Add overflow: hidden to body to stop scrolling
 	document.body.classList.add('is-clipped');
+
 	applyCardModalClass(clickedCard);
 	populateModalContent(clickedCard);
 }
@@ -102,7 +103,7 @@ function removeModalClassFromCards() {
 
 /**
  * Adds 'js-is-modal' class to argument card
- * @param {object - node} card [description]
+ * @param {object - node} card : Card to apply modal class to
  * @return {undefined}
  */
 function addModalClassToCard(card) {
@@ -111,9 +112,9 @@ function addModalClassToCard(card) {
 }
 
 /**
- * [populateModalContent description]
- * @param  {[type]} cardToBeModal [description]
- * @return {[type]}               [description]
+ * Places created modal content into modal and displays the modal
+ * @param  {object - node} cardToBeModal : the card to create the modal content from
+ * @return {undefined}
  */
 function populateModalContent(cardToBeModal) {
 	/**
@@ -163,7 +164,7 @@ function closeModal(modal) {
 	// Add hidden class to modal
 	modal.classList.add('is-hidden');
 	removeModalClassFromCards();
-	// Remove overflow:hidden from body
+	// Remove overflow:hidden from body so scrolling is available again
 	document.body.classList.remove('is-clipped');
 }
 
