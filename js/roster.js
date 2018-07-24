@@ -73,7 +73,8 @@ function clickedChoiceToggle(target, rosterContainers) {
  */
 function clickedHoverElement(target) {
 	let clickedCard = target.closest('.c-roster-card');
-
+	// Add overflow: hidden to body
+	document.body.classList.add('is-clipped');
 	applyCardModalClass(clickedCard);
 	populateModalContent(clickedCard);
 }
@@ -162,6 +163,8 @@ function closeModal(modal) {
 	// Add hidden class to modal
 	modal.classList.add('is-hidden');
 	removeModalClassFromCards();
+	// Remove overflow:hidden from body
+	document.body.classList.remove('is-clipped');
 }
 
 /**
