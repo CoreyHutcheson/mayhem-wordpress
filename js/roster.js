@@ -190,6 +190,5 @@ function assignNewModal(num) {
 	let newIndex = getNewIndex(allCards, num);
 	let newCard = allCards[newIndex];
 
-	applyCardModalClass(newCard);
-	populateModalContent(newCard);
+	displayModal(newCard);
 }
