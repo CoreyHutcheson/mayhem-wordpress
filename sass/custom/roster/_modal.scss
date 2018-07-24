@@ -1,4 +1,4 @@
-$modal__text: #2a2a2a;
+$modal__offblack: #2a2a2a;
 $modal__background: rgba(0, 0, 0, 0.9);
 $modal__offwhite: #ddd;
 
@@ -96,7 +96,7 @@ $modal__offwhite: #ddd;
     flex-direction: column;
     line-height: 1.15;
     background: $modal__offwhite;
-    color: $modal__text;
+    color: $modal__offblack;
   }
 
   &__name {
@@ -132,7 +132,7 @@ $modal__offwhite: #ddd;
     text-align: center;
     padding: 10px 5px 5px;
     margin-top: 10px;
-    border: 1px solid $modal__text;
+    border: 1px solid $modal__offblack;
     border-radius: 10px;
 
     &:before {
@@ -148,7 +148,7 @@ $modal__offwhite: #ddd;
 
   &__description {
     position: relative;
-    border: 1px solid $modal__text;
+    border: 1px solid $modal__offblack;
     border-radius: 10px;
     margin-top: 10px;
     padding: 10px 5px 5px;
