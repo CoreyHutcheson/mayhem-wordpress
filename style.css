@@ -1471,7 +1471,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: black;
+  background: rgba(0, 0, 0, 0.9);
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -1541,7 +1541,7 @@ body {
 }
 
 .modal__nav-btn:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.3);
   color: #f8fa2c;
 }
 
