@@ -178,6 +178,8 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 					<?php mayhem_create_roster_card(); ?>
 
 				<?php endwhile; ?>
+
+				<?php wp_reset_postdata(); ?>
 			
 			</div> <!-- /.roster__content -->
 		
