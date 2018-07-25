@@ -50,13 +50,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Globals
 --------------------------------------------------------------*/
-/*
-#61892f
-#86c232
-#222629
-#474b4f
-#6b6e70
-*/
 @import url("https://fonts.googleapis.com/css?family=Raleway:500,700");
 /*--------------------------------------------------------------
 # Normalize
@@ -1406,19 +1399,11 @@ body {
   font-weight: 700;
 }
 
-.c-roster-card__nickname {
-  display: none;
-}
-
 .c-roster-card__location {
   font-weight: 500;
 }
 
-.c-roster-card__quick-fact {
-  display: none;
-}
-
-.c-roster-card__description {
+.c-roster-card__nickname, .c-roster-card__quick-fact, .c-roster-card__description {
   display: none;
 }
 
@@ -1568,6 +1553,7 @@ body {
   font-size: 1.1rem;
   font-weight: 700;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .modal__nickname {
@@ -1613,20 +1599,20 @@ body {
 
 .modal__description {
   position: relative;
+  text-align: center;
+  padding: 10px 5px 5px;
+  margin-top: 10px;
   border: 1px solid #2a2a2a;
   border-radius: 10px;
-  margin-top: 10px;
-  padding: 10px 5px 5px;
-  text-align: center;
 }
 
 .modal__description:before {
   content: 'Description:';
+  font-weight: 700;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-weight: 700;
   background: #ddd;
   padding: 0 3px;
 }

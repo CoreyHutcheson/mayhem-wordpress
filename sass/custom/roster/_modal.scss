@@ -1,14 +1,10 @@
-$modal__offblack: #2a2a2a;
-$modal__background: rgba(0, 0, 0, 0.9);
-$modal__offwhite: #ddd;
-
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: $modal__background;
+  background: $color__modal-background;
   z-index: 2;
   @include flexCenter();
   
@@ -68,7 +64,7 @@ $modal__offwhite: #ddd;
   
   // Close/Prev/Next
   &__nav-btn {
-    color: $modal__offwhite;
+    color: $color__modal-offwhite;
     
     &:hover {
       background: rgba(255, 255, 255, 0.3);
@@ -95,14 +91,15 @@ $modal__offwhite: #ddd;
     display: flex;
     flex-direction: column;
     line-height: 1.15;
-    background: $modal__offwhite;
-    color: $modal__offblack;
+    background: $color__modal-offwhite;
+    color: $color__modal-offblack;
   }
 
   &__name {
     font-size: 1.1rem;
     font-weight: 700;
     text-align: center;
+    text-transform: capitalize;
   }
 
   &__nickname {
@@ -132,7 +129,7 @@ $modal__offwhite: #ddd;
     text-align: center;
     padding: 10px 5px 5px;
     margin-top: 10px;
-    border: 1px solid $modal__offblack;
+    border: 1px solid $color__modal-offblack;
     border-radius: 10px;
 
     &:before {
@@ -141,27 +138,27 @@ $modal__offwhite: #ddd;
       position: absolute;
       top: -9px;
       left: 12px;
-      background: $modal__offwhite;
+      background: $color__modal-offwhite;
       padding: 0 3px;
     }
   }
 
   &__description {
     position: relative;
-    border: 1px solid $modal__offblack;
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 10px 5px 5px;
     text-align: center;
+    padding: 10px 5px 5px;
+    margin-top: 10px;
+    border: 1px solid $color__modal-offblack;
+    border-radius: 10px;
     
     &:before {
       content: 'Description:';
+      font-weight: 700;
       position: absolute;
       top: 0;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-weight: 700;
-      background: $modal__offwhite;
+      background: $color__modal-offwhite;
       padding: 0 3px;
     }
   }
