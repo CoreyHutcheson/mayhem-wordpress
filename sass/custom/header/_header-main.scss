@@ -42,6 +42,7 @@
 
 		&.is-toggled {
 			transform: translateX(0);
+			x-index: 2;
 		}
 	}
 }
