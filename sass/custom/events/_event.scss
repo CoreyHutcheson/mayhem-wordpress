@@ -13,10 +13,11 @@
 		display: inline-block;
 		// Necessary for featured-banner's positioning
 		position: relative;
-		box-shadow: 0px 0px 20px #111;
+		box-shadow: 2px 2px 10px 2px #111;
 
 		&--featured {
-			box-shadow: 0px 0px 20px 8px gold;
+			box-shadow: 2px 2px 10px 2px #111,
+									0px 0px 30px 10px gold;
 		}
 	}
 }
