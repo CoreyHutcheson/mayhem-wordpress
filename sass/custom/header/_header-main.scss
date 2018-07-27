@@ -42,7 +42,7 @@
 
 		&.is-toggled {
 			transform: translateX(0);
-			x-index: 2;
+			z-index: 2;
 		}
 	}
 }

@@ -1,3 +1,22 @@
+// Featurd Banner element
+@import 'featured-banner';
+
 .event {
-	position: relative;
+	text-align: center;
+	margin-top: 1.5rem;
+
+	&:last-of-type {
+		margin-bottom: 1.5rem;
+	}
+	
+	&__flyer {
+		display: inline-block;
+		// Necessary for featured-banner's positioning
+		position: relative;
+		box-shadow: 0px 0px 20px #111;
+
+		&--featured {
+			box-shadow: 0px 0px 20px 8px gold;
+		}
+	}
 }
