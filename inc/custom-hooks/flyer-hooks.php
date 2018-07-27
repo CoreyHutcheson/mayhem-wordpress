@@ -1,14 +1,21 @@
 <?php
 
-function mayhem_title_filter( $title, $post_id ) {
-	// Return event_date as title if post type is 'flyer'
-	if ('flyer' === get_post_type($post_id)) :
-		$date = get_field('event_date', $post_id);
-		if ($date) :
-			return $date;
-		endif;
-	endif;
+/**
+ * Modifies post data upon submitting a post
+ * @param  [array] $data : the slashed post data
+ * @return [array] : modified post data
+ */
+function mayhem_modify_post_title($data) {
 
-	return $title;
+	/* Changes flyer post type title and slug
+	 * Title Format = October 27, 2018
+	 * Slug/Name Format = October-27-2018 
+	 */
+  if ($data['post_type'] === 'flyer' && get_field('event_date')) {
+  	$nameDate = date('F-j-Y', strtotime(get_field('event_date')));
+  	$data['post_title'] = get_field('event_date');
+  	$data['post_name'] = $nameDate;
+  }
+  return $data; // Returns the modified data.
 }
-add_filter( 'the_title', 'mayhem_title_filter', 10, 2 );
+add_filter('wp_insert_post_data', 'mayhem_modify_post_title', '10', 1);
