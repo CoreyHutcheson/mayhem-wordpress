@@ -1,0 +1,30 @@
+.featured-notification {
+	text-align: center;
+	font-size: .9rem;
+	font-weight: 700;
+	background: $color__brand;
+	color: #111;
+
+	& span:first-of-type {
+		text-transform: uppercase;
+	}
+
+	&__link {
+
+		&:link,
+		&:visited {
+			color: inherit;
+		}
+
+		&:hover,
+		&:active {
+			color: lighten(#111, 40%);
+		}
+	}
+}
+
+@include for-tablet-portrait-up {
+	.featured-notification {
+		font-size: 1.1rem;
+	}
+}
