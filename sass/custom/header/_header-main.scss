@@ -107,3 +107,13 @@
 		}
 	}
 }
+
+@media screen and (max-width: 300px) {
+	.site-header {
+		flex-direction: column;
+
+		&__branding {
+			margin-right: 0;
+		}
+	}
+}
