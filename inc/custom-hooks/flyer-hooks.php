@@ -1,21 +1,33 @@
 <?php
-
 /**
- * Modifies post data upon submitting a post
- * @param  [array] $data : the slashed post data
- * @return [array] : modified post data
+ * Used to alter post title and post name upon creating new post
+ * @param  [int] $post_id - post's id
+ * @param  [object] $post - post object
+ * @return [undefined]
  */
-function mayhem_modify_post($data) {
-	/* Changes flyer post type title and slug
-	 * Title Format = October 27, 2018
-	 * Slug/Name Format = October-27-2018 
-	 */
-  if ($data['post_type'] === 'flyer' && get_field('event_date')) {
+function mayhem_save_post_callback($post_id, $post) {
+  // verify post is not a revision
+  if (wp_is_post_revision($post_id))
+    return;
+
+  // unhook this function to prevent infinite looping
+  remove_action('save_post', 'mayhem_save_post_callback', 10);
+
+  /**
+   * Updates flyer post type with new title and slug/name
+   */
+  if ($post->post_type === 'flyer' && get_field('event_date')) {
     $date = get_field('event_date');
-  	$nameDate = date('F-j-Y', strtotime($date));
-  	$data['post_title'] = $date;
-  	$data['post_name'] = $nameDate;
+    $my_post = array(
+      'ID' => $post_id,
+      'post_title' => $date,
+      'post_name' => date('F-j-Y', strtotime($date)),
+    );
+
+    wp_update_post($my_post);
   }
-  return $data; // Returns the modified data.
+
+  // re-hook this function
+  add_action('save_post', 'mayhem_save_post_callback', 10, 2);
 }
-add_filter('wp_insert_post_data', 'mayhem_modify_post', '10', 1);
+add_action('save_post', 'mayhem_save_post_callback', 10, 2);
