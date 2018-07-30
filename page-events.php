@@ -76,10 +76,28 @@ get_header();
 
 			if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post();
 
-				$featured = get_field('featured_flyer') ?>
+				$featured = get_field('featured_flyer'); ?>
+
+				<?php // Testing
+				$dateOfEvent = strtotime(get_field('event_date'));
+				$secs = $dateOfEvent - time();
+				$days = ceil($secs / 86400);
+				$str = '';
+				if ($days == 1) {
+					$str = $days . ' day until event';
+				} else if ($days <= 0) {
+					$str = 'Event happens today';
+				} else {
+					$str = $days . ' days until event';
+				}
+				?>
+
+
+
 
 				<div class="event">
 					<div class="event__date"><?php the_title(); ?></div>
+					<div class="event__countdown"><?php echo $str; ?></div>
 					<div class="event__flyer <?php if ($featured) {echo 'event__flyer--featured';} ?>">
 						<?php if($featured) : ?>
 							<div class="featured-banner">
