@@ -4,6 +4,11 @@
 	font-weight: 700;
 	background: $color__brand;
 	color: #111;
+	border-bottom: 1px solid #111;
+
+	&:last-of-type {
+		border-bottom: none;
+	}
 
 	& span:first-of-type {
 		text-transform: uppercase;

@@ -4,9 +4,21 @@
 .event {
 	text-align: center;
 	margin-top: 1.5rem;
+	border-top: 1px solid #111;
+
+	&:first-of-type {
+		border-top: none;
+		margin-top: .25rem;
+	}
 
 	&:last-of-type {
 		margin-bottom: 1.5rem;
+	}
+
+	&__date {
+		font-weight: 700;
+		font-size: 1.2rem;
+		padding-bottom: 10px;
 	}
 	
 	&__flyer {
