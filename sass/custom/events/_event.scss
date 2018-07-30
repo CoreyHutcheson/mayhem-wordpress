@@ -18,16 +18,23 @@
 	&__date {
 		font-weight: 700;
 		font-size: 1.2rem;
-		padding-bottom: 10px;
+	}
+
+	&__countdown {
+		font-size: .9rem;
+		line-height: 1;
+		margin-top: -4px;
 	}
 	
 	&__flyer {
 		display: inline-block;
 		// Necessary for featured-banner's positioning
 		position: relative;
+		margin-top: .5rem;
 		box-shadow: 2px 2px 10px 2px #111;
 
 		&--featured {
+			margin-top: 1rem;
 			box-shadow: 2px 2px 10px 2px #111,
 									0px 0px 30px 10px $color__brand;
 		}
