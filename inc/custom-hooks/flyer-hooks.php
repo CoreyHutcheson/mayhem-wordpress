@@ -31,3 +31,41 @@ function mayhem_save_post_callback($post_id, $post) {
   add_action('save_post', 'mayhem_save_post_callback', 10, 2);
 }
 add_action('save_post', 'mayhem_save_post_callback', 10, 2);
+
+/**
+ * Filters content for post type 'flyer' single.php pages
+ * @param  [type] $content [description]
+ * @return [type]          [description]
+ */
+function mayhem_filter_content_for_flyer_single_page($content) {
+  // Returns content if not in loop of main query on singles flyer page
+  if (!is_singular('flyer') || !is_main_query() || !in_the_loop()) {
+    return $content;
+  }
+
+  // Splits the content into an array on newline and removes empty elements
+  $contentArr = array_filter(preg_split('/\r\n|\r|\n/', $content));
+
+  if (count($contentArr) === 0) {
+    return $content;
+  }
+
+  foreach ($contentArr as &$str) {
+    if (containsWord($str, '(vs|versus)')) {
+      // Replace <p> tag with match class
+      $str = str_replace('<p>', "<p class='flyer-entry__match'>", $str);
+      // Replace 'vs.' with span match-divider
+      $str = str_replace(' vs. ', ' <span class="flyer-entry__match-divider">vs.</span> ', $str);
+      // Replace 'versus' with span match-divider
+      $str = str_replace(' versus ', ' <span class="flyer-entry__match-divider">versus</span> ', $str);
+    } else {
+      $str = str_replace('<p>', "<p class='flyer-entry__match-details'>", $str);
+    }
+  }
+
+  $content = implode("", $contentArr);
+
+  return $content;
+}
+add_filter('the_content', 'mayhem_filter_content_for_flyer_single_page');
+
