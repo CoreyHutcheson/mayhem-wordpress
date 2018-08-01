@@ -173,7 +173,7 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
+ 
 /**
  * Load Jetpack compatibility file.
  */
@@ -185,3 +185,5 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Load custom hooks
  */
 require get_template_directory() . '/inc/custom-hooks/custom-hooks.php';
+
+require get_template_directory() . '/inc/helper-functions.php';
