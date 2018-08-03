@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying page content in page.php
+ * Template part for displaying flyer page content in page.php
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,7 +9,13 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('flyer-entry'); ?>>
+<?php 
+// Conditionally get the classes to add to the article used for positioning
+$articleClasses = get_the_content() ? 
+	array('flyer-entry', 'flyer-entry--content') : 'flyer-entry';
+?>
+<article id="post-<?php the_ID(); ?>" <?php post_class($articleClasses); ?>>
+
 	<header class="flyer-entry__header">
 		<?php the_title( '<h1 class="flyer-entry__title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
