@@ -7,5 +7,6 @@
  * @return [bool] : True if $str contains $word - False otherwise
  */
 function containsWord($str, $word) {
-  return !!preg_match('/\\b' . $word . '\\W/i', $str);
+	// (?<!^)\b(vs\.*)|(versus)\b(?!$) - possible improved regexp
+	return !!preg_match('/\\b' . $word . '\\W/i', $str);
 }
