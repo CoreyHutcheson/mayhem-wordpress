@@ -14,6 +14,7 @@
 $articleClasses = get_the_content() ? 
 	array('flyer-entry', 'flyer-entry--content') : 'flyer-entry';
 ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class($articleClasses); ?>>
 
 	<header class="flyer-entry__header">

@@ -92,9 +92,6 @@ get_header();
 				}
 				?>
 
-
-
-
 				<div class="event">
 					<div class="event__date"><?php the_title(); ?></div>
 					<div class="event__countdown"><?php echo $str; ?></div>
