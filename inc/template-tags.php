@@ -275,7 +275,7 @@ endif;
 /**
  * Custom pagination by event date for Flyer/Event single page
  */
-if ( ! function_exists('mayhem_custom_flyer_pagination')) : 
+if ( ! function_exists( 'mayhem_custom_flyer_pagination' ) ) : 
 
 	function mayhem_custom_flyer_pagination() {
 		// Gets all flyer posts that haven't occurred yet
@@ -328,5 +328,47 @@ if ( ! function_exists('mayhem_custom_flyer_pagination')) :
 
 		</div> <!-- /.navigation -->
 		<?php
+	}
+endif;
+
+/**
+ * Creates featured event banners that appear underneath the header
+ */
+if ( ! function_exists( 'mayhem_create_featured_event_banners' ) ) :
+
+	function mayhem_create_featured_event_banners() {
+		$args = array(
+			'post_type' => 'flyer',
+			'order' => 'ASC',
+			'orderby' => 'meta_value_num',
+			'meta_key' => 'event_date',
+			'meta_query' => array(
+				array(
+					'key' => 'featured_flyer',
+					'value' => true,
+				),
+				array(
+					'key' => 'event_date',
+					'value' => date( 'Ymd' ),
+					'compare' => '>=',
+				),
+			),
+		);
+
+		$query = new WP_Query($args);
+
+		if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+
+			<div class="featured-notification">
+				<i class="fas fa-star"></i>
+				<span>Featured:</span>
+				<span>
+					<a href="<?php the_permalink(); ?>" class="featured-notification__link"><?php the_title(); ?></a>
+				</span>
+				<i class="fas fa-star"></i>
+			</div>
+
+		<?php endwhile; endif;
+		wp_reset_postdata();
 	}
 endif;

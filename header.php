@@ -83,3 +83,8 @@
 	</header><!-- /.site-header -->
 
 	<div id="content" class="site-content">
+
+		<?php 
+			// Located in inc/template-tags.php 
+			mayhem_create_featured_event_banners();
+		?>		
