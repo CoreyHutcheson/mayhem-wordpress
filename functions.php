@@ -134,11 +134,11 @@ add_action( 'widgets_init', 'mayhem_widgets_init' );
  * Enqueue scripts and styles.
  */
 function mayhem_scripts() {
-	wp_enqueue_style( 'mayhem-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'mayhem-style', get_stylesheet_uri(), NULL, microtime() );
 
-	wp_enqueue_script( 'mayhem-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'mayhem-navigation', get_template_directory_uri() . '/js/navigation.js', array(), microtime(), true );
 
-	wp_enqueue_script( 'mayhem-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'mayhem-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), microtime(), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -149,7 +149,7 @@ function mayhem_scripts() {
 
 	/** Enqueue roster.js if on archive-roster.php page */
 	if (is_post_type_archive('roster')) {
-		wp_enqueue_script( 'mayhem-roster', get_template_directory_uri() . '/js/roster.js', array(), '20151215', true );
+		wp_enqueue_script( 'mayhem-roster', get_template_directory_uri() . '/js/roster.js', array(), microtime(), true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'mayhem_scripts' );
