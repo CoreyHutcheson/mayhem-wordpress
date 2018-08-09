@@ -1417,10 +1417,15 @@ body {
   display: none;
 }
 
-.c-roster-card__website {
+.c-roster-card__links {
+  display: flex;
   position: absolute;
   bottom: 0;
-  right: 5px;
+  right: 0;
+}
+
+.c-roster-card__links div {
+  margin-right: 5px;
 }
 
 .c-roster-card__champion {
@@ -1544,7 +1549,8 @@ body {
   font-size: 3rem;
 }
 
-.modal .fa-globe {
+.modal .fa-globe,
+.modal .fa-images {
   font-size: 1rem;
 }
 
@@ -1627,18 +1633,22 @@ body {
   padding: 0 3px;
 }
 
-.modal__website {
+.modal__links {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-top: 5px;
 }
 
-.modal__website a {
+.modal__links a {
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+}
+
+.modal__links div {
+  margin-left: 5px;
 }
 
 .modal__champion {
@@ -1663,7 +1673,7 @@ body {
   .modal__info {
     flex: 1 1 50%;
   }
-  .modal__website {
+  .modal__links {
     margin-top: auto;
   }
 }

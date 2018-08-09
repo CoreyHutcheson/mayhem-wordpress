@@ -219,17 +219,34 @@ if ( ! function_exists( 'mayhem_create_roster_card' ) ) :
 					endforeach;
 				?>
 
-				<?php if (get_field('website')) :
-					$link = get_field('website'); 
-					if ($link) : ?>
-						<div class="c-roster-card__website">
-							<a href="<?php echo $link['url']; ?>" 
-								 target="<?php echo $link['target']; ?>">
-								<i class="fas fa-globe"></i>
-							</a>
+				<?php // Creates markup for gallery & website if applicable
+					$gallery = get_field('gallery');
+					$website = get_field('website');
+				
+					if ($gallery || $website) : ?>
+						<div class="c-roster-card__links">
+							
+							<?php if ($gallery) : ?>
+								<div class="c-roster-card__gallery-link">
+									<a href="<?php the_permalink(); ?>">
+										<i class="fas fa-images"></i>
+									</a>
+								</div>
+							<?php endif; ?>
+
+							<?php if ($website) : ?>
+								<div class="c-roster-card__website">
+									<a href="<?php echo $website['url']; ?>" 
+										 target="<?php echo $website['target']; ?>">
+										<i class="fas fa-globe"></i>
+									</a>
+								</div>
+							<?php endif; ?>
+
 						</div>
-					<?php endif; ?>
-				<?php endif; ?>
+					<?php	
+					endif; 
+				?>
 
 				<?php if (get_field('champion')) :
 					$belt = wp_get_attachment_by_file_name('belt-icon');

@@ -77,7 +77,8 @@
     font-size: 3rem;
   }
 
-  .fa-globe {
+  .fa-globe,
+  .fa-images {
     font-size: 1rem;
   }
 }
@@ -163,17 +164,21 @@
     }
   }
 
-  &__website {
+  &__links {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     margin-top: 5px;
-    
+
     a {
       display: flex;
       justify-content: center;
       align-items: center;
       text-decoration: none;
+    }
+
+    & div {
+      margin-left: 5px;
     }
   }
 
@@ -206,7 +211,7 @@
       flex: 1 1 50%;
     }
 
-    &__website {
+    &__links {
       margin-top: auto;
     }
   }

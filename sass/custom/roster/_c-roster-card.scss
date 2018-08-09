@@ -59,10 +59,15 @@ $card-margin: 1rem;
 		display: none;
 	}
 
-	&__website {
+	&__links {
+		display: flex;
 		position: absolute;
 		bottom: 0;
-		right: 5px;
+		right: 0;
+
+		& div {
+			margin-right: 5px;
+		}
 	}
 
 	&__champion {
