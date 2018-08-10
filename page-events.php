@@ -42,23 +42,9 @@ get_header();
 
 				$featured = get_field('featured_flyer'); ?>
 
-				<?php // Testing
-				$dateOfEvent = strtotime(get_field('event_date'));
-				$secs = $dateOfEvent - time();
-				$days = ceil($secs / 86400);
-				$str = '';
-				if ($days == 1) {
-					$str = $days . ' day until event';
-				} else if ($days <= 0) {
-					$str = 'Event happens today';
-				} else {
-					$str = $days . ' days until event';
-				}
-				?>
-
 				<div class="event">
 					<div class="event__date"><?php the_title(); ?></div>
-					<div class="event__countdown"><?php echo $str; ?></div>
+					<div class="event__countdown"><?php echo get_time_until_event(); ?></div>
 					<div class="event__flyer <?php if ($featured) {echo 'event__flyer--featured';} ?>">
 						<?php if($featured) : ?>
 							<div class="featured-banner">
@@ -81,3 +67,21 @@ get_header();
 <?php
 get_sidebar();
 get_footer();
+
+// Returns number of days until the event
+function get_time_until_event() {
+	$dateOfEvent = strtotime(get_field('event_date'));
+	$secs = $dateOfEvent - time();
+	$days = ceil($secs / 86400);
+	$str = '';
+
+	if ($days == 1) {
+		$str = $days . ' day until event';
+	} else if ($days <= 0) {
+		$str = 'Event happens today';
+	} else {
+		$str = $days . ' days until event';
+	}
+
+	return $str;
+}
