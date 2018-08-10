@@ -7,10 +7,11 @@
  * @package mayhem-theme
  */
 
+/**
+ * Prints HTML with meta information for the current post-date/time.
+ */
 if ( ! function_exists( 'mayhem_posted_on' ) ) :
-	/**
-	 * Prints HTML with meta information for the current post-date/time.
-	 */
+
 	function mayhem_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -35,10 +36,11 @@ if ( ! function_exists( 'mayhem_posted_on' ) ) :
 	}
 endif;
 
+/**
+ * Prints HTML with meta information for the current author.
+ */
 if ( ! function_exists( 'mayhem_posted_by' ) ) :
-	/**
-	 * Prints HTML with meta information for the current author.
-	 */
+
 	function mayhem_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
@@ -51,10 +53,11 @@ if ( ! function_exists( 'mayhem_posted_by' ) ) :
 	}
 endif;
 
+/**
+ * Prints HTML with meta information for the categories, tags and comments.
+ */
 if ( ! function_exists( 'mayhem_entry_footer' ) ) :
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
+
 	function mayhem_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
@@ -111,13 +114,14 @@ if ( ! function_exists( 'mayhem_entry_footer' ) ) :
 	}
 endif;
 
+/**
+ * Displays an optional post thumbnail.
+ *
+ * Wraps the post thumbnail in an anchor element on index views, or a div
+ * element when on single views.
+ */
 if ( ! function_exists( 'mayhem_post_thumbnail' ) ) :
-	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
-	 */
+
 	function mayhem_post_thumbnail() {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
@@ -171,17 +175,15 @@ if ( ! function_exists( 'mayhem_roster_query' ) ) :
 			</h1>
 
 			<div class="roster-container__content">
-			
-				<?php while ( $roster_query->have_posts() ) :
-					$roster_query->the_post(); ?>
-
-					<?php mayhem_create_roster_card(); ?>
-
-				<?php endwhile; ?>
-
-				<?php wp_reset_postdata(); ?>
-			
-			</div> <!-- /.roster__content -->
+				<?php
+					while ( $roster_query->have_posts() ) :
+						$roster_query->the_post();
+						mayhem_create_roster_card();
+					endwhile;
+					
+					wp_reset_postdata(); 
+				?>
+			</div>
 		
 		<?php endif;
 	}

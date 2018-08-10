@@ -7,17 +7,11 @@
  * @package mayhem-theme
  */
 
-/**
- * Enable ACF 5 early access
- * Requires at least version ACF 4.4.12 to work
- */
-define('ACF_EARLY_ACCESS', '5');
-
 if ( ! function_exists( 'mayhem_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * Note that this function is hooked into the 'after_setup_theme' hook, which
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
@@ -85,105 +79,94 @@ if ( ! function_exists( 'mayhem_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'mayhem_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function mayhem_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'mayhem_content_width', 640 );
-}
+if ( ! function_exists( 'mayhem_content_width' ) ) :
+	/**
+	 * Set the content width in pixels, based on the theme's design and stylesheet.
+	 *
+	 * Priority 0 to make it available to lower priority callbacks.
+	 *
+	 * @global int $content_width
+	 */
+	function mayhem_content_width() {
+		// This variable is intended to be overruled from themes.
+		// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+		$GLOBALS['content_width'] = apply_filters( 'mayhem_content_width', 640 );
+	}
+endif;
 add_action( 'after_setup_theme', 'mayhem_content_width', 0 );
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function mayhem_widgets_init() {
-	// Default Widget Area
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'mayhem' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'mayhem' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+if ( ! function_exists( 'mayhem_widgets_init' ) ) :
+	/**
+	 * Register widget area.
+	 *
+	 * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+	 */
+	function mayhem_widgets_init() {
+		// Default Widget Area
+		register_sidebar( array(
+			'name'          => esc_html__( 'Sidebar', 'mayhem' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'mayhem' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		) );
 
-	// Footer Widget Area
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget', 'mayhem' ),
-		'id'            => 'footer-widget',
-		'description'   => esc_html__( 'Footer Widget Area.', 'mayhem' ),
-		'before_widget' => '<section id="%1$s" class="footer-widget widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="footer-widget__title widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
+		// Footer Widget Area
+		register_sidebar( array(
+			'name'          => esc_html__( 'Footer Widget', 'mayhem' ),
+			'id'            => 'footer-widget',
+			'description'   => esc_html__( 'Footer Widget Area.', 'mayhem' ),
+			'before_widget' => '<section id="%1$s" class="footer-widget widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="footer-widget__title widget-title">',
+			'after_title'   => '</h2>',
+		) );
+	}
+endif;
 add_action( 'widgets_init', 'mayhem_widgets_init' );
 
-/**
- * Enqueue scripts and styles.
- */
-function mayhem_scripts() {
-	wp_enqueue_style( 'mayhem-style', get_stylesheet_uri(), NULL, microtime() );
+if ( ! function_exists( 'mayhem_scripts' ) ) :
+	/**
+	 * Enqueue scripts and styles.
+	 */
+	function mayhem_scripts() {
+		wp_enqueue_style( 'mayhem-style', get_stylesheet_uri(), NULL, microtime() );
 
-	wp_enqueue_script( 'mayhem-navigation', get_template_directory_uri() . '/js/navigation.js', array(), microtime(), true );
+		wp_enqueue_script( 'mayhem-navigation', get_template_directory_uri() . '/js/navigation.js', array(), microtime(), true);
 
-	wp_enqueue_script( 'mayhem-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), microtime(), true );
+		wp_enqueue_script( 'mayhem-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), microtime(), true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+		// Font Awesome
+		wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.0.13/css/all.css');
+
+		// Enqueue roster.js if on archive-roster.php page
+		if (is_post_type_archive('roster')) {
+			wp_enqueue_script( 'mayhem-roster', get_template_directory_uri() . '/js/roster.js', array(), microtime(), true );
+		}
+
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
 	}
-
-	/** Font Awesome */
-	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.0.13/css/all.css');
-
-	/** Enqueue roster.js if on archive-roster.php page */
-	if (is_post_type_archive('roster')) {
-		wp_enqueue_script( 'mayhem-roster', get_template_directory_uri() . '/js/roster.js', array(), microtime(), true );
-	}
-}
+endif;
 add_action( 'wp_enqueue_scripts', 'mayhem_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
- 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
+// Load Jetpack compatibility file.
+if ( defined( 'JETPACK__VERSION' ) ) :
 	require get_template_directory() . '/inc/jetpack.php';
-}
-
-/**
- * Load custom hooks
- */
-require get_template_directory() . '/inc/custom-hooks/custom-hooks.php';
-
+endif;
+// Implement the Custom Header feature.
+require get_template_directory() . '/inc/custom-header.php';
+// Custom template tags for this theme.
+require get_template_directory() . '/inc/template-tags.php';
+// Functions which enhance the theme by hooking into WordPress.
+require get_template_directory() . '/inc/template-functions.php';
+// Customizer additions.
+require get_template_directory() . '/inc/customizer.php';
+// Custom hooks
+require get_template_directory() . '/inc/custom-hooks/custom-hooks-main.php';
+// PHP Helper functions
 require get_template_directory() . '/inc/helper-functions.php';

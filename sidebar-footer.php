@@ -8,9 +8,7 @@
  */
 
 /** No footer widgets active */
-if ( ! is_active_sidebar( 'footer-widget' ) ) { 
-	?>
-
+if ( !is_active_sidebar('footer-widget') ) : ?>
 	<p>
 		There are no footer widgets currently.  Go to customize area and add some information about your site to the footer widget area.
 
@@ -19,7 +17,7 @@ if ( ! is_active_sidebar( 'footer-widget' ) ) {
 
 	<?php
 	return;
-}
+endif;
 ?>
 
 <!-- .site-footer__widget-container -->
