@@ -33,3 +33,7 @@
 ## Custom Helper functions must be at the end to overwrite correctly
 --------------------------------------------------------------*/
 @import 'helper';
+
+body {
+	flex-direction: column;
+}

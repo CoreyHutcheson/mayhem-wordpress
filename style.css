@@ -1945,3 +1945,7 @@ body {
 .is-clipped {
   overflow: hidden;
 }
+
+body {
+  flex-direction: column;
+}
