@@ -34,5 +34,11 @@
   align-items: center;
 }
 
+@mixin fill-vertical-space {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
 // Media Query Mixins
 @import 'mixins-media-queries';

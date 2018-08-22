@@ -294,9 +294,9 @@ endif;
 /**
  * Custom pagination by event date for Flyer/Event single page
  */
-if ( ! function_exists( 'mayhem_custom_flyer_pagination' ) ) : 
+if ( ! function_exists( 'mayhem_custom_navigation' ) ) : 
 
-	function mayhem_custom_single_pagination($args, $str) {
+	function mayhem_custom_navigation($args, $str) {
 		$query = get_posts($args);
 
 		// Creates array of ordered returned queries
@@ -312,20 +312,20 @@ if ( ! function_exists( 'mayhem_custom_flyer_pagination' ) ) :
 		$nextID = ($current < count($orderedIDs) - 1) ? $query[$current + 1] : NULL;
 		?>
 
-		<div class="post-navigation flex">
+		<div class="post-navigation">
 
 			<?php if (!empty($prevID)) : ?>
-				<div class="flex-floatleft">
+				<div class="post-navigation__left-link">
 					<a href="<?php the_permalink($prevID); ?>" title="<?php echo get_the_title($prevID); ?>">
-						Previous <?php echo $str ?>
+						<div class="post-navigation__button"><i class="fas fa-backward"></i><span>Prev</span></div>
 					</a>
 				</div>
 			<?php endif; ?>
 
 			<?php if (!empty($nextID)) : ?>
-				<div class="flex-floatright">
+				<div class="post-navigation__right-link">
 					<a href="<?php the_permalink($nextID); ?>" title="<?php echo get_the_title($nextID); ?>">
-						Next <?php echo $str ?>
+						<div class="post-navigation__button"><span>Next</span><i class="fas fa-forward"></i></div>
 					</a>
 				</div>
 			<?php endif; ?>

@@ -37,7 +37,7 @@ get_header();
 					),
 				);
 				// Located in inc/template-tags.php
-				mayhem_custom_single_pagination($args, 'Event');
+				mayhem_custom_navigation($args, 'Event');
 			elseif (is_singular('roster')) :
 				// Gets all roster posts that have a gallery
 				$args = array(
@@ -54,7 +54,7 @@ get_header();
 					'orderby' => 'title',
 				);
 				// Located in inc/template-tags.php
-				mayhem_custom_single_pagination($args, 'Gallery');
+				mayhem_custom_navigation($args, 'Gallery');
 			else : 
 				the_post_navigation();
 			endif;

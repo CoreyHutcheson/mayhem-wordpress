@@ -7,13 +7,9 @@ body {
 	display: flex;
 }
 
-.site {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-}
-
-// So that the content takes up the remaining view area
-.site-content {
-	flex: 1;
+.site,
+.site-content,
+.content-area,
+.site-main {
+	@include fill-vertical-space;
 }
