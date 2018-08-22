@@ -20,8 +20,41 @@ get_header();
 			get_template_part( 'template-parts/content', get_post_type() );
 
 			if (is_singular('flyer')) :
+				// Gets all flyer posts that haven't occurred yet
+				// ordering by event_date (next event first)
+				$args = array(
+					'post_type' => 'flyer',
+					'numberposts' => -1,
+					'meta_query' => array(
+						'date' => array(
+							'key' => 'event_date',
+							'value' => date("Ymd"),
+							'compare' => '>=',
+						),
+					),
+					'orderby' => array(
+						'date' => 'ASC',
+					),
+				);
 				// Located in inc/template-tags.php
-				mayhem_custom_flyer_pagination();
+				mayhem_custom_single_pagination($args, 'Event');
+			elseif (is_singular('roster')) :
+				// Gets all roster posts that have a gallery
+				$args = array(
+					'post_type' => 'roster',
+					'numberposts' => -1,
+					'meta_query' => array(
+						'gallery' => array(
+							'key' => 'gallery',
+							'value' => false,
+							'compare' => '!=',
+						),
+					),
+					'order' => 'ASC',
+					'orderby' => 'title',
+				);
+				// Located in inc/template-tags.php
+				mayhem_custom_single_pagination($args, 'Gallery');
 			else : 
 				the_post_navigation();
 			endif;

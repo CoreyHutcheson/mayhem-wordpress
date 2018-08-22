@@ -812,6 +812,18 @@ Small menu.
   margin-right: auto;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-floatleft {
+  margin-right: auto;
+}
+
+.flex-floatright {
+  margin-left: auto;
+}
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/

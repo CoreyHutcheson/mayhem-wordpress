@@ -296,56 +296,41 @@ endif;
  */
 if ( ! function_exists( 'mayhem_custom_flyer_pagination' ) ) : 
 
-	function mayhem_custom_flyer_pagination() {
-		// Gets all flyer posts that haven't occurred yet
-		// ordering by event_date (next event first)
-		$eventList = get_posts(array(
-			'post_type' => 'flyer',
-			'numberposts' => -1,
-			'meta_query' => array(
-				'date' => array(
-					'key' => 'event_date',
-					'value' => date("Ymd"),
-					'compare' => '>=',
-				),
-			),
-			'orderby' => array(
-				'date' => 'ASC',
-			),
-		));
+	function mayhem_custom_single_pagination($args, $str) {
+		$query = get_posts($args);
 
-		// Creates array of sorted event IDs (by date of event)
-		$orderedIDs = array_map(function($event) {
-			return $event->ID;
-		}, $eventList);
+		// Creates array of ordered returned queries
+		$orderedIDs = array_map(function($obj) {
+			return $obj->ID;
+		}, $query);
 
-		// Returns index of current event in $eventList
+		// Returns index of current event in $query
 		$current = array_search(get_the_ID(), $orderedIDs);
 
-		// Sets Prev and Next Event IDs
-		$prevID = ($current > 0) ? $eventList[$current - 1] : NULL;
-		$nextID = ($current < count($orderedIDs) - 1) ? $eventList[$current + 1] : NULL;
+		// Sets Prev and Next obj IDs
+		$prevID = ($current > 0) ? $query[$current - 1] : NULL;
+		$nextID = ($current < count($orderedIDs) - 1) ? $query[$current + 1] : NULL;
 		?>
 
-		<div class="navigation">
+		<div class="post-navigation flex">
 
 			<?php if (!empty($prevID)) : ?>
-				<div class="alignleft">
+				<div class="flex-floatleft">
 					<a href="<?php the_permalink($prevID); ?>" title="<?php echo get_the_title($prevID); ?>">
-						Previous Event
+						Previous <?php echo $str ?>
 					</a>
 				</div>
 			<?php endif; ?>
 
 			<?php if (!empty($nextID)) : ?>
-				<div class="alignright">
+				<div class="flex-floatright">
 					<a href="<?php the_permalink($nextID); ?>" title="<?php echo get_the_title($nextID); ?>">
-						Next Event
+						Next <?php echo $str ?>
 					</a>
 				</div>
 			<?php endif; ?>
 
-		</div> <!-- /.navigation -->
+		</div> <!-- /.post-navigation -->
 		<?php
 	}
 endif;
