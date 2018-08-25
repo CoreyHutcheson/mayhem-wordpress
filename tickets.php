@@ -14,8 +14,8 @@
 <head>
 	<title><?php bloginfo( 'blogname' ); ?> &bull; <?php _e( 'Tickets', 'my-tickets' ); ?> &bull; <?php mt_ticket_id(); ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link type="text/css" rel="stylesheet" href="<?php echo plugins_url( 'css/generic.css', __FILE__ ); ?>"/>
-	<link type="text/css" rel="stylesheet" href="<?php echo plugins_url( 'css/ticket.css', __FILE__ ); ?>"/>
+	<link type="text/css" rel="stylesheet" href="<?php echo plugins_url('my-tickets/templates/css/generic.css'); ?>"/>
+	<link type="text/css" rel="stylesheet" href="<?php echo plugins_url('my-tickets/templates/css/ticket.css'); ?>"/>
 </head>
 <body>
 <div class='panel ticket <?php mt_ticket_method(); ?>'>
