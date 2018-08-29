@@ -19,11 +19,11 @@ get_header();
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			if (is_singular('flyer')) :
-				// Gets all flyer posts that haven't occurred yet
+			if (is_singular('event')) :
+				// Gets all event posts that haven't occurred yet
 				// ordering by event_date (next event first)
 				$args = array(
-					'post_type' => 'flyer',
+					'post_type' => 'event',
 					'numberposts' => -1,
 					'meta_query' => array(
 						'date' => array(
@@ -37,7 +37,7 @@ get_header();
 					),
 				);
 				// Located in inc/template-tags.php
-				mayhem_custom_navigation($args, 'Event');
+				mayhem_custom_navigation($args);
 			elseif (is_singular('roster')) :
 				// Gets all roster posts that have a gallery
 				$args = array(
@@ -54,7 +54,7 @@ get_header();
 					'orderby' => 'title',
 				);
 				// Located in inc/template-tags.php
-				mayhem_custom_navigation($args, 'Gallery');
+				mayhem_custom_navigation($args);
 			else : 
 				the_post_navigation();
 			endif;

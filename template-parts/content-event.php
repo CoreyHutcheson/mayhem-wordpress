@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying flyer page content in page.php
+ * Template part for displaying event page content in page.php
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -11,7 +11,7 @@
 
 <?php 
 // Conditionally get the classes to add to the article used for positioning
-$articleClasses = get_the_content() ? 
+$articleClasses = get_field('card_details') ? 
 	array('flyer-entry', 'flyer-entry--content') : 'flyer-entry';
 ?>
 
@@ -19,22 +19,25 @@ $articleClasses = get_the_content() ?
 
 	<header class="flyer-entry__header">
 		<?php the_title( '<h1 class="flyer-entry__title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	</header>
 
 	<div class="post-thumbnail flyer-entry__thumbnail">
-		<?php the_post_thumbnail(); ?>
+		<?php echo wp_get_attachment_image( get_field('event_image'), 'full' ); ?>
 	</div>
 
 	<div class="flyer-entry__content">
-		<?php
-		the_content();
+		<?php 
 
-		// wp_link_pages( array(
-		// 	'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mayhem' ),
-		// 	'after'  => '</div>',
-		// ) );
+		if (have_rows('card_details')) :
+			while (have_rows('card_details')) : the_row();
+
+				$description = get_sub_field('match_description');
+				$match = get_sub_field('match');
+
+			endwhile;
+		endif;
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="flyer-entry__footer">

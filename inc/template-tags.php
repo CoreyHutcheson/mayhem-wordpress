@@ -296,7 +296,7 @@ endif;
  */
 if ( ! function_exists( 'mayhem_custom_navigation' ) ) : 
 
-	function mayhem_custom_navigation($args, $str) {
+	function mayhem_custom_navigation($args) {
 		$query = get_posts($args);
 
 		// Creates array of ordered returned queries
@@ -304,7 +304,7 @@ if ( ! function_exists( 'mayhem_custom_navigation' ) ) :
 			return $obj->ID;
 		}, $query);
 
-		// Returns index of current event in $query
+		// Returns index of current obj in $query
 		$current = array_search(get_the_ID(), $orderedIDs);
 
 		// Sets Prev and Next obj IDs
@@ -342,13 +342,13 @@ if ( ! function_exists( 'mayhem_create_featured_event_banners' ) ) :
 
 	function mayhem_create_featured_event_banners() {
 		$args = array(
-			'post_type' => 'flyer',
+			'post_type' => 'event',
 			'order' => 'ASC',
 			'orderby' => 'meta_value_num',
 			'meta_key' => 'event_date',
 			'meta_query' => array(
 				array(
-					'key' => 'featured_flyer',
+					'key' => 'featured_event',
 					'value' => true,
 				),
 				array(
