@@ -79,13 +79,7 @@
 					if ( 'eticket' == mt_get_ticket_method() ) {
 						?>
 						<div class='post-thumbnail'>
-							<?php
-							if ( has_post_thumbnail() ) {
-								the_post_thumbnail();
-							} else {
-								mt_logo();
-							}
-							?>
+							<?php mayhem_ticket_logo(); ?>
 						</div>
 						<?php
 					}
@@ -113,35 +107,7 @@ if ( 'printable' == mt_get_ticket_method() ) {
 </html>
 
 
-<?php 
-// function mayhem_ticket_logo() {
-// 	$ticket_type = mt_get_ticket_type();
-// 	$img = '';
-
-// 	switch ($ticket_type) {
-// 		case "VIP Gold Ticket":
-// 			$img = 'gold.jpeg';
-// 			break;
-// 		case "VIP Silver Ticket":
-// 			$img = 'silver.jpeg';
-// 			break;
-// 		case "VIP Bronze Ticket":
-// 			$img = 'bronze.jpeg';
-// 			break;
-// 		case "Gen Adm and Greet":
-// 			$img = 'gen-adm-and-greet.jpeg';
-// 			break;
-// 		case "Gen Admission":
-// 			$img = 'gen-admission.jpeg';
-// 			break;
-// 		default:
-// 			mt_logo( array(), get_the_ID() );
-// 			return;
-// 	}
-
-// 	echo "<img src='$img' alt='My Tickets' class='default'>";
-// }
-
+<?php
 function mayhem_ticket_logo() {
 	$page = get_page_by_title(mt_get_event_title(), OBJECT, 'flyer');
 	$use_custom_images = get_field('customize_tickets_use_custom_images', $page->ID);
