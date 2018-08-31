@@ -1892,10 +1892,9 @@ body {
 .flyer-entry__match {
   font-size: 1rem;
   margin: 0;
-  text-transform: capitalize;
 }
 
-.flyer-entry__match-details {
+.flyer-entry__match-description {
   font-size: 1.2rem;
   font-weight: 700;
   text-decoration: underline;
@@ -1903,11 +1902,11 @@ body {
   margin: 0;
 }
 
-.flyer-entry__match-details:first-of-type {
+.flyer-entry__match-description:first-of-type {
   margin-top: 1rem;
 }
 
-.flyer-entry__match-details + .flyer-entry__match {
+.flyer-entry__match-description + .flyer-entry__match {
   margin-bottom: 1rem;
 }
 
