@@ -27,25 +27,34 @@ $articleClasses = get_field('card_details') ?
 
 	<div class="flyer-entry__content">
 
-		<?php 
+		<?php // Output all match descriptions and matches
 		if (have_rows('card_details')) :
 			while (have_rows('card_details')) : the_row();
 
 				$description = get_sub_field('match_description');
 				$match = get_sub_field('match');
-				$html = "";
+				$match_details = "";
 
 				if ($description) :
-					$html .= 
+					$match_details .= 
 						"<div class='flyer-entry__match-description'>
-							$description
+							${description}
 						</div>";
 				endif;
 
-				$html .= "<div class='flyer-entry__match'>$match</div>";
+				$match_details .= "<div class='flyer-entry__match'>${match}</div>";
 			
-				echo $html;
+				echo $match_details;
 			endwhile;
+		endif;
+
+		// Outputs extra details if available
+		if (get_field('extra_card_details')) :
+			$extra = 
+				"<div class='flyer-entry__extra-card-details'>"
+				 . get_field('extra_card_details') .
+				"</div>";
+			echo $extra;
 		endif;
 		?>
 
