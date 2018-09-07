@@ -1889,11 +1889,6 @@ body {
   text-align: center;
 }
 
-.flyer-entry__match {
-  font-size: 1rem;
-  margin: 0;
-}
-
 .flyer-entry__match-description {
   font-size: 1.2rem;
   font-weight: 700;
@@ -1908,6 +1903,11 @@ body {
 
 .flyer-entry__match-description + .flyer-entry__match {
   margin-bottom: 1rem;
+}
+
+.flyer-entry__match {
+  font-size: 1rem;
+  margin: 0;
 }
 
 .flyer-entry__match-divider {
@@ -1936,11 +1936,11 @@ body {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
   }
+  .flyer-entry__match-description {
+    font-size: 1.8rem;
+  }
   .flyer-entry__match {
     font-size: 1.6rem;
-  }
-  .flyer-entry__match-details {
-    font-size: 1.8rem;
   }
 }
 
