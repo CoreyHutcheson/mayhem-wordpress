@@ -1,4 +1,4 @@
-.flyer-entry {
+.event {
 	text-align: center;
 
 	&__match-description {
@@ -13,7 +13,7 @@
 		}
 
 		// Selects the match that immediately follows the match-details
-		& + .flyer-entry__match {
+		& + .event__match {
 			margin-bottom: 1rem;
 		}
 	}
@@ -32,7 +32,7 @@
 }
 
 @include for-tablet-landscape-up {
-	.flyer-entry--content {
+	.event--content {
 		display: grid;
 		grid-template-columns: 50% 50%;
 		grid-template-rows: auto auto;
@@ -40,7 +40,7 @@
 		align-items: center;
 	}
 
-	.flyer-entry {
+	.event {
 		
 		&__header {
 			grid-row: 1 / 2;
