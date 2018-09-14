@@ -109,9 +109,9 @@ if ( 'printable' == mt_get_ticket_method() ) {
 
 <?php
 function mayhem_ticket_logo() {
-	$page = get_page_by_title(mt_get_event_title(), OBJECT, 'flyer');
-	$use_custom_images = get_field('customize_tickets_use_custom_images', $page->ID);
-	$tickets = get_field('customize_tickets_tickets', $page->ID);
+	$page = get_page_by_title(mt_get_event_title(), OBJECT, 'event');
+	$use_custom_images = get_field('use_custom_images', $page->ID);
+	$tickets = get_field('tickets', $page->ID);
 	$ticket_type = mt_get_ticket_type();
 	$size = 'thumbnail';
 	$image = '';
