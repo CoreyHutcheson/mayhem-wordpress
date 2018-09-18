@@ -1,0 +1,27 @@
+{
+	"name": "mayhem",
+	"version": "1.0.0",
+	"description": "Mayhem Wordpress Theme",
+	"private": true,
+	"scripts": {
+		"build": "webpack"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CoreyHutcheson/mayhem-wordpress.git"
+	},
+	"author": "Corey Hutcheson",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.1.0",
+		"@babel/preset-env": "^7.1.0",
+		"babel-loader": "^8.0.2",
+		"clean-webpack-plugin": "^0.1.19",
+		"css-loader": "^1.0.0",
+		"mini-css-extract-plugin": "^0.4.2",
+		"node-sass": "^4.9.3",
+		"sass-loader": "^7.1.0",
+		"webpack": "^4.19.0",
+		"webpack-cli": "^3.1.0"
+	}
+}

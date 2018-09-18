@@ -7,14 +7,15 @@
  * @package mayhem-theme
  */
 
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the 'after_setup_theme' hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ */
 if ( ! function_exists( 'mayhem_setup' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the 'after_setup_theme' hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
+
 	function mayhem_setup() {
 		/*
 		 * Make theme available for translation.
@@ -79,14 +80,15 @@ if ( ! function_exists( 'mayhem_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'mayhem_setup' );
 
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
 if ( ! function_exists( 'mayhem_content_width' ) ) :
-	/**
-	 * Set the content width in pixels, based on the theme's design and stylesheet.
-	 *
-	 * Priority 0 to make it available to lower priority callbacks.
-	 *
-	 * @global int $content_width
-	 */
+
 	function mayhem_content_width() {
 		// This variable is intended to be overruled from themes.
 		// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
@@ -96,12 +98,13 @@ if ( ! function_exists( 'mayhem_content_width' ) ) :
 endif;
 add_action( 'after_setup_theme', 'mayhem_content_width', 0 );
 
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
 if ( ! function_exists( 'mayhem_widgets_init' ) ) :
-	/**
-	 * Register widget area.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
-	 */
+
 	function mayhem_widgets_init() {
 		// Default Widget Area
 		register_sidebar( array(
@@ -128,25 +131,19 @@ if ( ! function_exists( 'mayhem_widgets_init' ) ) :
 endif;
 add_action( 'widgets_init', 'mayhem_widgets_init' );
 
+/**
+ * Enqueue scripts and styles.
+ */
 if ( ! function_exists( 'mayhem_scripts' ) ) :
-	/**
-	 * Enqueue scripts and styles.
-	 */
+
 	function mayhem_scripts() {
-		wp_enqueue_style( 'mayhem-style', get_stylesheet_uri(), NULL, microtime() );
-
-		wp_enqueue_script( 'mayhem-navigation', get_template_directory_uri() . '/js/navigation.js', array(), microtime(), true);
-
-		wp_enqueue_script( 'mayhem-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), microtime(), true );
-
+		// CSS
+		wp_enqueue_style( 'mayhem-style',  get_template_directory_uri() . '/dist/style.css', NULL, microtime() );
+		// JS
+		wp_enqueue_script( 'mayhem-bundle', get_template_directory_uri() . '/dist/bundle.js', array(), microtime(), true);
 		// Font Awesome
 		wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.0.13/css/all.css');
-
-		// Enqueue roster.js if on archive-roster.php page
-		if (is_post_type_archive('roster')) {
-			wp_enqueue_script( 'mayhem-roster', get_template_directory_uri() . '/js/roster.js', array(), microtime(), true );
-		}
-
+		// Comments
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
