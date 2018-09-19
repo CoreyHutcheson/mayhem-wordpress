@@ -5,7 +5,7 @@ const modal = document.querySelector('.modal');
 
 // Add click event to roster filter toggle
 choiceToggle.addEventListener('click', (e) => {
-  const target = e.target;
+  const { target } = e;
   if (target.nodeName.toLowerCase() !== 'label') {
     return;
   }
@@ -15,7 +15,7 @@ choiceToggle.addEventListener('click', (e) => {
 
 // Add click event to more/details hover element
 mainRosterContainer.addEventListener('click', (e) => {
-  const target = e.target;
+  const { target } = e;
   if (!target.classList.contains('c-roster-card__hover-element')) {
     return;
   }
@@ -25,7 +25,7 @@ mainRosterContainer.addEventListener('click', (e) => {
 
 // Add click event to modal buttons
 modal.addEventListener('click', (e) => {
-  const target = e.target;
+  const { target } = e;
 
   if (
     target.closest('.modal__close-btn')
@@ -154,7 +154,8 @@ function cleanNode(node) {
 }
 
 /**
- * Closes the modal by adding 'is-hidden' class and removing all 'js-is-modal' classes from cards
+ * Closes the modal by adding 'is-hidden' class and removing all 'js-is-modal'
+ * classes from cards
  * @param  {object - node} modal - document.querySelector('.modal');
  * @return {undefined}
  */
@@ -168,12 +169,14 @@ function closeModal(modal) {
 
 /**
  * Changes current modal card
- * @param  {number} num : positive or negative value indicating whether to increase or decrease the current modal index
+ * @param  {number} num : positive or negative value indicating whether
+ *                        to increase or decrease the current modal index
  * @return {undefined}
  */
 function assignNewModal(num) {
   /**
-   * Gets newIndex by finding current card with 'js-is-modal' class and adding the [pos/neg] num to it
+   * Gets newIndex by finding current card with 'js-is-modal' class and adding
+   * the [pos/neg] num to it
    * @param  {array - nodeList} cards : list of all '.c-roster-card' cards
    * @param  {number} : number to add to oldIndex
    * @return {number} : new index value

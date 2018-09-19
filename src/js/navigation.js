@@ -49,9 +49,9 @@ export default function navigation() {
       ? 'true'
       : 'false';
 
-    for (const menu of menus) {
+    Array.from(menus).forEach((menu) => {
       menu.setAttribute('aria-expanded', `${val}`);
-    }
+    });
   }
 
   /**
@@ -59,7 +59,7 @@ export default function navigation() {
    */
   function findTopCoord(element) {
     const elementRect = element.getBoundingClientRect();
-    const scrollTop = document.documentElement.scrollTop;
+    const { scrollTop } = document.documentElement;
     const top = scrollTop + elementRect.top + elementRect.height;
 
     return top;
@@ -69,10 +69,10 @@ export default function navigation() {
   const links = menuContainer.querySelectorAll('ul a');
 
   // Each time a menu link is focused or blurred, toggle focus.
-  for (const link of links) {
+  Array.from(links).forEach((link) => {
     link.addEventListener('focus', toggleFocus, true);
     link.addEventListener('blur', toggleFocus, true);
-  }
+  });
 
   /**
    * Sets or removes .focus class on an element.
@@ -98,11 +98,10 @@ export default function navigation() {
   /**
    * Toggles `focus` class to allow submenu access on tablets.
    */
-  (function (menuContainer) {
+  (function (menuCon) {
     let touchStartFn;
-    let i;
 
-    const parentLink = menuContainer.querySelectorAll(
+    const parentLink = menuCon.querySelectorAll(
       '.menu-item-has-children > a, .page_item_has_children > a',
     );
 
@@ -114,10 +113,9 @@ export default function navigation() {
         if (!menuItem.classList.contains('focus')) {
           e.preventDefault();
           for (i = 0; i < menuItem.parentNode.children.length; ++i) {
-            if (menuItem === menuItem.parentNode.children[i]) {
-              continue;
+            if (menuItem !== menuItem.parentNode.children[i]) {
+              menuItem.parentNode.children[i].classList.remove('focus');
             }
-            menuItem.parentNode.children[i].classList.remove('focus');
           }
           menuItem.classList.add('focus');
         } else {
@@ -125,7 +123,7 @@ export default function navigation() {
         }
       };
 
-      for (i = 0; i < parentLink.length; ++i) {
+      for (let i = 0; i < parentLink.length; ++i) {
         parentLink[i].addEventListener('touchstart', touchStartFn, false);
       }
     }
