@@ -1,6 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const babelRule = {
   test: /\.js$/,
@@ -13,19 +13,26 @@ const babelRule = {
   },
 };
 
+const esLintRule = {
+  enforce: 'pre',
+  test: /\.js$/,
+  exclude: /node_modules/,
+  use: 'eslint-loader',
+};
+
 const sassRule = {
   test: /\.scss$/,
   use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
 };
 
 const splitChunks = {
-  chunks: "all"
+  chunks: 'all',
 };
 
 module.exports = {
   entry: {
     index: './src/js/index.js',
-    roster: './src/js/roster.js'
+    roster: './src/js/roster.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -34,13 +41,13 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   module: {
-    rules: [babelRule, sassRule],
+    rules: [babelRule, esLintRule, sassRule],
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
-      filename: "style.css"
-    })
+      filename: 'style.css',
+    }),
   ],
   optimization: {
     splitChunks,

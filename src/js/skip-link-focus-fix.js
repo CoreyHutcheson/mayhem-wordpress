@@ -6,14 +6,16 @@
  * Learn more: https://git.io/vWdr2
  */
 export default function skipLinkFocusFix() {
-  var isIe = /(trident|msie)/i.test(navigator.userAgent);
+  const isIe = /(trident|msie)/i.test(navigator.userAgent);
 
   if (isIe && document.getElementById && window.addEventListener) {
     window.addEventListener(
       'hashchange',
-      function() {
-        var id = location.hash.substring(1),
-          element;
+      () => {
+        const id = location.hash.substring(1);
+
+
+        let element;
 
         if (!/^[A-z0-9_-]+$/.test(id)) {
           return;
@@ -29,7 +31,7 @@ export default function skipLinkFocusFix() {
           element.focus();
         }
       },
-      false
+      false,
     );
   }
 }

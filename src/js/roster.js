@@ -4,7 +4,7 @@ const rosterContainers = mainRosterContainer.children;
 const modal = document.querySelector('.modal');
 
 // Add click event to roster filter toggle
-choiceToggle.addEventListener('click', e => {
+choiceToggle.addEventListener('click', (e) => {
   const target = e.target;
   if (target.nodeName.toLowerCase() !== 'label') {
     return;
@@ -14,7 +14,7 @@ choiceToggle.addEventListener('click', e => {
 });
 
 // Add click event to more/details hover element
-mainRosterContainer.addEventListener('click', e => {
+mainRosterContainer.addEventListener('click', (e) => {
   const target = e.target;
   if (!target.classList.contains('c-roster-card__hover-element')) {
     return;
@@ -24,12 +24,12 @@ mainRosterContainer.addEventListener('click', e => {
 });
 
 // Add click event to modal buttons
-modal.addEventListener('click', e => {
+modal.addEventListener('click', (e) => {
   const target = e.target;
 
   if (
-    target.closest('.modal__close-btn') ||
-    target.classList.contains('modal')
+    target.closest('.modal__close-btn')
+    || target.classList.contains('modal')
   ) {
     // Close button or outside of modal-wrapper was clicked
     closeModal(modal);
@@ -53,14 +53,12 @@ function toggleRosterContainers(target, rosterContainers) {
 
   if (value === 'all') {
     // All toggle button was clicked.  Unhide all roster containers.
-    Array.prototype.forEach.call(rosterContainers, rc =>
-      rc.classList.remove('is-hidden')
-    );
+    Array.prototype.forEach.call(rosterContainers, rc => rc.classList.remove('is-hidden'));
     return;
   }
 
   // Loop through roster containers hiding all that don't have the needed class
-  Array.prototype.forEach.call(rosterContainers, rc => {
+  Array.prototype.forEach.call(rosterContainers, (rc) => {
     if (!rc.classList.contains(neededClass)) {
       rc.classList.add('is-hidden');
     } else {
@@ -99,9 +97,7 @@ function applyCardModalClass(card) {
  */
 function removeModalClassFromCards() {
   const allCards = document.querySelectorAll('.c-roster-card');
-  Array.prototype.forEach.call(allCards, e =>
-    e.classList.remove('js-is-modal')
-  );
+  Array.prototype.forEach.call(allCards, e => e.classList.remove('js-is-modal'));
 }
 
 /**
@@ -124,11 +120,11 @@ function populateModalContent(cardToBeModal) {
    * @param  {object - node} card : card to clone
    * @return {object - node} clone of card with changed classes
    */
-  const getCardDetails = card => {
+  const getCardDetails = (card) => {
     const clone = card.cloneNode(true);
     const elements = clone.getElementsByTagName('*');
 
-    Array.prototype.forEach.call(elements, e => {
+    Array.prototype.forEach.call(elements, (e) => {
       e.className = e.className.replace('c-roster-card__', 'modal__');
     });
 
@@ -183,9 +179,7 @@ function assignNewModal(num) {
    * @return {number} : new index value
    */
   const getNewIndex = (cards, num) => {
-    const oldIndex = Array.prototype.findIndex.call(cards, x =>
-      x.classList.contains('js-is-modal')
-    );
+    const oldIndex = Array.prototype.findIndex.call(cards, x => x.classList.contains('js-is-modal'));
     const newIndex = oldIndex + num;
     return newIndex < 0 ? cards.length - 1 : newIndex % cards.length;
   };

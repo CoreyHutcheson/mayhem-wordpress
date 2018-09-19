@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "linebreak-style": "off",
+    "no-use-before-define": ["error", { "functions": false, "classes": false }]
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "wp": false
+  }
+}

@@ -8,20 +8,20 @@
 
 export default function customizer($) {
   // Site title and description.
-  wp.customize('blogname', value => {
-    value.bind(to => {
+  wp.customize('blogname', (value) => {
+    value.bind((to) => {
       $('.site-title a').text(to);
     });
   });
-  wp.customize('blogdescription', value => {
-    value.bind(to => {
+  wp.customize('blogdescription', (value) => {
+    value.bind((to) => {
       $('.site-description').text(to);
     });
   });
 
   // Header text color.
-  wp.customize('header_textcolor', value => {
-    value.bind(to => {
+  wp.customize('header_textcolor', (value) => {
+    value.bind((to) => {
       if (to === 'blank') {
         $('.site-title, .site-description').css({
           clip: 'rect(1px, 1px, 1px, 1px)',

@@ -24,12 +24,12 @@ export default function navigation() {
 
   // Loop through menus setting initial aria-expanded attribute and
   // making sure '.nav-menu' class is present
-  Array.from(menus).forEach(menu => {
+  Array.from(menus).forEach((menu) => {
     menu.setAttribute('aria-expanded', 'false');
     menu.classList.add('nav-menu');
   });
 
-  menuBtn.onclick = function() {
+  menuBtn.onclick = function () {
     // Positions nav container to be below header
     menuContainer.style.top = `${findTopCoord(header)}px`;
     // Sets menu nav container width to 100% when toggled
@@ -98,16 +98,16 @@ export default function navigation() {
   /**
    * Toggles `focus` class to allow submenu access on tablets.
    */
-  (function(menuContainer) {
+  (function (menuContainer) {
     let touchStartFn;
     let i;
 
     const parentLink = menuContainer.querySelectorAll(
-      '.menu-item-has-children > a, .page_item_has_children > a'
+      '.menu-item-has-children > a, .page_item_has_children > a',
     );
 
     if ('ontouchstart' in window) {
-      touchStartFn = function(e) {
+      touchStartFn = function (e) {
         const menuItem = this.parentNode;
         let i;
 
@@ -129,5 +129,5 @@ export default function navigation() {
         parentLink[i].addEventListener('touchstart', touchStartFn, false);
       }
     }
-  })(menuContainer);
+  }(menuContainer));
 }
