@@ -18,13 +18,20 @@ const sassRule = {
   use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
 };
 
+const splitChunks = {
+  chunks: "all"
+};
+
 module.exports = {
-  mode: 'development',
-  entry: './src/js/index.js',
+  entry: {
+    index: './src/js/index.js',
+    roster: './src/js/roster.js'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  mode: 'development',
   devtool: 'source-map',
   module: {
     rules: [babelRule, sassRule],
@@ -34,5 +41,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "style.css"
     })
-  ]
+  ],
+  optimization: {
+    splitChunks,
+  },
 };

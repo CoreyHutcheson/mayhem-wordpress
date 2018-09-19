@@ -1,46 +1,45 @@
-export default function roster() {
-  const choiceToggle = document.querySelector('.c-choice-toggle');
-  const mainRosterContainer = document.querySelector('.roster-container');
-  const rosterContainers = mainRosterContainer.children;
-  const modal = document.querySelector('.modal');
+const choiceToggle = document.querySelector('.c-choice-toggle');
+const mainRosterContainer = document.querySelector('.roster-container');
+const rosterContainers = mainRosterContainer.children;
+const modal = document.querySelector('.modal');
 
-  // Add click event to roster filter toggle
-  choiceToggle.addEventListener('click', e => {
-    const target = e.target;
-    if (target.nodeName.toLowerCase() !== 'label') {
-      return;
-    }
+// Add click event to roster filter toggle
+choiceToggle.addEventListener('click', e => {
+  const target = e.target;
+  if (target.nodeName.toLowerCase() !== 'label') {
+    return;
+  }
 
-    toggleRosterContainers(target, rosterContainers);
-  });
+  toggleRosterContainers(target, rosterContainers);
+});
 
-  // Add click event to more/details hover element
-  mainRosterContainer.addEventListener('click', e => {
-    const target = e.target;
-    if (!target.classList.contains('c-roster-card__hover-element')) {
-      return;
-    }
+// Add click event to more/details hover element
+mainRosterContainer.addEventListener('click', e => {
+  const target = e.target;
+  if (!target.classList.contains('c-roster-card__hover-element')) {
+    return;
+  }
 
-    displayModal(target);
-  });
+  displayModal(target);
+});
 
-  // Add click event to modal buttons
-  modal.addEventListener('click', e => {
-    const target = e.target;
+// Add click event to modal buttons
+modal.addEventListener('click', e => {
+  const target = e.target;
 
-    if (
-      target.closest('.modal__close-btn') ||
-      target.classList.contains('modal')
-    ) {
-      // Close button or outside of modal-wrapper was clicked
-      closeModal(modal);
-    } else if (target.closest('.modal__prev-btn')) {
-      assignNewModal(-1);
-    } else if (target.closest('.modal__next-btn')) {
-      assignNewModal(1);
-    }
-  });
-}
+  if (
+    target.closest('.modal__close-btn') ||
+    target.classList.contains('modal')
+  ) {
+    // Close button or outside of modal-wrapper was clicked
+    closeModal(modal);
+  } else if (target.closest('.modal__prev-btn')) {
+    assignNewModal(-1);
+  } else if (target.closest('.modal__next-btn')) {
+    assignNewModal(1);
+  }
+});
+
 
 /**
  * Toggles display of appropriate roster divs

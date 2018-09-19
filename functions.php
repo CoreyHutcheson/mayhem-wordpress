@@ -137,13 +137,21 @@ add_action( 'widgets_init', 'mayhem_widgets_init' );
 if ( ! function_exists( 'mayhem_scripts' ) ) :
 
 	function mayhem_scripts() {
-		// CSS
+		/** Css */
+		// Main stylesheet
 		wp_enqueue_style( 'mayhem-style',  get_template_directory_uri() . '/dist/style.css', NULL, microtime() );
-		// JS
-		wp_enqueue_script( 'mayhem-bundle', get_template_directory_uri() . '/dist/bundle.js', array(), microtime(), true);
 		// Font Awesome
 		wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.0.13/css/all.css');
-		// Comments
+
+		/** Javascript */
+		// Main index.js bundle
+		wp_enqueue_script( 'mayhem-bundle', get_template_directory_uri() . '/dist/index.bundle.js', array(), microtime(), true);
+		// roster.js (dynamically load)
+		if (is_post_type_archive('roster')) {
+			wp_enqueue_script( 'mayhem-roster', get_template_directory_uri() . '/dist/roster.bundle.js', array(), microtime(), true );
+		}
+
+		/** Comments */
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
