@@ -1,25 +1,22 @@
 .event {
 	text-align: center;
 
-	&__match-description {
-		font-size: 1.2rem;
-		font-weight: 700;
-		text-decoration: underline;
-		text-transform: uppercase;
-		margin: 0;
+	&__content {
+		margin-top: 1rem;
+	}
 
-		&:first-of-type {
-			margin-top: 1rem;
-		}
+	&__match-description {
+		font-weight: 700;
+		text-transform: uppercase;
+		margin: 1rem 0 0;
 
 		// Selects the match that immediately follows the match-details
 		& + .event__match {
-			margin-bottom: 1rem;
+			margin: -.4rem 0 1rem;
 		}
 	}
 
 	&__match {
-		font-size: 1rem;
 		margin: 0;
 	}
 
@@ -34,9 +31,9 @@
 @include for-tablet-landscape-up {
 	.event--content {
 		display: grid;
-		grid-template-columns: 50% 50%;
+		grid-template-columns: 1fr 1fr;
 		grid-template-rows: auto auto;
-		grid-column-gap: 20px;
+		grid-column-gap: 5%;
 		align-items: center;
 	}
 
@@ -50,15 +47,18 @@
 		&__thumbnail {
 			grid-row: 2 / 3;
 			grid-column: 1 / 2;
+			justify-self: flex-end;
 		}
 
 		&__content {
 			grid-row: 2 / 3;
 			grid-column: 2 / 3;
+			margin-top: 0;
+			justify-self: flex-start
 		}
 
 		&__match-description {
-			font-size: 1.8rem;
+			font-size: 1.6rem;
 		}
 
 		&__match {

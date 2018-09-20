@@ -3,7 +3,7 @@
   "rules": {
     "linebreak-style": "off",
     "no-use-before-define": ["error", { "functions": false, "classes": false }],
-    "func-names": ["warn", "as-needed"],
+    "func-names": ["warn", "never"],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-shadow": "off",
     "no-restricted-globals": "off"
