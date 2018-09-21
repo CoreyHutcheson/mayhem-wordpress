@@ -14,6 +14,12 @@
 	},
 	"author": "Corey Hutcheson",
 	"license": "ISC",
+	"browserslist": [
+		"last 1 version",
+		"> 1%",
+		"maintained node versions",
+		"not dead"
+	],
 	"devDependencies": {
 		"@babel/core": "^7.1.0",
 		"@babel/preset-env": "^7.1.0",
