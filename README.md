@@ -6,5 +6,6 @@ TO-DO:
 
 1) Add vote options on card details matches
 
-
-Install LocalTunnel
+1) Look into HMR for webpack or Browsersync
+2) Look into Composer
+3) Look into Docker
