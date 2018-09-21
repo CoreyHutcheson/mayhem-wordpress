@@ -20,9 +20,19 @@ const esLintRule = {
   use: 'eslint-loader',
 };
 
-const sassRule = {
+const styleSheetRule = {
   test: /\.scss$/,
-  use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+  use: [
+    MiniCssExtractPlugin.loader, 
+    {
+      loader: 'css-loader',
+      options: {
+        importLoaders: 2
+      }
+    },
+    'postcss-loader',
+    'sass-loader'
+  ]
 };
 
 const splitChunks = {
@@ -41,7 +51,7 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   module: {
-    rules: [babelRule, esLintRule, sassRule],
+    rules: [babelRule, esLintRule, styleSheetRule],
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
