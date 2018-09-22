@@ -1,6 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const babelRule = {
   test: /\.js$/,
@@ -48,8 +49,10 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  mode: 'development',
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
+  devServer: {
+    openPage: ''
+  },
   module: {
     rules: [babelRule, esLintRule, styleSheetRule],
   },
@@ -58,6 +61,22 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'style.css',
     }),
+    new BrowserSyncPlugin({
+      host:'localhost',
+      port: 3000,
+      proxy: 'mayhem-wrestling/',
+      files: [
+        './',
+        './*.php',
+        './src/*',
+        '!./node_modules',
+        '!./yarn-error.log',
+        '!./package.json',
+        '!./style.css.map',
+        '!./app.js.map'
+      ],
+      reloadDelay: 0
+    })
   ],
   optimization: {
     splitChunks,
