@@ -24,16 +24,16 @@ const esLintRule = {
 const styleSheetRule = {
   test: /\.scss$/,
   use: [
-    MiniCssExtractPlugin.loader, 
+    MiniCssExtractPlugin.loader,
     {
       loader: 'css-loader',
       options: {
-        importLoaders: 2
-      }
+        importLoaders: 2,
+      },
     },
     'postcss-loader',
-    'sass-loader'
-  ]
+    'sass-loader',
+  ],
 };
 
 const splitChunks = {
@@ -51,7 +51,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    openPage: ''
+    openPage: '',
   },
   module: {
     rules: [babelRule, esLintRule, styleSheetRule],
@@ -62,7 +62,7 @@ module.exports = {
       filename: 'style.css',
     }),
     new BrowserSyncPlugin({
-      host:'localhost',
+      host: 'localhost',
       port: 3000,
       proxy: 'mayhem-wrestling/',
       files: [
@@ -73,10 +73,10 @@ module.exports = {
         '!./yarn-error.log',
         '!./package.json',
         '!./style.css.map',
-        '!./app.js.map'
+        '!./app.js.map',
       ],
-      reloadDelay: 0
-    })
+      reloadDelay: 0,
+    }),
   ],
   optimization: {
     splitChunks,
