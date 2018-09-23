@@ -36,6 +36,8 @@ export default function navigation() {
     menuContainer.classList.toggle('is-toggled');
     // Performs toggle btn transform animation
     menuBtn.classList.toggle('js-menu-is-open');
+    // Toggles class to allow / disallow scrolling when menu is open
+    document.body.classList.toggle('is-clipped');
     // Toggles menu's aria-expanded attribute
     toggleMenuAria();
   };

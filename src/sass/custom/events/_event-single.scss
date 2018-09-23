@@ -1,6 +1,15 @@
 .event {
 	text-align: center;
 
+	&__title {
+		margin-bottom: 0;
+		line-height: 1.2;
+	}
+
+	&__countdown {
+		margin-bottom: .5rem;
+	}
+
 	&__content {
 		margin-top: 1rem;
 	}

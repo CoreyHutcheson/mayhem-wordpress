@@ -19,6 +19,10 @@ $articleClasses = get_field('card_details') ?
 
 	<header class="event__header">
 		<?php the_title( '<h1 class="event__title">', '</h1>' ); ?>
+		
+		<div class="event__countdown">
+			<?php time_until_event(get_field('event_date')); ?>
+		</div>
 	</header>
 
 	<div class="post-thumbnail event__thumbnail">

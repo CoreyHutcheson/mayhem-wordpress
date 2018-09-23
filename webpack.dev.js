@@ -14,6 +14,7 @@ module.exports = merge(common, {
       port: 3000,
       proxy: 'mayhem-wrestling/',
       tunnel: true,
+      notify: false,
       files: [
         './',
         './*.php',
