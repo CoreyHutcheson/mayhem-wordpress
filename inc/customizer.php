@@ -32,7 +32,8 @@ add_action( 'customize_preview_init', 'mayhem_customize_preview_js' );
  * @return [undefined]
  */
 function mayhem_customize_css() {
-	$box_shadow = '2px 2px 10px 2px #111, 0px 0px 30px 10px ' . get_theme_mod('brand_color', '#f8fa2c');
+	// Workaround to set default values
+	$brand_color = get_theme_mod('brand_color') ? get_theme_mod('brand_color') : '#f8fa2c';
 	?>
 
 		<style type="text/css">
@@ -42,16 +43,16 @@ function mayhem_customize_css() {
 			.current-menu-item a:after,
 			.c-choice-toggle__input:checked + label,
 			.c-roster-card__hover-element {
-				background: <?php echo get_theme_mod('brand_color', '#f8fa2c'); ?>;
+				background: <?php echo $brand_color; ?>
 			}
 
 			.post-navigation__button,
 			.modal__nav-btn:hover {
-				color: <?php echo get_theme_mod('brand_color', '#f8fa2c'); ?>;
+				color: <?php echo $brand_color; ?>
 			}
 
 			.event__flyer--featured {
-				box-shadow: <?php echo $box_shadow ?>;
+				box-shadow: 2px 2px 10px 2px #111, 0px 0px 30px 10px <?php echo $brand_color; ?>;
 			}
 		</style>
 
