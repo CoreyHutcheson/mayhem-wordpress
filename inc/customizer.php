@@ -11,6 +11,7 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function mayhem_customize_register( $wp_customize ) {
+	// Change transport of default settings
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
@@ -31,12 +32,29 @@ add_action( 'customize_preview_init', 'mayhem_customize_preview_js' );
  * @return [undefined]
  */
 function mayhem_customize_css() {
+	$box_shadow = '2px 2px 10px 2px #111, 0px 0px 30px 10px ' . get_theme_mod('brand_color', '#f8fa2c');
 	?>
+
 		<style type="text/css">
-			.menu-toggle-btn span {
+			.menu-toggle-btn span,
+			.featured-notification,
+			.current-menu-item a:before,
+			.current-menu-item a:after,
+			.c-choice-toggle__input:checked + label,
+			.c-roster-card__hover-element {
 				background: <?php echo get_theme_mod('brand_color', '#f8fa2c'); ?>;
 			}
+
+			.post-navigation__button,
+			.modal__nav-btn:hover {
+				color: <?php echo get_theme_mod('brand_color', '#f8fa2c'); ?>;
+			}
+
+			.event__flyer--featured {
+				box-shadow: <?php echo $box_shadow ?>;
+			}
 		</style>
+
 	<?php
 }
 add_action( 'wp_head', 'mayhem_customize_css' );
@@ -66,3 +84,4 @@ function mayhem_create_custom_options($wp_customize) {
 
 	/** ... */
 }
+

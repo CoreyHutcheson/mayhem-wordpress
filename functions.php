@@ -99,6 +99,20 @@ endif;
 add_action( 'after_setup_theme', 'mayhem_content_width', 0 );
 
 /**
+ * Add support to different file types
+ */
+if ( ! function_exists( 'mayhem_add_file_types_to_uploads' ) ) :
+
+	function mayhem_add_file_types_to_uploads($file_types){
+		$new_filetypes = array();
+		$new_filetypes['svg'] = 'image/svg+xml';
+		$file_types = array_merge($file_types, $new_filetypes );
+		return $file_types;
+	}
+endif;
+add_action('upload_mimes', 'mayhem_add_file_types_to_uploads');
+
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
